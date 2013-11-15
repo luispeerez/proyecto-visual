@@ -7,3 +7,12 @@ c:\users\zero vivanco\documents\visual studio 2012\Projects\Prueba - Proyecto\Pr
 c:\users\zero vivanco\documents\visual studio 2012\Projects\Prueba - Proyecto\Prueba - Proyecto\obj\Debug\Prueba - Proyecto.csproj.GenerateResource.Cache
 c:\users\zero vivanco\documents\visual studio 2012\Projects\Prueba - Proyecto\Prueba - Proyecto\obj\Debug\Prueba - Proyecto.exe
 c:\users\zero vivanco\documents\visual studio 2012\Projects\Prueba - Proyecto\Prueba - Proyecto\obj\Debug\Prueba - Proyecto.pdb
+C:\proyecto-visual\Prueba - Proyecto\Prueba - Proyecto\bin\Debug\Prueba - Proyecto.exe.config
+C:\proyecto-visual\Prueba - Proyecto\Prueba - Proyecto\obj\Debug\Prueba - Proyecto.exe
+C:\proyecto-visual\Prueba - Proyecto\Prueba - Proyecto\obj\Debug\Prueba - Proyecto.pdb
+C:\proyecto-visual\Prueba - Proyecto\Prueba - Proyecto\bin\Debug\Prueba - Proyecto.exe
+C:\proyecto-visual\Prueba - Proyecto\Prueba - Proyecto\bin\Debug\Prueba - Proyecto.pdb
+C:\proyecto-visual\Prueba - Proyecto\Prueba - Proyecto\obj\Debug\Prueba - Proyecto.csprojResolveAssemblyReference.cache
+C:\proyecto-visual\Prueba - Proyecto\Prueba - Proyecto\obj\Debug\Prueba___Proyecto.Form1.resources
+C:\proyecto-visual\Prueba - Proyecto\Prueba - Proyecto\obj\Debug\Prueba___Proyecto.Properties.Resources.resources
+C:\proyecto-visual\Prueba - Proyecto\Prueba - Proyecto\obj\Debug\Prueba - Proyecto.csproj.GenerateResource.Cache
