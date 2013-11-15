@@ -238,7 +238,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackgroundImage = global::Prueba___Proyecto.Properties.Resources.prueba3_2;
+            this.BackgroundImage = global::Prueba___Proyecto.Properties.Resources.prueba3_3;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.ClientSize = new System.Drawing.Size(1008, 636);
             this.Controls.Add(this.pictureBox2);
