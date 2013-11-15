@@ -1,0 +1,9 @@
+c:\users\zero vivanco\documents\visual studio 2012\Projects\Prueba - Proyecto\Prueba - Proyecto\bin\Debug\Prueba - Proyecto.exe.config
+c:\users\zero vivanco\documents\visual studio 2012\Projects\Prueba - Proyecto\Prueba - Proyecto\bin\Debug\Prueba - Proyecto.exe
+c:\users\zero vivanco\documents\visual studio 2012\Projects\Prueba - Proyecto\Prueba - Proyecto\bin\Debug\Prueba - Proyecto.pdb
+c:\users\zero vivanco\documents\visual studio 2012\Projects\Prueba - Proyecto\Prueba - Proyecto\obj\Debug\Prueba - Proyecto.csprojResolveAssemblyReference.cache
+c:\users\zero vivanco\documents\visual studio 2012\Projects\Prueba - Proyecto\Prueba - Proyecto\obj\Debug\Prueba___Proyecto.Form1.resources
+c:\users\zero vivanco\documents\visual studio 2012\Projects\Prueba - Proyecto\Prueba - Proyecto\obj\Debug\Prueba___Proyecto.Properties.Resources.resources
+c:\users\zero vivanco\documents\visual studio 2012\Projects\Prueba - Proyecto\Prueba - Proyecto\obj\Debug\Prueba - Proyecto.csproj.GenerateResource.Cache
+c:\users\zero vivanco\documents\visual studio 2012\Projects\Prueba - Proyecto\Prueba - Proyecto\obj\Debug\Prueba - Proyecto.exe
+c:\users\zero vivanco\documents\visual studio 2012\Projects\Prueba - Proyecto\Prueba - Proyecto\obj\Debug\Prueba - Proyecto.pdb
