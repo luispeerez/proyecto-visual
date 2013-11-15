@@ -16,3 +16,12 @@ C:\proyecto-visual\Prueba - Proyecto\Prueba - Proyecto\obj\Debug\Prueba - Proyec
 C:\proyecto-visual\Prueba - Proyecto\Prueba - Proyecto\obj\Debug\Prueba___Proyecto.Form1.resources
 C:\proyecto-visual\Prueba - Proyecto\Prueba - Proyecto\obj\Debug\Prueba___Proyecto.Properties.Resources.resources
 C:\proyecto-visual\Prueba - Proyecto\Prueba - Proyecto\obj\Debug\Prueba - Proyecto.csproj.GenerateResource.Cache
+C:\Users\Zero Vivanco\Documents\GitHub\proyecto-visual\Prueba - Proyecto\Prueba - Proyecto\bin\Debug\Prueba - Proyecto.exe.config
+C:\Users\Zero Vivanco\Documents\GitHub\proyecto-visual\Prueba - Proyecto\Prueba - Proyecto\obj\Debug\Prueba - Proyecto.exe
+C:\Users\Zero Vivanco\Documents\GitHub\proyecto-visual\Prueba - Proyecto\Prueba - Proyecto\obj\Debug\Prueba - Proyecto.pdb
+C:\Users\Zero Vivanco\Documents\GitHub\proyecto-visual\Prueba - Proyecto\Prueba - Proyecto\bin\Debug\Prueba - Proyecto.exe
+C:\Users\Zero Vivanco\Documents\GitHub\proyecto-visual\Prueba - Proyecto\Prueba - Proyecto\bin\Debug\Prueba - Proyecto.pdb
+C:\Users\Zero Vivanco\Documents\GitHub\proyecto-visual\Prueba - Proyecto\Prueba - Proyecto\obj\Debug\Prueba - Proyecto.csprojResolveAssemblyReference.cache
+C:\Users\Zero Vivanco\Documents\GitHub\proyecto-visual\Prueba - Proyecto\Prueba - Proyecto\obj\Debug\Prueba___Proyecto.Form1.resources
+C:\Users\Zero Vivanco\Documents\GitHub\proyecto-visual\Prueba - Proyecto\Prueba - Proyecto\obj\Debug\Prueba___Proyecto.Properties.Resources.resources
+C:\Users\Zero Vivanco\Documents\GitHub\proyecto-visual\Prueba - Proyecto\Prueba - Proyecto\obj\Debug\Prueba - Proyecto.csproj.GenerateResource.Cache

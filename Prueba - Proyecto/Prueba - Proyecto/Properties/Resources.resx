@@ -118,40 +118,46 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="Error Dato" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Error Dato.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="prueba2" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\prueba2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
   <data name="prueba" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\prueba.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="Iniciar Sesión-Selección" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Iniciar Sesión-Selección.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="Minimizar-Desplegado" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Minimizar-Desplegado.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="Regístrate" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Regístrate.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="Minimizar" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Minimizar.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="Iniciar Sesión" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Iniciar Sesión.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="Regístrate-Selección" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Regístrate-Selección.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Salir-Desplegado" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Salir-Desplegado.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="Minimizar" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Minimizar.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Iniciar Sesión-Selección" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Iniciar Sesión-Selección.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Error Dato" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Error Dato.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Iniciar Sesión" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Iniciar Sesión.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Regístrate" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Regístrate.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="prueba3" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\prueba3.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Minimizar-Desplegado" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Minimizar-Desplegado.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="Salir" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Salir.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="prueba2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\prueba2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Regístrate-Selección" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Regístrate-Selección.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="Error Datos" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Error Datos.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="prueba3-2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\prueba3-2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

@@ -94,12 +94,5 @@ namespace Prueba___Proyecto
                 click2 = 1;
             }
         }
-
-        private void Form1_Load(object sender, EventArgs e)
-        {
-            //Añadiendo cursor pointer a los botones de login ocultos
-            button3.Cursor = Cursors.Hand;
-            button4.Cursor = Cursors.Hand;
-        }
     }
 }
