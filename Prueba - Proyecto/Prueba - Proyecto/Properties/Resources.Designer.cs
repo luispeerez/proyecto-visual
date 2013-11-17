@@ -83,6 +83,36 @@ namespace Prueba___Proyecto.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap image_555505 {
+            get {
+                object obj = ResourceManager.GetObject("image_555505", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap image_555506 {
+            get {
+                object obj = ResourceManager.GetObject("image_555506", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap image_555865 {
+            get {
+                object obj = ResourceManager.GetObject("image_555865", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Iniciar_Sesión {
             get {
                 object obj = ResourceManager.GetObject("Iniciar Sesión", resourceCulture);
@@ -96,6 +126,26 @@ namespace Prueba___Proyecto.Properties {
         internal static System.Drawing.Bitmap Iniciar_Sesión_Selección {
             get {
                 object obj = ResourceManager.GetObject("Iniciar Sesión-Selección", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Inicio_de_Sesión {
+            get {
+                object obj = ResourceManager.GetObject("Inicio de Sesión", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Inicio_de_Sesión_v2 {
+            get {
+                object obj = ResourceManager.GetObject("Inicio de Sesión v2", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -166,6 +216,26 @@ namespace Prueba___Proyecto.Properties {
         internal static System.Drawing.Bitmap prueba3_3 {
             get {
                 object obj = ResourceManager.GetObject("prueba3-3", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap prueba3_3_1 {
+            get {
+                object obj = ResourceManager.GetObject("prueba3-3-1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap prueba3_3_2 {
+            get {
+                object obj = ResourceManager.GetObject("prueba3-3-2", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

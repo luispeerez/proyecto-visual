@@ -94,5 +94,11 @@ namespace Prueba___Proyecto
                 click2 = 1;
             }
         }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            pictureBox3.Visible = true;
+            pictureBox4.Visible = true;
+        }
     }
 }
