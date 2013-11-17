@@ -83,6 +83,7 @@ namespace Prueba___Proyecto
             {
                 textBox1.Text = "";
                 click1 = 1;
+                textBox1.ForeColor = Color.DimGray;
             }
         }
 
@@ -92,6 +93,7 @@ namespace Prueba___Proyecto
             {
                 textBox2.Text = "";
                 click2 = 1;
+                textBox2.ForeColor = Color.DimGray;
             }
         }
 
