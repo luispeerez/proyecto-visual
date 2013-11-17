@@ -15,6 +15,7 @@ namespace Prueba___Proyecto
         public InicioSesion()
         {
             InitializeComponent();
+            this.ShowInTaskbar = false;
             timer1.Enabled = true;
         }
 

@@ -19,6 +19,7 @@ namespace Prueba___Proyecto
 
         private void Oscurece_Load(object sender, EventArgs e)
         {
+            this.ShowInTaskbar = false;
             Form1 Inicio = new Form1();
             Inicio.ShowDialog();
             this.Close();
