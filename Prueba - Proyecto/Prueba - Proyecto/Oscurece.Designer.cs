@@ -38,7 +38,7 @@
             this.ClientSize = new System.Drawing.Size(284, 262);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "Oscurece";
-            this.Opacity = 0D;
+            this.Opacity = 0.7D;
             this.Text = "Oscurece";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.Oscurece_Load);
