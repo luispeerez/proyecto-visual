@@ -26,3 +26,4 @@ C:\Users\Zero Vivanco\Documents\GitHub\proyecto-visual\Prueba - Proyecto\Prueba 
 C:\Users\Zero Vivanco\Documents\GitHub\proyecto-visual\Prueba - Proyecto\Prueba - Proyecto\obj\Debug\Prueba___Proyecto.Properties.Resources.resources
 C:\Users\Zero Vivanco\Documents\GitHub\proyecto-visual\Prueba - Proyecto\Prueba - Proyecto\obj\Debug\Prueba - Proyecto.csproj.GenerateResource.Cache
 C:\Users\Zero Vivanco\Documents\GitHub\proyecto-visual\Prueba - Proyecto\Prueba - Proyecto\obj\Debug\Prueba___Proyecto.InicioSesion.resources
+C:\Users\Zero Vivanco\Documents\GitHub\proyecto-visual\Prueba - Proyecto\Prueba - Proyecto\obj\Debug\Prueba___Proyecto.Oscurece.resources
