@@ -97,8 +97,8 @@ namespace Prueba___Proyecto
 
         private void button4_Click(object sender, EventArgs e)
         {
-            pictureBox3.Visible = true;
-            pictureBox4.Visible = true;
+            InicioSesion prueba = new InicioSesion();
+            prueba.ShowDialog();
         }
     }
 }
