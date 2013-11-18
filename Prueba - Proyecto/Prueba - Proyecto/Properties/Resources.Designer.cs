@@ -63,6 +63,16 @@ namespace Prueba___Proyecto.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Error_Contraseña {
+            get {
+                object obj = ResourceManager.GetObject("Error Contraseña", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Error_Dato {
             get {
                 object obj = ResourceManager.GetObject("Error Dato", resourceCulture);
@@ -76,6 +86,16 @@ namespace Prueba___Proyecto.Properties {
         internal static System.Drawing.Bitmap Error_Datos {
             get {
                 object obj = ResourceManager.GetObject("Error Datos", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Error_Usuario {
+            get {
+                object obj = ResourceManager.GetObject("Error Usuario", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -146,6 +166,16 @@ namespace Prueba___Proyecto.Properties {
         internal static System.Drawing.Bitmap Inicio_de_Sesión_v2 {
             get {
                 object obj = ResourceManager.GetObject("Inicio de Sesión v2", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Inicio_Sesion_Completo {
+            get {
+                object obj = ResourceManager.GetObject("Inicio Sesion Completo", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -256,6 +286,16 @@ namespace Prueba___Proyecto.Properties {
         internal static System.Drawing.Bitmap Regístrate_Selección {
             get {
                 object obj = ResourceManager.GetObject("Regístrate-Selección", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Reservacion_v1 {
+            get {
+                object obj = ResourceManager.GetObject("Reservacion v1", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

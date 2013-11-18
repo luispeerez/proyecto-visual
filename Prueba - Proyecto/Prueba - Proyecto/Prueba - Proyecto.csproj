@@ -63,8 +63,15 @@
     <Compile Include="Oscurece.Designer.cs">
       <DependentUpon>Oscurece.cs</DependentUpon>
     </Compile>
+    <Compile Include="PasoVariables.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Recepcion.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Recepcion.Designer.cs">
+      <DependentUpon>Recepcion.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
@@ -84,6 +91,9 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="Recepcion.resx">
+      <DependentUpon>Recepcion.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -162,6 +172,18 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\image_555506.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Error Usuario.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Error Contraseña.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Reservacion v1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Inicio Sesion Completo.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

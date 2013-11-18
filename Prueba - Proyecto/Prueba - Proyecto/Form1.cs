@@ -94,13 +94,15 @@ namespace Prueba___Proyecto
                 textBox2.Text = "";
                 click2 = 1;
                 textBox2.ForeColor = Color.DimGray;
+                textBox2.UseSystemPasswordChar = true;
             }
         }
 
         private void button4_Click(object sender, EventArgs e)
         {
-            InicioSesion prueba = new InicioSesion();
-            prueba.ShowDialog();
+            this.Close();
+            InicioSesion verifica = new InicioSesion();
+            verifica.ShowDialog();
         }
     }
 }

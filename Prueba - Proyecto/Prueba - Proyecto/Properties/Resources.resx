@@ -118,8 +118,14 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="prueba3-3-2" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\prueba3-3-2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="Inicio de Sesión v2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Inicio de Sesión v2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Error Usuario" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Error Usuario.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="image_555506" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\image_555506.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="prueba" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\prueba.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -130,14 +136,14 @@
   <data name="Minimizar" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Minimizar.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="Inicio de Sesión v2" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Inicio de Sesión v2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
   <data name="Iniciar Sesión-Selección" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Iniciar Sesión-Selección.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Inicio de Sesión" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Inicio de Sesión.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="prueba3-3-2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\prueba3-3-2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Error Dato" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Error Dato.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -166,6 +172,9 @@
   <data name="image_555865" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\image_555865.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="Error Contraseña" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Error Contraseña.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="prueba2" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\prueba2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -178,10 +187,13 @@
   <data name="Error Datos" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Error Datos.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="Reservacion v1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Reservacion v1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="prueba3-3" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\prueba3-3.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="image_555506" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\image_555506.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="Inicio Sesion Completo" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Inicio Sesion Completo.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>
