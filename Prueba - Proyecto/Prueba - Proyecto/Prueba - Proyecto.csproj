@@ -203,6 +203,18 @@
   <ItemGroup>
     <None Include="Resources\Cobrar-Seleccionado.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\1_navigation_next_item.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Datos Cliente.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Registrar.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Registrar-Seleccionado.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

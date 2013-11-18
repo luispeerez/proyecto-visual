@@ -91,5 +91,17 @@ namespace Prueba___Proyecto
         {
             WindowState = FormWindowState.Minimized;
         }
+
+        private void button2_MouseHover(object sender, EventArgs e)
+        {
+            button13.Visible = true;
+            button2.Visible = false;
+        }
+
+        private void button13_MouseLeave(object sender, EventArgs e)
+        {
+            button2.Visible = true;
+            button13.Visible = false;
+        }
     }
 }

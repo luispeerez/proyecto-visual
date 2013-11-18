@@ -142,6 +142,9 @@
   <data name="prueba3-3" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\prueba3-3.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="Iniciar Sesión" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Iniciar Sesión.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="Error Datos" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Error Datos.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -169,6 +172,9 @@
   <data name="Salir" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Salir.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="Datos Cliente" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Datos Cliente.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="image_555505" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\image_555505.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -187,6 +193,9 @@
   <data name="prueba2" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\prueba2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="Registrar" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Registrar.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="Error Usuario" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Error Usuario.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -196,8 +205,8 @@
   <data name="Reservacion" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Reservacion.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="Iniciar Sesión" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Iniciar Sesión.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="Cobrar-Seleccionado" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Cobrar-Seleccionado.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Reservacion-Seleccionado" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Reservacion-Seleccionado.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -211,7 +220,10 @@
   <data name="Iniciar Sesión-Selección" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Iniciar Sesión-Selección.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="Cobrar-Seleccionado" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Cobrar-Seleccionado.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="1_navigation_next_item" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\1_navigation_next_item.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Registrar-Seleccionado" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Registrar-Seleccionado.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

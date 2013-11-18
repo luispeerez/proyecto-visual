@@ -63,6 +63,16 @@ namespace Prueba___Proyecto.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap _1_navigation_next_item {
+            get {
+                object obj = ResourceManager.GetObject("1_navigation_next_item", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Cobrar {
             get {
                 object obj = ResourceManager.GetObject("Cobrar", resourceCulture);
@@ -76,6 +86,16 @@ namespace Prueba___Proyecto.Properties {
         internal static System.Drawing.Bitmap Cobrar_Seleccionado {
             get {
                 object obj = ResourceManager.GetObject("Cobrar-Seleccionado", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Datos_Cliente {
+            get {
+                object obj = ResourceManager.GetObject("Datos Cliente", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -306,6 +326,26 @@ namespace Prueba___Proyecto.Properties {
         internal static System.Drawing.Bitmap prueba3_3_2 {
             get {
                 object obj = ResourceManager.GetObject("prueba3-3-2", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Registrar {
+            get {
+                object obj = ResourceManager.GetObject("Registrar", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Registrar_Seleccionado {
+            get {
+                object obj = ResourceManager.GetObject("Registrar-Seleccionado", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
