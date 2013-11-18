@@ -185,6 +185,24 @@
   <ItemGroup>
     <None Include="Resources\Inicio Sesion Completo.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Nuevo Cliente.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Reservacion.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Cobrar.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Nuevo Cliente-Seleccionado.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Reservacion-Seleccionado.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Cobrar-Seleccionado.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

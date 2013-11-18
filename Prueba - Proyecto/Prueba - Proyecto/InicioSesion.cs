@@ -18,17 +18,12 @@ namespace Prueba___Proyecto
             this.ShowInTaskbar = false;
         }
 
-        public static void ThreadProc()
-        {
-            Application.Run(new Recepcion());
-        }
-
         private void timer1_Tick(object sender, EventArgs e)
         {
             timer1.Enabled = false;
             this.Close();
-            System.Threading.Thread t = new System.Threading.Thread(new System.Threading.ThreadStart(ThreadProc));
-            t.Start();
+            Recepcion Acceso = new Recepcion();
+            Acceso.ShowDialog();
         }
 
         private void InicioSesion_Load(object sender, EventArgs e)
