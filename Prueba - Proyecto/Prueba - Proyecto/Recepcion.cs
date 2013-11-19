@@ -20,7 +20,7 @@ namespace Prueba___Proyecto
         string[] placeholders = { "       Ingresa el nombre(s) del cliente.", "       Ingresa los apellidos del cliente.", "    Ingresa el número de acompañantes.", "           Ingresa el número de mesa." };
         int numMesas;
 
-        private int contarRegistros(string tabla)
+        public int contarRegistros(string tabla)
         {
             int resultadoQuery;
             conexion search = new conexion();
@@ -28,21 +28,43 @@ namespace Prueba___Proyecto
             string search3 = "SELECT COUNT(*) FROM "+tabla;
             MySqlCommand buscarproductos = new MySqlCommand(search3, search.getConexion());
             resultadoQuery = Convert.ToInt32(buscarproductos.ExecuteScalar());
-            MessageBox.Show("Cantidad de registros :" + resultadoQuery);
+
             return resultadoQuery;
+        }
+
+        public string disponiblidad(int indice)
+        {
+            string resultado;
+            conexion search = new conexion();
+            search.crearConexion();
+            string search3 = "SELECT *FROM mesa";
+            MySqlCommand buscarproductos = new MySqlCommand(search3, search.getConexion());
+            MySqlDataAdapter cmc = new MySqlDataAdapter(buscarproductos);
+            DataSet tht = new DataSet();
+            buscarproductos.Connection = search.getConexion();
+            cmc.Fill(tht, "mesa");
+            resultado = tht.Tables["mesa"].Rows[indice][4].ToString();
+            return resultado.ToString();
         }
 
         public Recepcion()
         {
             InitializeComponent();
 
+            //Nombres de las imagenes
+            string mesadisponible = "mesasimple";
+            string mesareservada = "mesareservada";
+            string mesaocupada = "mesaocupada";
+
+            //Asignando disponible por default
+            string fondo = mesadisponible;
 
             //Usando una imagen como fondo para las mesas
             Image mesaBack;
-            string absolute = Path.GetFullPath(@"mesasimple.png");
+            string absolute;
             numMesas = contarRegistros("mesa");
             variables.CantidadMesas = numMesas;
-            mesaBack = Image.FromFile(absolute);
+            
             //Creando un array para desplegar las mesas en el restaurant
             PictureBox[] mesas = new PictureBox[numMesas];
 
@@ -57,7 +79,17 @@ namespace Prueba___Proyecto
             posY = 56;
             for (int i = 0; i < numMesas; i++)
             {
+                //Cambiando el background de la mesa dependiendo su disponibilidad
+                if (disponiblidad(i) == "Si")
+                    fondo = mesadisponible;
+                else if (disponiblidad(i) == "Ocupada")
+                    fondo = mesaocupada;
+                else if (disponiblidad(i) == "Reservada")
+                    fondo = mesareservada;
 
+
+                absolute = Path.GetFullPath(@""+fondo+".png");
+                mesaBack = Image.FromFile(absolute);
 
                 //Aumentando a uno la variable filas cada que se impriman 5 mesas
                 if (i % 5 == 0 && i!=0)
@@ -83,6 +115,7 @@ namespace Prueba___Proyecto
                 mesas[i].Visible = true;
                 mesas[i].Cursor = Cursors.Hand;
                 splitContainer1.Panel2.Controls.Add(mesas[i]);
+                
 
                 contIndependienteX++;
             }
