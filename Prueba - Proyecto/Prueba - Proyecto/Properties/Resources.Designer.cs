@@ -193,6 +193,16 @@ namespace Prueba___Proyecto.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Info_Mesa {
+            get {
+                object obj = ResourceManager.GetObject("Info Mesa", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Iniciar_Sesión {
             get {
                 object obj = ResourceManager.GetObject("Iniciar Sesión", resourceCulture);
