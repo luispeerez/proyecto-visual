@@ -50,7 +50,7 @@ namespace Prueba___Proyecto
         public Recepcion()
         {
             InitializeComponent();
-
+            this.ShowInTaskbar = false;
             //Nombres de las imagenes
             string mesadisponible = "mesasimple";
             string mesareservada = "mesareservada";
@@ -265,6 +265,22 @@ namespace Prueba___Proyecto
                 textBox4.Text = "";
                 textBox4.ForeColor = Color.DimGray;
             }
+        }
+
+        private void button7_Click(object sender, EventArgs e)
+        {
+            //Cambia imagenes al dar click
+            button2.BackgroundImage = ((System.Drawing.Image)(Properties.Resources.Reservar));
+            button13.BackgroundImage = ((System.Drawing.Image)(Properties.Resources.Reservar_Seleccionado));
+            pictureBox4.BackgroundImage = ((System.Drawing.Image)(Properties.Resources.Datos_Reservacion));
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            //Cambia Imagenes al dar click
+            button2.BackgroundImage = ((System.Drawing.Image)(Properties.Resources.Registrar));
+            button13.BackgroundImage = ((System.Drawing.Image)(Properties.Resources.Registrar_Seleccionado));
+            pictureBox4.BackgroundImage = ((System.Drawing.Image)(Properties.Resources.Datos_Cliente));
         }
     }
 }

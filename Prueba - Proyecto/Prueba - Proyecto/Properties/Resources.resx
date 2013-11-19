@@ -121,8 +121,17 @@
   <data name="Minimizar" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Minimizar.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="Reservar" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Reservar.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="Regístrate" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Regístrate.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Reservacion-Seleccionado1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Reservacion-Seleccionado.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="image_555865" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\image_555865.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Nuevo Cliente" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Nuevo Cliente.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -130,14 +139,20 @@
   <data name="Inicio de Sesión v2" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Inicio de Sesión v2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="Datos Reservacion" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Datos Reservacion.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="prueba3" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\prueba3.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="prueba3-2" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\prueba3-2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="Reservacion v1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Reservacion v1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="prueba3-3" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\prueba3-3.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Iniciar Sesión" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Iniciar Sesión.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Error Dato" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Error Dato.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -148,8 +163,8 @@
   <data name="image_555506" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\image_555506.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="Reservacion v1" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Reservacion v1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="Regístrate-Selección" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Regístrate-Selección.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Minimizar-Desplegado" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Minimizar-Desplegado.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -162,9 +177,6 @@
   </data>
   <data name="Inicio Sesion Completo" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Inicio Sesion Completo.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="Cobrar-Seleccionado" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Cobrar-Seleccionado.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Inicio de Sesión" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Inicio de Sesión.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -184,12 +196,6 @@
   <data name="Cobrar" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Cobrar.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="Regístrate-Selección" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Regístrate-Selección.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="Salir-Desplegado" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Salir-Desplegado.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
   <data name="prueba2" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\prueba2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -205,14 +211,17 @@
   <data name="Reservacion" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Reservacion.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="Iniciar Sesión" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Iniciar Sesión.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="Cobrar-Seleccionado" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Cobrar-Seleccionado.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="1_navigation_next_item" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\1_navigation_next_item.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Reservacion-Seleccionado" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Reservacion-Seleccionado.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="image_555865" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\image_555865.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="Salir-Desplegado" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Salir-Desplegado.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Nuevo Cliente-Seleccionado" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Nuevo Cliente-Seleccionado.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -223,10 +232,16 @@
   <data name="Registrar-Seleccionado" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Registrar-Seleccionado.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="1_navigation_next_item" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\1_navigation_next_item.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="Reservar-Seleccionado" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Reservar-Seleccionado.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="prueba3-2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\prueba3-2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Mesa4" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Mesa4.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Datos Reservacion1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Datos Reservacion1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

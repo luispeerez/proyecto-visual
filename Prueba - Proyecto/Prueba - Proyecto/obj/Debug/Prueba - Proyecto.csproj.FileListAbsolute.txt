@@ -33,3 +33,5 @@ C:\Users\Zero Vivanco\Documents\GitHub\proyecto-visual\Prueba - Proyecto\Prueba 
 C:\proyecto-visual\Prueba - Proyecto\Prueba - Proyecto\obj\Debug\Prueba___Proyecto.Recepcion.resources
 C:\proyecto-visual\Prueba - Proyecto\Prueba - Proyecto\bin\Debug\MySql.Data.dll
 C:\proyecto-visual\Prueba - Proyecto\Prueba - Proyecto\bin\Debug\MySql.Data.Entity.dll
+C:\Users\Zero Vivanco\Documents\GitHub\proyecto-visual\Prueba - Proyecto\Prueba - Proyecto\bin\Debug\MySql.Data.dll
+C:\Users\Zero Vivanco\Documents\GitHub\proyecto-visual\Prueba - Proyecto\Prueba - Proyecto\bin\Debug\MySql.Data.Entity.dll
