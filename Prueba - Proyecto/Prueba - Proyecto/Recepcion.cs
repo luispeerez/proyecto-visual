@@ -20,7 +20,17 @@ namespace Prueba___Proyecto
         string[] placeholders = { "       Ingresa el nombre(s) del cliente.", "       Ingresa los apellidos del cliente.", "    Ingresa el número de acompañantes.", "           Ingresa el número de mesa." };
         int numMesas;
 
-
+        private int contarRegistros(string tabla)
+        {
+            int resultadoQuery;
+            conexion search = new conexion();
+            search.crearConexion();
+            string search3 = "SELECT COUNT(*) FROM "+tabla;
+            MySqlCommand buscarproductos = new MySqlCommand(search3, search.getConexion());
+            resultadoQuery = Convert.ToInt32(buscarproductos.ExecuteScalar());
+            MessageBox.Show("Cantidad de registros :" + resultadoQuery);
+            return resultadoQuery;
+        }
 
         public Recepcion()
         {
@@ -30,7 +40,8 @@ namespace Prueba___Proyecto
             //Usando una imagen como fondo para las mesas
             Image mesaBack;
             string absolute = Path.GetFullPath(@"mesasimple.png");
-            numMesas = 15;
+            numMesas = contarRegistros("mesa");
+            variables.CantidadMesas = numMesas;
             mesaBack = Image.FromFile(absolute);
             //Creando un array para desplegar las mesas en el restaurant
             PictureBox[] mesas = new PictureBox[numMesas];
@@ -77,20 +88,10 @@ namespace Prueba___Proyecto
             }
         }
 
-        private string contarRegistros()
-        {
-            string resultadoQuery;
-            conexion search = new conexion();
-            search.crearConexion();
-            string search3 = "SELECT COUNT(*) FROM productos";
-            MySqlCommand buscarproductos = new MySqlCommand(search3, search.getConexion());
-            resultadoQuery = buscarproductos.ExecuteScalar().ToString();
-            return resultadoQuery;
-        }
+
 
         private void Recepcion_Load(object sender, EventArgs e)
         {
-            MessageBox.Show(contarRegistros());
         }
 
         private void button1_MouseHover(object sender, EventArgs e)

@@ -12,7 +12,7 @@ namespace Prueba___Proyecto
         public MySqlConnection conexionObj;
         public void crearConexion()
         {
-            string conec = "Server=localhost;database=tienda;uid=root;pwd=;";
+            string conec = "Server="+variables.Servidor+";database="+variables.Db+";uid="+variables.Usuario+";pwd="+variables.Pass+";";
             conexionObj = new MySqlConnection(conec);
             conexionObj.Open();
         }
