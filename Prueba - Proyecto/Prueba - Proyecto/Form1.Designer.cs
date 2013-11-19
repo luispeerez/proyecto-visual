@@ -80,6 +80,7 @@
             this.button2.Size = new System.Drawing.Size(349, 45);
             this.button2.TabIndex = 1;
             this.button2.UseVisualStyleBackColor = false;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             this.button2.MouseHover += new System.EventHandler(this.button2_MouseHover);
             // 
             // button3
@@ -201,6 +202,8 @@
             this.textBox1.TabIndex = 8;
             this.textBox1.Text = "       Ingresa tu nombre de usuario.";
             this.textBox1.MouseClick += new System.Windows.Forms.MouseEventHandler(this.textBox1_MouseClick);
+            this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
+
             // 
             // textBox2
             // 
@@ -214,6 +217,8 @@
             this.textBox2.TabIndex = 9;
             this.textBox2.Text = "       Ingresa tu contraseña.";
             this.textBox2.MouseClick += new System.Windows.Forms.MouseEventHandler(this.textBox2_MouseClick);
+            this.textBox2.TextChanged += new System.EventHandler(this.textBox2_TextChanged);
+
             // 
             // pictureBox1
             // 

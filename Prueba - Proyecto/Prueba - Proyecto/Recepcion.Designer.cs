@@ -266,6 +266,8 @@
             this.textBox4.Size = new System.Drawing.Size(288, 19);
             this.textBox4.TabIndex = 19;
             this.textBox4.Text = "           Ingresa el número de mesa.";
+            this.textBox4.MouseClick += new System.Windows.Forms.MouseEventHandler(this.textBox4_MouseClick);
+            this.textBox4.TextChanged += new System.EventHandler(this.textBox4_TextChanged);
             // 
             // textBox3
             // 
@@ -278,6 +280,8 @@
             this.textBox3.Size = new System.Drawing.Size(288, 19);
             this.textBox3.TabIndex = 18;
             this.textBox3.Text = "    Ingresa el número de acompañantes.";
+            this.textBox3.MouseClick += new System.Windows.Forms.MouseEventHandler(this.textBox3_MouseClick);
+            this.textBox3.TextChanged += new System.EventHandler(this.textBox3_TextChanged);
             // 
             // textBox2
             // 
@@ -290,6 +294,8 @@
             this.textBox2.Size = new System.Drawing.Size(288, 19);
             this.textBox2.TabIndex = 17;
             this.textBox2.Text = "       Ingresa los apellidos del cliente.";
+            this.textBox2.MouseClick += new System.Windows.Forms.MouseEventHandler(this.textBox2_MouseClick);
+            this.textBox2.TextChanged += new System.EventHandler(this.textBox2_TextChanged);
             // 
             // textBox1
             // 
@@ -302,6 +308,8 @@
             this.textBox1.Size = new System.Drawing.Size(288, 19);
             this.textBox1.TabIndex = 16;
             this.textBox1.Text = "       Ingresa el nombre(s) del cliente.";
+            this.textBox1.MouseClick += new System.Windows.Forms.MouseEventHandler(this.textBox1_MouseClick);
+            this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
             // pictureBox4
             // 

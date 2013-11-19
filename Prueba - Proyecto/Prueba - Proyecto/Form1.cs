@@ -85,24 +85,80 @@ namespace Prueba___Proyecto
                 click1 = 1;
                 textBox1.ForeColor = Color.DimGray;
             }
+            //Ocultando los mensajes de error
+            pictureBox3.Visible = false;
+            pictureBox4.Visible = false;
         }
 
         private void textBox2_MouseClick(object sender, MouseEventArgs e)
         {
             if (click2 == 0)
             {
+                //Vaciando el placeholder del textbox y editando el formato de entrada de texto
                 textBox2.Text = "";
                 click2 = 1;
-                textBox2.ForeColor = Color.DimGray;
-                textBox2.UseSystemPasswordChar = true;
+
+            }
+
+            textBox2.ForeColor = Color.DimGray;
+            textBox2.UseSystemPasswordChar = true;
+            //Ocultando los mensajes de error
+            pictureBox3.Visible = false;
+            pictureBox4.Visible = false;
+        }
+
+        //Boton para inicio de sesion en hover(por eso no aparece en el form)
+        private void button4_Click(object sender, EventArgs e)
+        {
+            if (textBox1.Text != "")
+            {
+                this.Close();
+                InicioSesion verifica = new InicioSesion();
+                verifica.ShowDialog();
+            }
+            else
+            {
+                pictureBox3.Visible = true;
+                pictureBox4.Visible = true;
             }
         }
 
-        private void button4_Click(object sender, EventArgs e)
+        private void button2_Click(object sender, EventArgs e)
         {
-            this.Close();
-            InicioSesion verifica = new InicioSesion();
-            verifica.ShowDialog();
+
+        }
+
+
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+            if (click1 == 0)
+            {
+                textBox1.Text = "";
+                click1 = 1;
+                textBox1.ForeColor = Color.DimGray;
+            }
+
+            textBox1.ForeColor = Color.DimGray;
+            //Ocultando los mensajes de error
+            pictureBox3.Visible = false;
+            pictureBox4.Visible = false;
+        }
+
+        private void textBox2_TextChanged(object sender, EventArgs e)
+        {
+            if (click2 == 0)
+            {
+                //Vaciando el placeholder del textbox y editando el formato de entrada de texto
+                textBox2.Text = "";
+                click2 = 1;
+
+            }
+            textBox2.ForeColor = Color.DimGray;
+            textBox2.UseSystemPasswordChar = true;
+            //Ocultando los mensajes de error
+            pictureBox3.Visible = false;
+            pictureBox4.Visible = false;
         }
     }
 }

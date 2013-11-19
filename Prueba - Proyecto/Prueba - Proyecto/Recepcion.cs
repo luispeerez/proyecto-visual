@@ -7,19 +7,90 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.IO;
+using MySql.Data.MySqlClient;
+
 
 namespace Prueba___Proyecto
 {
     public partial class Recepcion : Form
     {
+        
+        //Declarando las frases para los placeholders en los textbox, elementos ordenados segun el textbox(ascendente)
+        string[] placeholders = { "       Ingresa el nombre(s) del cliente.", "       Ingresa los apellidos del cliente.", "    Ingresa el número de acompañantes.", "           Ingresa el número de mesa." };
+        int numMesas;
+
+
+
         public Recepcion()
         {
             InitializeComponent();
+
+
+            //Usando una imagen como fondo para las mesas
+            Image mesaBack;
+            string absolute = Path.GetFullPath(@"mesasimple.png");
+            numMesas = 15;
+            mesaBack = Image.FromFile(absolute);
+            //Creando un array para desplegar las mesas en el restaurant
+            PictureBox[] mesas = new PictureBox[numMesas];
+
+            //Ancho del contenedor de mesas:
+            int anchoCont = splitContainer1.Panel1.Width;
+            //Variables para calcular el eje x y
+            int posX, posY, contIndependienteX, contIndependienteY;
+            contIndependienteX = 0;
+            contIndependienteY = 0;
+            
+            //Iniciando la primera fila en el punto 56 del eje Y
+            posY = 56;
+            for (int i = 0; i < numMesas; i++)
+            {
+
+
+                //Aumentando a uno la variable filas cada que se impriman 5 mesas
+                if (i % 5 == 0 && i!=0)
+                {
+                    //Aumentando en 1 el contador independiente Y
+                    contIndependienteY++;
+
+                    //Vaciando el contador independiente de X
+                    contIndependienteX = 0;
+                    posY = 56 + (contIndependienteY * 90);
+                }
+
+                //Asignando su coordenada en X
+                posX = 32 + (contIndependienteX * 100);
+                
+                //Creando la mesa
+                mesas[i] = new PictureBox();
+                //Añadiendole propiedades a cada mesa
+                mesas[i].Size = new Size(80, 80);
+                mesas[i].Location = new Point(posX, posY);
+                mesas[i].Image = mesaBack;
+                mesas[i].SizeMode = PictureBoxSizeMode.StretchImage;
+                mesas[i].Visible = true;
+                mesas[i].Cursor = Cursors.Hand;
+                splitContainer1.Panel2.Controls.Add(mesas[i]);
+
+                contIndependienteX++;
+            }
+        }
+
+        private string contarRegistros()
+        {
+            string resultadoQuery;
+            conexion search = new conexion();
+            search.crearConexion();
+            string search3 = "SELECT COUNT(*) FROM productos";
+            MySqlCommand buscarproductos = new MySqlCommand(search3, search.getConexion());
+            resultadoQuery = buscarproductos.ExecuteScalar().ToString();
+            return resultadoQuery;
         }
 
         private void Recepcion_Load(object sender, EventArgs e)
         {
-
+            MessageBox.Show(contarRegistros());
         }
 
         private void button1_MouseHover(object sender, EventArgs e)
@@ -102,6 +173,64 @@ namespace Prueba___Proyecto
         {
             button2.Visible = true;
             button13.Visible = false;
+        }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+
+            textBox1.ForeColor = Color.DimGray;
+        }
+
+        private void textBox2_TextChanged(object sender, EventArgs e)
+        {
+            textBox2.ForeColor = Color.DimGray;
+        }
+
+        private void textBox3_TextChanged(object sender, EventArgs e)
+        {
+            textBox3.ForeColor = Color.DimGray;
+        }
+
+        private void textBox4_TextChanged(object sender, EventArgs e)
+        {
+            textBox4.ForeColor = Color.DimGray;
+        }
+
+        private void textBox1_MouseClick(object sender, MouseEventArgs e)
+        {
+            if (textBox1.Text == placeholders[0])
+            {
+                textBox1.Text = "";
+                textBox1.ForeColor = Color.DimGray;
+            }
+
+        }
+
+        private void textBox2_MouseClick(object sender, MouseEventArgs e)
+        {
+            if (textBox2.Text == placeholders[1])
+            {
+                textBox2.Text = "";
+                textBox2.ForeColor = Color.DimGray;
+            }
+        }
+
+        private void textBox3_MouseClick(object sender, MouseEventArgs e)
+        {
+            if (textBox3.Text == placeholders[2])
+            {
+                textBox3.Text = "";
+                textBox3.ForeColor = Color.DimGray;
+            }
+        }
+
+        private void textBox4_MouseClick(object sender, MouseEventArgs e)
+        {
+            if (textBox4.Text == placeholders[3])
+            {
+                textBox4.Text = "";
+                textBox4.ForeColor = Color.DimGray;
+            }
         }
     }
 }
