@@ -19,6 +19,14 @@ namespace Prueba___Proyecto
         //Declarando las frases para los placeholders en los textbox, elementos ordenados segun el textbox(ascendente)
         string[] placeholders = { "       Ingresa el nombre(s) del cliente.", "       Ingresa los apellidos del cliente.", "    Ingresa el número de acompañantes.", "           Ingresa el número de mesa." };
         int numMesas;
+        //Variable para identificar el proceso actual
+        /*
+         * 1.-Nuevo cliente
+         * 2.-Reservacion
+         * 3.-Cobro
+        */
+        int accionactual;
+
 
         public int contarRegistros(string tabla)
         {
@@ -30,6 +38,16 @@ namespace Prueba___Proyecto
             resultadoQuery = Convert.ToInt32(buscarproductos.ExecuteScalar());
 
             return resultadoQuery;
+        }
+
+        public void insertarCliente()
+        {
+            conexion ins_pro = new conexion();
+            ins_pro.crearConexion();
+            string inserta = "INSERT INTO cliente (nombre,apellido) Values ('" + textBox1.Text + "','" + textBox2.Text  + "')";
+            MySqlCommand pro = new MySqlCommand(inserta);
+            pro.Connection = ins_pro.getConexion();
+            pro.ExecuteNonQuery();
         }
 
         public string disponiblidad(int indice)
@@ -47,10 +65,32 @@ namespace Prueba___Proyecto
             return resultado.ToString();
         }
 
+        public void vaciarTextboxs()
+        {
+            textBox1.Text = "";
+            textBox2.Text = "";
+            textBox3.Text = "";
+            textBox4.Text = "";
+        }
+
+        public bool verificarCamposLlenos()
+        {
+            bool llenos;
+            if (textBox1.Text != "" && textBox2.Text != ""/* && textBox3.Text != "" && textBox4.Text != ""*/)
+                llenos = true;
+            else
+                llenos = false;
+           return llenos;
+        }
         public Recepcion()
         {
             InitializeComponent();
+            
             this.ShowInTaskbar = false;
+            
+            //Asignando accion por default : 1(nuevo cliente)
+            accionactual = 1;
+            
             //Nombres de las imagenes
             string mesadisponible = "mesasimple";
             string mesareservada = "mesareservada";
@@ -266,21 +306,88 @@ namespace Prueba___Proyecto
                 textBox4.ForeColor = Color.DimGray;
             }
         }
-
+        //Boton reservar
         private void button7_Click(object sender, EventArgs e)
         {
+            //Asigando como accion actual 2(reservar)
+            accionactual = 2;
+            //Vaciando posible informacion ingresada en otros campos 
+            vaciarTextboxs();
+
             //Cambia imagenes al dar click
             button2.BackgroundImage = ((System.Drawing.Image)(Properties.Resources.Reservar));
             button13.BackgroundImage = ((System.Drawing.Image)(Properties.Resources.Reservar_Seleccionado));
             pictureBox4.BackgroundImage = ((System.Drawing.Image)(Properties.Resources.Datos_Reservacion));
         }
 
+        //Boton nuevo cliente
         private void button4_Click(object sender, EventArgs e)
         {
+            //Asigando como accion actual 1(nuevo cliente)
+            accionactual = 1;
+            //Vaciando posible informacion ingresada en otros campos 
+            vaciarTextboxs();
+
             //Cambia Imagenes al dar click
             button2.BackgroundImage = ((System.Drawing.Image)(Properties.Resources.Registrar));
             button13.BackgroundImage = ((System.Drawing.Image)(Properties.Resources.Registrar_Seleccionado));
             pictureBox4.BackgroundImage = ((System.Drawing.Image)(Properties.Resources.Datos_Cliente));
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+        }
+
+        private void button6_Click(object sender, EventArgs e)
+        {
+        }
+
+
+        //Boton de cobrar
+        private void button3_Click_1(object sender, EventArgs e)
+        {
+            //Asigando como accion actual 3(cobrar)
+            accionactual = 3;
+            //Vaciando posible informacion ingresada en otros campos 
+            vaciarTextboxs();
+        }
+        private void button13_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button13_Click_1(object sender, EventArgs e)
+        {
+            if (accionactual == 1)
+            {
+                if (verificarCamposLlenos() == true)
+                {
+                    insertarCliente();
+                    MessageBox.Show("Insertado!");
+
+                }
+            }
+            else
+                MessageBox.Show("No es la accion");
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            if (accionactual == 1)
+            {
+                if (verificarCamposLlenos() == true)
+                {
+                    insertarCliente();
+                    MessageBox.Show("Insertado!");
+
+                }
+            }
+            else
+                MessageBox.Show("No es la accion");
         }
     }
 }

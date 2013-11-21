@@ -71,6 +71,7 @@
             this.button1.Size = new System.Drawing.Size(259, 40);
             this.button1.TabIndex = 1;
             this.button1.UseVisualStyleBackColor = false;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             this.button1.MouseHover += new System.EventHandler(this.button1_MouseHover);
             // 
             // button3
@@ -88,6 +89,7 @@
             this.button3.Size = new System.Drawing.Size(259, 40);
             this.button3.TabIndex = 3;
             this.button3.UseVisualStyleBackColor = false;
+            this.button3.Click += new System.EventHandler(this.button3_Click_1);
             this.button3.MouseLeave += new System.EventHandler(this.button3_MouseLeave);
             // 
             // button4
@@ -140,6 +142,7 @@
             this.button6.Size = new System.Drawing.Size(259, 40);
             this.button6.TabIndex = 6;
             this.button6.UseVisualStyleBackColor = false;
+            this.button6.Click += new System.EventHandler(this.button6_Click);
             this.button6.MouseHover += new System.EventHandler(this.button6_MouseHover);
             // 
             // button7
@@ -348,11 +351,12 @@
             this.button2.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
             this.button2.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
             this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button2.Location = new System.Drawing.Point(127, 584);
+            this.button2.Location = new System.Drawing.Point(127, 586);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(209, 42);
             this.button2.TabIndex = 13;
             this.button2.UseVisualStyleBackColor = false;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             this.button2.MouseHover += new System.EventHandler(this.button2_MouseHover);
             // 
             // button13
