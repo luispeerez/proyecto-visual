@@ -44,7 +44,7 @@ namespace Prueba___Proyecto
         {
             conexion ins_pro = new conexion();
             ins_pro.crearConexion();
-            string inserta = "INSERT INTO cliente (nombre,apellido) Values ('" + textBox1.Text + "','" + textBox2.Text  + "')";
+            string inserta = "INSERT INTO cliente (nombre, apellido, sugerencias) Values ('" + textBox1.Text + "', '" + textBox2.Text  + "', '')";
             MySqlCommand pro = new MySqlCommand(inserta);
             pro.Connection = ins_pro.getConexion();
             pro.ExecuteNonQuery();
@@ -376,6 +376,21 @@ namespace Prueba___Proyecto
         }
 
         private void button2_Click(object sender, EventArgs e)
+        {
+            if (accionactual == 1)
+            {
+                if (verificarCamposLlenos() == true)
+                {
+                    insertarCliente();
+                    MessageBox.Show("Insertado!");
+
+                }
+            }
+            else
+                MessageBox.Show("No es la accion");
+        }
+
+        private void button13_Click_2(object sender, EventArgs e)
         {
             if (accionactual == 1)
             {

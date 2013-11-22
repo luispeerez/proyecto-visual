@@ -9,7 +9,7 @@ namespace Prueba___Proyecto
     class variables
     {
         //Configuracion de la conexion, la pueden cambiar dependiendo de su configuracion local
-        static string servidor = "localhost";
+        static string servidor = "192.168.1.66";
         static string db = "restaurant";
         static string usuario = "root";
         static string pass = "";
