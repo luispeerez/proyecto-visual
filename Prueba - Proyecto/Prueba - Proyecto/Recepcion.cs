@@ -18,6 +18,8 @@ namespace Prueba___Proyecto
         
         //Declarando las frases para los placeholders en los textbox, elementos ordenados segun el textbox(ascendente)
         string[] placeholders = { "       Ingresa el nombre(s) del cliente.", "       Ingresa los apellidos del cliente.", "    Ingresa el número de acompañantes.", "           Ingresa el número de mesa." };
+        
+        
         int numMesas;
         //Variable para identificar el proceso actual
         /*
@@ -44,7 +46,7 @@ namespace Prueba___Proyecto
         {
             conexion ins_pro = new conexion();
             ins_pro.crearConexion();
-            string inserta = "INSERT INTO cliente (nombre, apellido, sugerencias) Values ('" + textBox1.Text + "', '" + textBox2.Text  + "', '')";
+            string inserta = "INSERT INTO cliente (nombre, apellido) Values ('" + textBox1.Text + "', '" + textBox2.Text  + "')";
             MySqlCommand pro = new MySqlCommand(inserta);
             pro.Connection = ins_pro.getConexion();
             pro.ExecuteNonQuery();
@@ -61,10 +63,27 @@ namespace Prueba___Proyecto
             DataSet tht = new DataSet();
             buscarproductos.Connection = search.getConexion();
             cmc.Fill(tht, "mesa");
-            resultado = tht.Tables["mesa"].Rows[indice][4].ToString();
+            resultado = tht.Tables["mesa"].Rows[indice][2].ToString();
             return resultado.ToString();
         }
 
+        public string[] informacionMesa(int indice)
+        {
+            string[] resultados = new string[4];
+            conexion search = new conexion();
+            search.crearConexion();
+            string search3 = "SELECT *FROM mesa";
+            MySqlCommand buscarproductos = new MySqlCommand(search3, search.getConexion());
+            MySqlDataAdapter cmc = new MySqlDataAdapter(buscarproductos);
+            DataSet tht = new DataSet();
+            buscarproductos.Connection = search.getConexion();
+            cmc.Fill(tht, "mesa");
+            resultados[0] = tht.Tables["mesa"].Rows[indice][0].ToString();
+            resultados[1] = tht.Tables["mesa"].Rows[indice][1].ToString();
+            resultados[2] = tht.Tables["mesa"].Rows[indice][2].ToString();
+            resultados[3] = tht.Tables["mesa"].Rows[indice][3].ToString();
+            return resultados;
+        }
         public void vaciarTextboxs()
         {
             textBox1.Text = "";
@@ -96,6 +115,10 @@ namespace Prueba___Proyecto
             
             this.ShowInTaskbar = false;
             
+            //Ocultando por default el groupbox que muestra la informacion de la mesa
+            groupBox1.Visible = false;
+
+
             //Asignando accion por default : 1(nuevo cliente)
             accionactual = 1;
             
@@ -110,11 +133,23 @@ namespace Prueba___Proyecto
             //Usando una imagen como fondo para las mesas
             Image mesaBack;
             string absolute;
+
+            //Llenando la variable numMesas con la funcion de contarregistros de la tabla
             numMesas = contarRegistros("mesa");
+
             variables.CantidadMesas = numMesas;
             
             //Creando un array para desplegar las mesas en el restaurant
-            PictureBox[] mesas = new PictureBox[numMesas];
+            PictureBox[] mesas = { pictureBox2, pictureBox3, pictureBox5, pictureBox6, pictureBox7, pictureBox8, pictureBox9, pictureBox10, pictureBox11, pictureBox12, pictureBox13, pictureBox14, pictureBox15, pictureBox16, pictureBox17, pictureBox18, pictureBox19, pictureBox20, pictureBox21, pictureBox22, pictureBox23, pictureBox24, pictureBox24, pictureBox25, pictureBox26, pictureBox27 };
+
+            //Ocultando los picturebox de las mesas no inicializadas
+            for (int contador = 0; contador < 25; contador++)
+            {
+                if (contador < numMesas)
+                    mesas[contador].Visible = true;
+                else
+                    mesas[contador].Visible = false;
+            }
 
             //Ancho del contenedor de mesas:
             int anchoCont = splitContainer1.Panel1.Width;
@@ -128,9 +163,9 @@ namespace Prueba___Proyecto
             for (int i = 0; i < numMesas; i++)
             {
                 //Cambiando el background de la mesa dependiendo su disponibilidad
-                if (disponiblidad(i) == "Si")
+                if (disponiblidad(i) == "Disponible")
                     fondo = mesadisponible;
-                else if (disponiblidad(i) == "Ocupada")
+                else if (disponiblidad(i) == "Ocupada" || disponiblidad(i) == "No disponible")
                     fondo = mesaocupada;
                 else if (disponiblidad(i) == "Reservada")
                     fondo = mesareservada;
@@ -153,8 +188,9 @@ namespace Prueba___Proyecto
                 //Asignando su coordenada en X
                 posX = 32 + (contIndependienteX * 100);
                 
+                /*
                 //Creando la mesa
-                mesas[i] = new PictureBox();
+                mesas[i] = new PictureBox();*/
                 //mesas[i].DoubleClick += new EventHandler(DobleClick);
                 mesas[i].DoubleClick += new EventHandler((sender , e ) => DobleClick(sender,e,i));
 
@@ -166,7 +202,7 @@ namespace Prueba___Proyecto
                 mesas[i].SizeMode = PictureBoxSizeMode.StretchImage;
                 mesas[i].Visible = true;
                 mesas[i].Cursor = Cursors.Hand;
-                splitContainer1.Panel2.Controls.Add(mesas[i]);
+                //splitContainer1.Panel2.Controls.Add(mesas[i]);
                 
 
                 contIndependienteX++;
@@ -178,7 +214,6 @@ namespace Prueba___Proyecto
             string objeto;
   
             pictureBox1.Visible = true;
-            MessageBox.Show("LA I : " + i);
             
 
         }
@@ -464,9 +499,179 @@ namespace Prueba___Proyecto
             pictureBox4.BackgroundImage = ((System.Drawing.Image)(Properties.Resources.Datos_Reservacion));
         }
 
-        private void splitContainer1_Panel2_Paint(object sender, PaintEventArgs e)
+
+
+
+        //Asigando eventos de click a las mesas
+        private void pictureBox2_Click(object sender, EventArgs e)
+        {
+            //Pasando de parametro 0 por la posicion de la mesa en el formulario, por lo tanto se incrementa en un 1 en los sig. eventos
+            string [] atributosMesa = informacionMesa(0);
+            pictureBox1.Visible = true;
+            groupBox1.Visible = true;
+            label3.Text = atributosMesa[1];
+            label5.Text = atributosMesa[2];
+
+        }
+
+        private void pictureBox3_Click(object sender, EventArgs e)
+        {
+            string[] atributosMesa = informacionMesa(1);
+            pictureBox1.Visible = true;
+            groupBox1.Visible = true;
+            label3.Text = atributosMesa[1];
+            label5.Text = atributosMesa[2];
+
+        }
+
+        private void pictureBox5_Click(object sender, EventArgs e)
         {
 
         }
+
+        private void pictureBox6_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void pictureBox7_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void pictureBox8_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void pictureBox9_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void pictureBox10_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void pictureBox11_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void pictureBox12_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void pictureBox13_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void pictureBox14_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void pictureBox15_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void pictureBox16_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void pictureBox17_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void pictureBox18_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void pictureBox19_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void pictureBox20_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void pictureBox21_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void pictureBox22_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void pictureBox23_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void pictureBox24_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void pictureBox25_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void pictureBox26_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void pictureBox27_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        //Asignando click para cerrar la informacion de la mesa
+        private void Recepcion_MouseClick(object sender, MouseEventArgs e)
+        {
+            groupBox1.Visible = false;
+        }
+
+        private void splitContainer1_Panel1_Paint(object sender, PaintEventArgs e)
+        {
+            groupBox1.Visible = false;
+
+        }
+        private void splitContainer1_Panel2_Paint(object sender, PaintEventArgs e)
+        {
+            groupBox1.Visible = false;
+
+        }
+
+        private void splitContainer1_Panel2_MouseClick(object sender, MouseEventArgs e)
+        {
+            groupBox1.Visible = false;
+        }
+
+        private void splitContainer1_Panel1_Click(object sender, EventArgs e)
+        {
+            groupBox1.Visible = false;
+
+        }
+
+        private void button12_Click(object sender, EventArgs e)
+        {
+            groupBox1.Visible = false;
+
+        }
+        ///Terminando de asignar eventos de click
     }
 }
