@@ -73,6 +73,14 @@ namespace Prueba___Proyecto
             textBox4.Text = "";
         }
 
+        public void LlenarTextboxs()
+        {
+            textBox1.Text = placeholders[0];
+            textBox2.Text = placeholders[1];
+            textBox3.Text = placeholders[2];
+            textBox4.Text = placeholders[3];
+        }
+
         public bool verificarCamposLlenos()
         {
             bool llenos;
@@ -147,6 +155,10 @@ namespace Prueba___Proyecto
                 
                 //Creando la mesa
                 mesas[i] = new PictureBox();
+                //mesas[i].DoubleClick += new EventHandler(DobleClick);
+                mesas[i].DoubleClick += new EventHandler((sender , e ) => DobleClick(sender,e,i));
+
+        
                 //Añadiendole propiedades a cada mesa
                 mesas[i].Size = new Size(80, 80);
                 mesas[i].Location = new Point(posX, posY);
@@ -161,7 +173,15 @@ namespace Prueba___Proyecto
             }
         }
 
+        void DobleClick(object sender, EventArgs e,int i)
+        {
+            string objeto;
+  
+            pictureBox1.Visible = true;
+            MessageBox.Show("LA I : " + i);
+            
 
+        }
 
         private void Recepcion_Load(object sender, EventArgs e)
         {
@@ -313,6 +333,11 @@ namespace Prueba___Proyecto
             accionactual = 2;
             //Vaciando posible informacion ingresada en otros campos 
             vaciarTextboxs();
+            LlenarTextboxs();
+            textBox1.ForeColor = Color.Silver;
+            textBox2.ForeColor = Color.Silver;
+            textBox3.ForeColor = Color.Silver;
+            textBox4.ForeColor = Color.Silver;
 
             //Cambia imagenes al dar click
             button2.BackgroundImage = ((System.Drawing.Image)(Properties.Resources.Reservar));
@@ -327,25 +352,17 @@ namespace Prueba___Proyecto
             accionactual = 1;
             //Vaciando posible informacion ingresada en otros campos 
             vaciarTextboxs();
+            LlenarTextboxs();
+            textBox1.ForeColor = Color.Silver;
+            textBox2.ForeColor = Color.Silver;
+            textBox3.ForeColor = Color.Silver;
+            textBox4.ForeColor = Color.Silver;
 
             //Cambia Imagenes al dar click
             button2.BackgroundImage = ((System.Drawing.Image)(Properties.Resources.Registrar));
             button13.BackgroundImage = ((System.Drawing.Image)(Properties.Resources.Registrar_Seleccionado));
             pictureBox4.BackgroundImage = ((System.Drawing.Image)(Properties.Resources.Datos_Cliente));
         }
-
-        private void button3_Click(object sender, EventArgs e)
-        {
-        }
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-        }
-
-        private void button6_Click(object sender, EventArgs e)
-        {
-        }
-
 
         //Boton de cobrar
         private void button3_Click_1(object sender, EventArgs e)
@@ -354,6 +371,12 @@ namespace Prueba___Proyecto
             accionactual = 3;
             //Vaciando posible informacion ingresada en otros campos 
             vaciarTextboxs();
+            LlenarTextboxs();
+            textBox1.ForeColor = Color.Silver;
+            textBox2.ForeColor = Color.Silver;
+            textBox3.ForeColor = Color.Silver;
+            textBox4.ForeColor = Color.Silver;
+
         }
         private void button13_Click(object sender, EventArgs e)
         {
@@ -403,6 +426,47 @@ namespace Prueba___Proyecto
             }
             else
                 MessageBox.Show("No es la accion");
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            //Asigando como accion actual 1(nuevo cliente)
+            accionactual = 1;
+            //Vaciando posible informacion ingresada en otros campos 
+            vaciarTextboxs();
+            LlenarTextboxs();
+            textBox1.ForeColor = Color.Silver;
+            textBox2.ForeColor = Color.Silver;
+            textBox3.ForeColor = Color.Silver;
+            textBox4.ForeColor = Color.Silver;
+
+            //Cambia Imagenes al dar click
+            button2.BackgroundImage = ((System.Drawing.Image)(Properties.Resources.Registrar));
+            button13.BackgroundImage = ((System.Drawing.Image)(Properties.Resources.Registrar_Seleccionado));
+            pictureBox4.BackgroundImage = ((System.Drawing.Image)(Properties.Resources.Datos_Cliente));
+        }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            //Asigando como accion actual 2(reservar)
+            accionactual = 2;
+            //Vaciando posible informacion ingresada en otros campos 
+            vaciarTextboxs();
+            LlenarTextboxs();
+            textBox1.ForeColor = Color.Silver;
+            textBox2.ForeColor = Color.Silver;
+            textBox3.ForeColor = Color.Silver;
+            textBox4.ForeColor = Color.Silver;
+
+            //Cambia imagenes al dar click
+            button2.BackgroundImage = ((System.Drawing.Image)(Properties.Resources.Reservar));
+            button13.BackgroundImage = ((System.Drawing.Image)(Properties.Resources.Reservar_Seleccionado));
+            pictureBox4.BackgroundImage = ((System.Drawing.Image)(Properties.Resources.Datos_Reservacion));
+        }
+
+        private void splitContainer1_Panel2_Paint(object sender, PaintEventArgs e)
+        {
+
         }
     }
 }
