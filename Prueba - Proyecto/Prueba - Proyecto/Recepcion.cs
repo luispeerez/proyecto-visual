@@ -66,6 +66,7 @@ namespace Prueba___Proyecto
                 pra.Connection = ins_pro.getConexion();
                 pra.ExecuteNonQuery();
                 insertado = "OK";
+                ActualizarMesas();
             }
             else
                 MessageBox.Show("NO DISPONIBLE.");
@@ -557,7 +558,10 @@ namespace Prueba___Proyecto
 
         private void pictureBox7_Click(object sender, EventArgs e)
         {
-
+            pictureBox1.Visible = false;
+            groupBox1.Visible = false;
+            idmesa = "4";
+            textBox4.Text = idmesa;
         }
 
         private void pictureBox8_Click(object sender, EventArgs e)
@@ -1068,6 +1072,19 @@ namespace Prueba___Proyecto
         {
             pictureBox1.Visible = false;
             groupBox1.Visible = false;
+        }
+
+        private void pictureBox5_Click_1(object sender, EventArgs e)
+        {
+            pictureBox1.Visible = false;
+            groupBox1.Visible = false;
+            idmesa = "3";
+            textBox4.Text = idmesa;
+        }
+
+        private void textBox4_Leave(object sender, EventArgs e)
+        {
+            idmesa = textBox4.Text;
         }
         ///Terminando de asignar eventos de click
     }
