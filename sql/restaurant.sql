@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Servidor: localhost
--- Tiempo de generación: 24-11-2013 a las 20:31:28
+-- Tiempo de generación: 26-11-2013 a las 01:25:08
 -- Versión del servidor: 5.5.24-log
 -- Versión de PHP: 5.3.13
 
@@ -28,6 +28,7 @@ SET time_zone = "+00:00";
 
 CREATE TABLE IF NOT EXISTS `alimento` (
   `idalimento` int(11) NOT NULL AUTO_INCREMENT,
+  `nombre` varchar(30) NOT NULL,
   `tipoalimento` varchar(45) DEFAULT NULL,
   `descripcion` varchar(100) DEFAULT NULL,
   `precio` decimal(4,2) DEFAULT NULL,
@@ -45,7 +46,7 @@ CREATE TABLE IF NOT EXISTS `cliente` (
   `nombre` varchar(30) DEFAULT NULL,
   `apellidos` varchar(50) DEFAULT NULL,
   PRIMARY KEY (`idcliente`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;
 
 -- --------------------------------------------------------
 
@@ -116,6 +117,22 @@ CREATE TABLE IF NOT EXISTS `pedido` (
   KEY `idorden` (`idorden`),
   KEY `idalimento` (`idalimento`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `usuario`
+--
+
+CREATE TABLE IF NOT EXISTS `usuario` (
+  `idusuario` int(11) NOT NULL AUTO_INCREMENT,
+  `nombre` varchar(30) COLLATE utf8_unicode_ci NOT NULL,
+  `apellidos` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
+  `nickname` varchar(15) COLLATE utf8_unicode_ci NOT NULL,
+  `pass` varchar(15) COLLATE utf8_unicode_ci NOT NULL,
+  `area` varchar(15) COLLATE utf8_unicode_ci NOT NULL,
+  PRIMARY KEY (`idusuario`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=1 ;
 
 --
 -- Restricciones para tablas volcadas
