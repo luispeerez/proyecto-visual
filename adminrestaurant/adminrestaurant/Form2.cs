@@ -192,12 +192,32 @@ namespace adminrestaurant
         //Llenando los elementos de los combobox que estna en la opcion de modificar con los id de la tabla usuario,alimento y  mesa
         private void llenarCombo(string tabla)
         {
+            int contador;
             //Vaciando todos los elementos cargados anteriormente
 
 
             /*comboBox4.Items.Clear();
             comboBox6.Items.Clear();
             comboBox7.Items.Clear();*/
+
+            if (tabla == "usuario")
+            {
+                if (comboBox4.Items.Count > 0)
+                    for (contador = 0; contador < comboBox4.Items.Count; contador++)
+                        comboBox4.Items.RemoveAt(contador);
+            }
+            else if (tabla == "alimento")
+            {
+                if (comboBox6.Items.Count > 0)
+                    for (contador = 0; contador < comboBox6.Items.Count; contador++)
+                        comboBox6.Items.RemoveAt(contador);
+            }
+            else if (tabla == "mesa")
+            {
+                if (comboBox7.Items.Count > 0)
+                    for (contador = 0; contador < comboBox7.Items.Count; contador++)
+                        comboBox7.Items.RemoveAt(contador);
+            }
 
             int numUsuarios = contarUsuarios(tabla);
             conexion search = new conexion();
@@ -336,7 +356,7 @@ namespace adminrestaurant
             groupBox5.Visible = false;
             groupBox7.Visible = false;
 
-            //Llenando los comobox de usuario y alimento
+            //Llenando los combobox de usuario y alimento
             llenarCombo("usuario");
             llenarCombo("alimento");
             llenarCombo("mesa");
