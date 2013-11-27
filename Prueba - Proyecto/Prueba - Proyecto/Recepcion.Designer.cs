@@ -311,11 +311,11 @@
             // splitContainer1.Panel1
             // 
             this.splitContainer1.Panel1.BackColor = System.Drawing.Color.Transparent;
+            this.splitContainer1.Panel1.Controls.Add(this.pictureBox4);
             this.splitContainer1.Panel1.Controls.Add(this.textBox4);
             this.splitContainer1.Panel1.Controls.Add(this.textBox3);
             this.splitContainer1.Panel1.Controls.Add(this.textBox2);
             this.splitContainer1.Panel1.Controls.Add(this.textBox1);
-            this.splitContainer1.Panel1.Controls.Add(this.pictureBox4);
             this.splitContainer1.Panel1.Click += new System.EventHandler(this.splitContainer1_Panel1_Click);
             this.splitContainer1.Panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.splitContainer1_Panel1_Paint);
             // 
@@ -414,7 +414,7 @@
             this.pictureBox4.BackColor = System.Drawing.Color.Transparent;
             this.pictureBox4.BackgroundImage = global::Prueba___Proyecto.Properties.Resources.Datos_Cliente;
             this.pictureBox4.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.pictureBox4.Location = new System.Drawing.Point(16, 0);
+            this.pictureBox4.Location = new System.Drawing.Point(18, 14);
             this.pictureBox4.Name = "pictureBox4";
             this.pictureBox4.Size = new System.Drawing.Size(330, 317);
             this.pictureBox4.TabIndex = 15;
@@ -822,6 +822,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = global::Prueba___Proyecto.Properties.Resources.Reservacion_v1;
             this.ClientSize = new System.Drawing.Size(1024, 674);
+            this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button13);
             this.Controls.Add(this.panel1);
@@ -835,7 +836,6 @@
             this.Controls.Add(this.button4);
             this.Controls.Add(this.button5);
             this.Controls.Add(this.button7);
-            this.Controls.Add(this.groupBox1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "Recepcion";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;

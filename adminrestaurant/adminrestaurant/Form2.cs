@@ -79,7 +79,12 @@ namespace adminrestaurant
             }
             else
                 comboBox3.Enabled = false;
-            //return resultados;
+
+            //Estatus
+            if (tht.Tables["usuario"].Rows[0][6].ToString() == "No disponible")
+                comboBox10.SelectedIndex = 1;
+            else
+                comboBox10.SelectedIndex = 0;
         }
 
         public void llenarInformacionAlimento(string idAbuscar)
@@ -109,6 +114,12 @@ namespace adminrestaurant
             else
                 comboBox5.SelectedIndex = 3;
 
+            //Estatus
+            if (tht.Tables["alimento"].Rows[0][5].ToString() == "No disponible")
+                comboBox11.SelectedIndex = 1;
+            else
+                comboBox11.SelectedIndex = 0;
+
         }
 
 
@@ -137,7 +148,7 @@ namespace adminrestaurant
         {
             conexion ins_pro = new conexion();
             ins_pro.crearConexion();
-            string inserta = "INSERT INTO usuario (nombre, apellidos,nickname,pass,area) Values ('" + textBox1.Text + "', '" + textBox2.Text + "' , '" + textBox3.Text + "' , '" + textBox4.Text + "' , '"+ comboBox1.SelectedItem +"')";
+            string inserta = "INSERT INTO usuario (nombre, apellidos,nickname,pass,area,estatus) Values ('" + textBox1.Text + "', '" + textBox2.Text + "' , '" + textBox3.Text + "' , '" + textBox4.Text + "' , '"+ comboBox1.SelectedItem +"','"+ comboBox12.SelectedItem +"')";
             MySqlCommand pro = new MySqlCommand(inserta);
             pro.Connection = ins_pro.getConexion();
             pro.ExecuteNonQuery();
@@ -160,7 +171,7 @@ namespace adminrestaurant
         {
             conexion ins_pro = new conexion();
             ins_pro.crearConexion();
-            string inserta = "INSERT INTO alimento (nombre, tipoalimento,descripcion,precio) Values ('" + textBox5.Text + "', '" + comboBox2.SelectedItem + "' , '"+ textBox6.Text +"' , "+ textBox7.Text +")";
+            string inserta = "INSERT INTO alimento (nombre, tipoalimento,descripcion,precio,estatus) Values ('" + textBox5.Text + "', '" + comboBox2.SelectedItem + "' , '"+ textBox6.Text +"' , "+ textBox7.Text +",'"+ comboBox13.SelectedItem +"')";
             MySqlCommand pro = new MySqlCommand(inserta);
             pro.Connection = ins_pro.getConexion();
             pro.ExecuteNonQuery();
@@ -181,6 +192,13 @@ namespace adminrestaurant
         //Llenando los elementos de los combobox que estna en la opcion de modificar con los id de la tabla usuario,alimento y  mesa
         private void llenarCombo(string tabla)
         {
+            //Vaciando todos los elementos cargados anteriormente
+
+
+            /*comboBox4.Items.Clear();
+            comboBox6.Items.Clear();
+            comboBox7.Items.Clear();*/
+
             int numUsuarios = contarUsuarios(tabla);
             conexion search = new conexion();
             search.crearConexion();
@@ -190,6 +208,7 @@ namespace adminrestaurant
             DataSet tht = new DataSet();
             buscarproductos.Connection = search.getConexion();
             cmc.Fill(tht, tabla);
+
 
             for (int i = 0; i < numUsuarios; i++)
             {
@@ -244,7 +263,7 @@ namespace adminrestaurant
             //Actualizacion
             conexion mod = new conexion();
             mod.crearConexion();
-            string actualizar = " UPDATE usuario SET nombre=@C2,apellidos=@C3, nickname=@C4 , pass=@C5 , area=@C6 WHERE idusuario=" + usuarioID + "";
+            string actualizar = " UPDATE usuario SET nombre=@C2,apellidos=@C3, nickname=@C4 , pass=@C5 , area=@C6 , estatus=@C7 WHERE idusuario=" + usuarioID + "";
             MySqlCommand revisa = new MySqlCommand(actualizar);
             revisa.Connection = mod.getConexion();
             revisa.Parameters.AddWithValue("@C2", (textBox8.Text));
@@ -252,6 +271,7 @@ namespace adminrestaurant
             revisa.Parameters.AddWithValue("@C4", (textBox10.Text));
             revisa.Parameters.AddWithValue("@C5", (textBox11.Text));
             revisa.Parameters.AddWithValue("@C6", (comboBox3.SelectedItem.ToString()));
+            revisa.Parameters.AddWithValue("@C7", (comboBox10.SelectedItem.ToString()));
             MessageBox.Show("Registro Modificado ", "Informacion", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
             mod.getConexion();
             revisa.ExecuteNonQuery();
@@ -264,13 +284,14 @@ namespace adminrestaurant
             //Actualizacion
             conexion mod = new conexion();
             mod.crearConexion();
-            string actualizar = " UPDATE alimento SET nombre=@C2,descripcion=@C3, precio=@C4 , tipoalimento=@C5 WHERE idalimento=" + alimentoID + "";
+            string actualizar = " UPDATE alimento SET nombre=@C2,descripcion=@C3, precio=@C4 , tipoalimento=@C5 , estatus=@C6 WHERE idalimento=" + alimentoID + "";
             MySqlCommand revisa = new MySqlCommand(actualizar);
             revisa.Connection = mod.getConexion();
             revisa.Parameters.AddWithValue("@C2", (textBox12.Text));
             revisa.Parameters.AddWithValue("@C3", (textBox13.Text));
             revisa.Parameters.AddWithValue("@C4", (textBox14.Text));
             revisa.Parameters.AddWithValue("@C5", (comboBox5.SelectedItem));
+            revisa.Parameters.AddWithValue("@C6", (comboBox11.SelectedItem));
             MessageBox.Show("Registro Modificado ", "Informacion", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
             mod.getConexion();
             revisa.ExecuteNonQuery();
@@ -329,6 +350,7 @@ namespace adminrestaurant
             
             registrarUsuario();
             llenarGrids();
+            llenarCombo("usuario");
             limpiar();
         }
 
@@ -337,6 +359,7 @@ namespace adminrestaurant
         {
             registrarAlimento();
             llenarGrids();
+            llenarCombo("alimento");
             limpiar();
         }
 
@@ -345,6 +368,7 @@ namespace adminrestaurant
         {
             registrarMesa();
             llenarGrids();
+            llenarCombo("mesa");
             limpiar();
         }
 
@@ -459,6 +483,16 @@ namespace adminrestaurant
             actualizarMesa(comboBox7.SelectedItem.ToString());
             llenarGrids();
             llenarCombo("mesa");
+        }
+
+        private void label30_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void comboBox11_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
         }
 
 

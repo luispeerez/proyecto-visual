@@ -45,7 +45,7 @@ namespace adminrestaurant
         {
             conexion ins_pro = new conexion();
             ins_pro.crearConexion();
-            string inserta = "INSERT INTO usuario (nombre, apellidos,nickname,pass,area) Values ('" + textBox3.Text + "', '" + textBox4.Text + "' , '" + textBox5.Text + "' , '" + textBox6.Text + "' , 'Administrador')";
+            string inserta = "INSERT INTO usuario (nombre, apellidos,nickname,pass,area,estatus) Values ('" + textBox3.Text + "', '" + textBox4.Text + "' , '" + textBox5.Text + "' , '" + textBox6.Text + "' , 'Administrador','Disponible')";
             MySqlCommand pro = new MySqlCommand(inserta);
             pro.Connection = ins_pro.getConexion();
             pro.ExecuteNonQuery();
