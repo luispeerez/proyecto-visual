@@ -27,7 +27,7 @@ namespace Windows_Phone
             string Comando = "SELECT idorden FROM orden ORDER BY idorden DESC LIMIT 1;";
             MySqlCommand Busqueda = new MySqlCommand(Comando, CantidadOrdenes.getConexion());
             string Resultado = (Busqueda.ExecuteScalar()).ToString();
-            Button[] Objeto = new Button[Convert.ToInt32(Resultado)];
+            Button[] Objeto = new Button[Convert.ToInt32(Resultado) - 4]; // Resta 4 porque el id de orden comienza en 5, requiere reseteo.
             int y = 29;
             for (int contador = 0; contador < Objeto.Length; contador++)
             {
@@ -39,16 +39,16 @@ namespace Windows_Phone
                 Objeto[contador].ForeColor = Color.White;
                 panel1.Controls.Add(Objeto[contador]);
                 Objeto[contador].Click += new EventHandler(ClickOrden);
-                Comando = "SELECT idorden FROM orden WHERE idorden = " + (contador + 1) + ";";
+                Comando = "SELECT idorden FROM orden WHERE idorden = " + (contador + 5) + ";"; // Suma 5 porque el id de orden comienza en 5, requiere reseteo.
                 MySqlCommand BusquedaIdOrden = new MySqlCommand(Comando, CantidadOrdenes.getConexion());
                 Resultado = (BusquedaIdOrden.ExecuteScalar()).ToString();
                 Objeto[contador].Name = Resultado;
                 Objeto[contador].Text = "ORDEN " + Resultado;
-                Comando = "SELECT idmesa FROM orden WHERE idorden = " + (contador + 1) + ";";
+                Comando = "SELECT idmesa FROM orden WHERE idorden = " + (contador + 5) + ";"; // Suma 5 porque el id de orden comienza en 5, requiere reseteo.
                 MySqlCommand BusquedaMesa = new MySqlCommand(Comando, CantidadOrdenes.getConexion());
                 Resultado = (BusquedaMesa.ExecuteScalar()).ToString();
                 Objeto[contador].Text += " - MESA " + Resultado;
-                Comando = "SELECT estatus FROM orden WHERE idorden = " + (contador + 1) + ";";
+                Comando = "SELECT estatus FROM orden WHERE idorden = " + (contador + 5) + ";"; // Suma 5 porque el id de orden comienza en 5, requiere reseteo.
                 MySqlCommand BusquedaEstatus = new MySqlCommand(Comando, CantidadOrdenes.getConexion());
                 Resultado = (BusquedaEstatus.ExecuteScalar()).ToString();
                 Objeto[contador].Text += " - ESTATUS " + Resultado;
