@@ -49,7 +49,6 @@ namespace Windows_Phone
                 Objeto[contador].Text = Resultado;
                 y += 60;
             }
-            
         }
 
         public void ClickAlimento(object sender, EventArgs e)
@@ -72,6 +71,23 @@ namespace Windows_Phone
             Valores[2] = Resultado.Tables["Alimento"].Rows[0][2].ToString(); //tipoalimento
             Valores[3] = Resultado.Tables["Alimento"].Rows[0][3].ToString(); //descripcion
             Valores[4] = Resultado.Tables["Alimento"].Rows[0][4].ToString(); //precio
+
+            
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            Menú crear = new Menú();
+            this.Hide();
+            crear.ShowDialog();
+        }
+
+        private void button2_MouseHover(object sender, EventArgs e)
+        {
+        }
+
+        private void button2_MouseLeave(object sender, EventArgs e)
+        {
         }
     }
 }

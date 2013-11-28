@@ -20,6 +20,14 @@ namespace Windows_Phone
         private void button1_Click(object sender, EventArgs e)
         {
             Menú_Alimento crear = new Menú_Alimento();
+            this.Hide();
+            crear.ShowDialog();
+        }
+
+        private void button6_Click(object sender, EventArgs e)
+        {
+            Ordenes crear = new Ordenes();
+            this.Hide();
             crear.ShowDialog();
         }
     }

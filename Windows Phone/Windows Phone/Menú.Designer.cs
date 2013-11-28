@@ -90,6 +90,7 @@
             this.button6.TabIndex = 5;
             this.button6.Text = "ORDENES";
             this.button6.UseVisualStyleBackColor = true;
+            this.button6.Click += new System.EventHandler(this.button6_Click);
             // 
             // Menú
             // 
@@ -97,7 +98,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = global::Windows_Phone.Properties.Resources.lumia_back;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.ClientSize = new System.Drawing.Size(404, 712);
+            this.ClientSize = new System.Drawing.Size(404, 709);
             this.Controls.Add(this.button6);
             this.Controls.Add(this.button5);
             this.Controls.Add(this.button4);
