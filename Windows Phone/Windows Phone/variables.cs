@@ -11,7 +11,7 @@ namespace Windows_Phone
         static string servidor = "localhost";
         static string db = "restaurant";
         static string usuario = "root";
-        static string pass = "";
+        static string pass = "ZEROEIVF1992";
 
         public static string Servidor
         {
@@ -36,12 +36,29 @@ namespace Windows_Phone
             get { return variables.pass; }
             set { variables.pass = value; }
         }
-        static int cantidadMesas;
 
-        public static int CantidadMesas
+        static string NumeroOrden;
+
+        public static string numeroorden
         {
-            get { return variables.cantidadMesas; }
-            set { variables.cantidadMesas = value; }
+            get { return variables.NumeroOrden; }
+            set { variables.NumeroOrden = value; }
+        }
+
+        static int Idmesero;
+
+        public static int idmesero
+        {
+            get { return variables.Idmesero; }
+            set { variables.Idmesero = value; }
+        }
+
+        static string Nombre;
+
+        public static string nombre
+        {
+            get { return variables.Nombre; }
+            set { variables.Nombre = value; }
         }
     }
 }

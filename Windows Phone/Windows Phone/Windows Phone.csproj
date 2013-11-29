@@ -74,6 +74,12 @@
     <Compile Include="LogIn.Designer.cs">
       <DependentUpon>LogIn.cs</DependentUpon>
     </Compile>
+    <Compile Include="Menú Plato.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Menú Plato.Designer.cs">
+      <DependentUpon>Menú Plato.cs</DependentUpon>
+    </Compile>
     <Compile Include="Menú-Alimento.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -86,11 +92,29 @@
     <Compile Include="Menú.Designer.cs">
       <DependentUpon>Menú.cs</DependentUpon>
     </Compile>
+    <Compile Include="Menú_Bebidas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Menú_Bebidas.Designer.cs">
+      <DependentUpon>Menú_Bebidas.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Menú_Postre.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Menú_Postre.Designer.cs">
+      <DependentUpon>Menú_Postre.cs</DependentUpon>
+    </Compile>
     <Compile Include="Ordenes.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Ordenes.Designer.cs">
       <DependentUpon>Ordenes.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Pedidos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Pedidos.Designer.cs">
+      <DependentUpon>Pedidos.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -98,14 +122,26 @@
     <EmbeddedResource Include="LogIn.resx">
       <DependentUpon>LogIn.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Menú Plato.resx">
+      <DependentUpon>Menú Plato.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Menú-Alimento.resx">
       <DependentUpon>Menú-Alimento.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Menú.resx">
       <DependentUpon>Menú.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Menú_Bebidas.resx">
+      <DependentUpon>Menú_Bebidas.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Menú_Postre.resx">
+      <DependentUpon>Menú_Postre.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Ordenes.resx">
       <DependentUpon>Ordenes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Pedidos.resx">
+      <DependentUpon>Pedidos.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

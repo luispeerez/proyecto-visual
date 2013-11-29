@@ -12,9 +12,9 @@ using MySql.Data.MySqlClient;
 
 namespace Windows_Phone
 {
-    public partial class Menú_Alimento : Form
+    public partial class Menú_Postre : Form
     {
-        public Menú_Alimento()
+        public Menú_Postre()
         {
             InitializeComponent();
             VerificaAlimentos();
@@ -39,7 +39,7 @@ namespace Windows_Phone
                 Comando = "SELECT estatus FROM alimento WHERE idalimento = " + (contador + 1) + ";";
                 MySqlCommand BusquedaEstatus = new MySqlCommand(Comando, CantidadAlimentos.getConexion());
                 string ResultadoEstatus = (BusquedaEstatus.ExecuteScalar()).ToString();
-                if (ResultadoTipo == "Entrada" && ResultadoEstatus == "Disponible")
+                if (ResultadoTipo == "Postre" && ResultadoEstatus == "Disponible")
                 {
                     Objeto[contador] = new Button();
                     Objeto[contador].Size = new Size(260, 52);
@@ -98,19 +98,11 @@ namespace Windows_Phone
             }
         }
 
-        private void button2_Click(object sender, EventArgs e)
+        private void button4_Click(object sender, EventArgs e)
         {
             Menú crear = new Menú();
             this.Hide();
             crear.ShowDialog();
-        }
-
-        private void button2_MouseHover(object sender, EventArgs e)
-        {
-        }
-
-        private void button2_MouseLeave(object sender, EventArgs e)
-        {
         }
 
         private void button3_Click(object sender, EventArgs e)
@@ -121,7 +113,7 @@ namespace Windows_Phone
             crear.ShowDialog();
         }
 
-        private void button4_Click(object sender, EventArgs e)
+        private void button2_Click(object sender, EventArgs e)
         {
             Menú crear = new Menú();
             this.Hide();
