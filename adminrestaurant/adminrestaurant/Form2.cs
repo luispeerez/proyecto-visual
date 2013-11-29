@@ -14,6 +14,9 @@ namespace adminrestaurant
 {
     public partial class Form2 : Form
     {
+        //Asignando el numero maximo de mesas que pueden estar disponibles
+        int numeroMaxmesas = 4;
+
         //Funcion para llenar todos los datagrids (Usuario,Alimento y Mesa)
         private void llenarGrids()
         {
@@ -167,6 +170,18 @@ namespace adminrestaurant
             return resultadoQuery;
         }
 
+        public int contarMesasDisponibles()
+        {
+            int resultadoQuery;
+            conexion search = new conexion();
+            search.crearConexion();
+            string search3 = "SELECT COUNT(*) FROM mesa WHERE estatus='Disponible' OR estatus='Reservada' OR estatus='Ocupada'";
+            MySqlCommand buscarproductos = new MySqlCommand(search3, search.getConexion());
+            resultadoQuery = Convert.ToInt32(buscarproductos.ExecuteScalar());
+
+            return resultadoQuery;
+        }
+
         private void registrarAlimento()
         {
             conexion ins_pro = new conexion();
@@ -195,28 +210,26 @@ namespace adminrestaurant
             int contador;
             //Vaciando todos los elementos cargados anteriormente
 
-
-            /*comboBox4.Items.Clear();
-            comboBox6.Items.Clear();
-            comboBox7.Items.Clear();*/
-
             if (tabla == "usuario")
             {
-                if (comboBox4.Items.Count > 0)
+                /*if (comboBox4.Items.Count > 0)
                     for (contador = 0; contador < comboBox4.Items.Count; contador++)
-                        comboBox4.Items.RemoveAt(contador);
+                        comboBox4.Items.RemoveAt(contador);*/
+                comboBox4.Items.Clear();
             }
             else if (tabla == "alimento")
             {
-                if (comboBox6.Items.Count > 0)
+                /*if (comboBox6.Items.Count > 0)
                     for (contador = 0; contador < comboBox6.Items.Count; contador++)
-                        comboBox6.Items.RemoveAt(contador);
+                        comboBox6.Items.RemoveAt(contador);*/
+                comboBox6.Items.Clear();
             }
             else if (tabla == "mesa")
             {
-                if (comboBox7.Items.Count > 0)
+                /*if (comboBox7.Items.Count > 0)
                     for (contador = 0; contador < comboBox7.Items.Count; contador++)
-                        comboBox7.Items.RemoveAt(contador);
+                        comboBox7.Items.RemoveAt(contador);*/
+                comboBox7.Items.Clear();
             }
 
             int numUsuarios = contarUsuarios(tabla);
@@ -367,29 +380,94 @@ namespace adminrestaurant
         //Boton para agregar usuario
         private void button1_Click(object sender, EventArgs e)
         {
-            
-            registrarUsuario();
-            llenarGrids();
-            llenarCombo("usuario");
-            limpiar();
+            try
+            {
+                //Verificando si los campos estan llenos
+                if (textBox1.Text != "" && textBox2.Text != "" && textBox3.Text != "" && textBox4.Text != "" && comboBox1.SelectedItem.ToString() != "" && comboBox12.SelectedItem.ToString() != "")
+                {
+                    registrarUsuario();
+                    llenarGrids();
+                    llenarCombo("usuario");
+                    limpiar();
+                }
+                else
+                {
+                    MessageBox.Show("Formato invalido o incompleto");
+                }
+            }
+            catch (Exception error)
+            {
+                MessageBox.Show("Formato invalido o incompleto");
+            }
         }
 
         //Boton para agregar alimento
         private void button2_Click(object sender, EventArgs e)
         {
-            registrarAlimento();
-            llenarGrids();
-            llenarCombo("alimento");
-            limpiar();
+            try
+            {
+                //Verificando si los campos estan llenos
+                if (textBox5.Text != "" && textBox6.Text != "" && textBox7.Text != "" && textBox10.Text != "" && comboBox2.SelectedItem.ToString() != "" && comboBox13.SelectedItem.ToString() != "")
+                {
+                    registrarAlimento();
+                    llenarGrids();
+                    llenarCombo("alimento");
+                    limpiar();
+                }
+                else
+                {
+                    MessageBox.Show("Formato invalido o incompleto");
+                }
+            }
+            catch (Exception error)
+            {
+                MessageBox.Show("Formato invalido o incompleto");
+
+            }
         }
 
         //Boton para agregar mesa
         private void button6_Click(object sender, EventArgs e)
         {
-            registrarMesa();
-            llenarGrids();
-            llenarCombo("mesa");
-            limpiar();
+            try
+            {
+                //Verificando si los campos estan llenos
+                if (numericUpDown1.Value > 0 && comboBox9.SelectedItem.ToString() != "")
+                {
+                    //Verifica que entre en el rango de mesas disponibles
+                    if (contarMesasDisponibles() < numeroMaxmesas)
+                    {
+                        MessageBox.Show("numero de mesas disponibles: " + contarMesasDisponibles());
+                        registrarMesa();
+                        llenarGrids();
+                        llenarCombo("mesa");
+                        limpiar();
+                    }
+                    else
+                    {
+                        //Si no esta en el rango aun asi lo añade si es que la agrega como no disponible
+                        if (comboBox9.SelectedItem.ToString() != "Disponible")
+                        {
+                            registrarMesa();
+                            llenarGrids();
+                            llenarCombo("mesa");
+                            limpiar();
+                        }
+                        //Si agrega la mesa como disponible , se enseña un mensaje de error
+                        else
+                            MessageBox.Show("El numero de mesas disponibles ha llegado al maximo, modifica algula mesa para poder registrar una mesa disponible");
+
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Formato invalido o incompleto");
+                }
+            }
+            catch (Exception error)
+            {
+                MessageBox.Show("Formato invalido o incompleto");
+            }
         }
 
         //Radio buttons de la seccion de usuarios
@@ -484,25 +562,90 @@ namespace adminrestaurant
         //Boton para modificar al usuario
         private void button3_Click(object sender, EventArgs e)
         {
-            actualizarUsuario(comboBox4.SelectedItem.ToString());
-            llenarGrids();
-            llenarCombo("usuario");
+            try
+            {
+                //Verificando si los campos estan llenos
+                if (textBox8.Text != "" && textBox9.Text != "" && textBox10.Text != "" && textBox11.Text != "" && comboBox3.SelectedItem.ToString() != "" && comboBox4.SelectedItem.ToString() != "" && comboBox10.SelectedItem.ToString() != "")
+                {
+                    actualizarUsuario(comboBox4.SelectedItem.ToString());
+                    llenarGrids();
+                    llenarCombo("usuario");
+                }
+                else
+                {
+                    MessageBox.Show("Formato invalido o incompleto");
+                }
+            }
+            catch (Exception error)
+            {
+                MessageBox.Show("Formato invalido o incompleto");
+            }
         }
 
         //Boton para modificar al alimento
         private void button4_Click(object sender, EventArgs e)
         {
-            actualizarAlimento(comboBox6.SelectedItem.ToString());
-            llenarGrids();
-            llenarCombo("alimento");
+            try
+            {
+                //Verificando si los campos estan llenos
+                if (textBox12.Text != "" && textBox13.Text != "" && textBox14.Text != "" && comboBox5.SelectedItem.ToString() != "" && comboBox11.SelectedItem.ToString() != "" && comboBox6.SelectedItem.ToString() != "")
+                {
+                    actualizarAlimento(comboBox6.SelectedItem.ToString());
+                    llenarGrids();
+                    llenarCombo("alimento");
+                }
+                else
+                {
+                    MessageBox.Show("Formato invalido o incompleto");
+                }
+            }
+            catch (Exception error)
+            {
+                MessageBox.Show("Formato invalido o incompleto");
+
+            }
         }
 
         //Boton para modificar la mesa
         private void button5_Click(object sender, EventArgs e)
         {
-            actualizarMesa(comboBox7.SelectedItem.ToString());
-            llenarGrids();
-            llenarCombo("mesa");
+            try
+            {
+                //Verificando si los campos estan llenos
+                if (numericUpDown3.Value > 0 && comboBox8.SelectedItem.ToString() != "" && comboBox7.SelectedItem.ToString() != "")
+                {
+                    //Verifica que entre en el rango de mesas disponibles
+                    if (contarMesasDisponibles() < numeroMaxmesas)
+                    {
+                        actualizarMesa(comboBox7.SelectedItem.ToString());
+                        llenarGrids();
+                        llenarCombo("mesa");
+                    }
+                    else
+                    {
+                        //Si no esta en el rango aun asi lo añade si es que la modifica como no disponible
+                        if (comboBox7.SelectedItem.ToString() != "Disponible")
+                        {
+                            actualizarMesa(comboBox7.SelectedItem.ToString());
+                            llenarGrids();
+                            llenarCombo("mesa");
+                        }
+                        //Si modifica la mesa como disponible , se enseña un mensaje de error
+                        else
+                            MessageBox.Show("El numero de mesas disponibles ha llegado al maximo, modifica algula mesa para poder registrar una mesa disponible");
+
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Formato invalido o incompleto");
+                }
+            }
+            catch (Exception error)
+            {
+                MessageBox.Show("Formato invalido o incompleto");
+            }
+
         }
 
         private void label30_Click(object sender, EventArgs e)
@@ -513,6 +656,47 @@ namespace adminrestaurant
         private void comboBox11_SelectedIndexChanged(object sender, EventArgs e)
         {
 
+        }
+
+        //Asignando eventos cuando se llena el ultimo campo de cada formulario
+        //Seccion de usuarios
+        private void comboBox12_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if ((int)e.KeyChar == (int)Keys.Enter)
+            {
+                button1.Focus();
+                return;
+            }
+        }
+
+        private void comboBox10_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if ((int)e.KeyChar == (int)Keys.Enter)
+            {
+                button3.Focus();
+                return;
+            }
+        }
+
+        //Solo admitiendo numeros cuando se asigna el precio de un alimento
+        private void textBox14_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!(char.IsNumber(e.KeyChar)) && (e.KeyChar != (char)Keys.Back) && (e.KeyChar != '.'))
+            {
+                MessageBox.Show("Solo se admiten numeros.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                e.Handled = true;
+                return;
+            }
+        }
+
+        private void textBox7_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!(char.IsNumber(e.KeyChar)) && (e.KeyChar != (char)Keys.Back) && (e.KeyChar != '.'))
+            {
+                MessageBox.Show("Solo se admiten numeros.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                e.Handled = true;
+                return;
+            }
         }
 
 

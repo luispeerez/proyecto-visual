@@ -29,6 +29,25 @@ namespace adminrestaurant
             return resultadoQuery;
         }
 
+
+        //Verificar que el usuario sea el administrador
+        public bool verificarAdmin()
+        {
+            string resultadoQuery;
+            bool resultado;
+            conexion search = new conexion();
+            search.crearConexion();
+            string search3 = "SELECT area FROM usuario WHERE (nickname = '" + textBox1.Text + "') AND (pass = '" + textBox2.Text + "') ";
+            MySqlCommand buscarproductos = new MySqlCommand(search3, search.getConexion());
+            resultadoQuery = (buscarproductos.ExecuteScalar()).ToString();
+            if (resultadoQuery == "Administrador")
+                resultado = true;
+            else
+                resultado = false;
+ 
+            return resultado;
+        }
+
         public int contarUsuarios()
         {
             int resultadoQuery;
@@ -52,6 +71,19 @@ namespace adminrestaurant
             MessageBox.Show("Se ha ingresado satisfactoriamente", "Insercion exitosa", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
+        public void limpiar()
+        {
+            //Campos del login normal
+            textBox1.Text = "";
+            textBox2.Text = "";
+
+            //Campos del sign up de administrador(ventana que sale por primera vez)
+            textBox3.Text = "";
+            textBox4.Text = "";
+            textBox5.Text = "";
+            textBox6.Text = "";
+        }
+
         public Form1()
         {
             InitializeComponent();
@@ -66,6 +98,7 @@ namespace adminrestaurant
                 button1.Visible = false;
                 textBox3.Focus();
             }
+            //De lo contrario aparece el formulario para registrar al administrador
             else
             {
                 groupBox1.Visible = false;
@@ -76,27 +109,80 @@ namespace adminrestaurant
 
         private void button1_Click(object sender, EventArgs e)
         {
-            //Verificando que el usuario este registrado previamente en la tabla
-            if (verificarUsuario() != 0)
+            try
             {
-                variables.UsuarioActivo = textBox1.Text;
-                this.Hide();
-                Form2 panel = new Form2();
-                panel.ShowDialog();
+                if (textBox1.Text != "" && textBox2.Text != "")
+                {
+                    //Verificando que el usuario este registrado previamente en la tabla
+                    if (verificarUsuario() != 0)
+                    {
+                        //Verificando que el usuario tenga permisos de administrador
+                        if (verificarAdmin() == true)
+                        {
+                            variables.UsuarioActivo = textBox1.Text;
+                            this.Hide();
+                            Form2 panel = new Form2();
+                            panel.ShowDialog();
+                        }
+                        else
+                        {
+                            MessageBox.Show("El usuario no cuenta con permisos de administrador");
+                        }
+                    }
+                    else
+                    {
+                        MessageBox.Show("Usuario o contraseña incorrecta");
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("El formato es invalido o incompleto");
+                }
             }
-            else
+            catch (Exception error)
             {
-                MessageBox.Show("Usuario o contraseña incorrecta");
-                textBox1.Text = "";
-                textBox2.Text = "";
+                MessageBox.Show("El formato es invalido");
             }
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
-            registrarAdmin();
-            button1.Visible = true;
-            groupBox1.Visible = false;
+            try
+            {
+                if (textBox3.Text != "" && textBox4.Text != "" && textBox5.Text != "" && textBox6.Text != "")
+                {
+                    registrarAdmin();
+                    button1.Visible = true;
+                    groupBox1.Visible = false;
+                }
+                else
+                {
+                    MessageBox.Show("El formato es invalido");
+                }
+            }
+            catch (Exception error)
+            {
+                MessageBox.Show("El formato es invalido");
+            }
+        }
+
+        //Asignando eventos cuando se llena el ultimo campo de cada formulario
+        private void textBox6_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if ((int)e.KeyChar == (int)Keys.Enter)
+            {
+                button2.PerformClick();
+                return;
+            }
+        }
+
+        private void textBox2_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if ((int)e.KeyChar == (int)Keys.Enter)
+            {
+                button1.PerformClick();
+                return;
+            }
         }
     }
 }
