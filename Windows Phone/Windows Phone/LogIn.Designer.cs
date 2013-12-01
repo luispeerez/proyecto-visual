@@ -64,7 +64,7 @@
             // button1
             // 
             this.button1.BackColor = System.Drawing.Color.Transparent;
-            this.button1.BackgroundImage = global::Windows_Phone.Properties.Resources.NEXTV2;
+            this.button1.BackgroundImage = global::Windows_Phone.Properties.Resources.NEXTV3;
             this.button1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.button1.Cursor = System.Windows.Forms.Cursors.Cross;
             this.button1.FlatAppearance.BorderSize = 0;
@@ -116,7 +116,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackgroundImage = global::Windows_Phone.Properties.Resources.LogIn;
+            this.BackgroundImage = global::Windows_Phone.Properties.Resources.lumia_background;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.ClientSize = new System.Drawing.Size(404, 709);
             this.Controls.Add(this.pictureBox1);

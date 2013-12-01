@@ -30,7 +30,7 @@ namespace Windows_Phone
             MySqlCommand Busqueda = new MySqlCommand(Comando, CantidadAlimentos.getConexion());
             string Resultado = (Busqueda.ExecuteScalar()).ToString();
             Button[] Objeto = new Button[Convert.ToInt32(Resultado)];
-            int y = 29;
+            int y = 1;
             for (int contador = 0; contador < Objeto.Length; contador++)
             {
                 Comando = "SELECT tipoalimento FROM alimento WHERE idalimento = " + (contador + 1) + ";";
@@ -42,11 +42,17 @@ namespace Windows_Phone
                 if (ResultadoTipo == "Plato fuerte" && ResultadoEstatus == "Disponible")
                 {
                     Objeto[contador] = new Button();
-                    Objeto[contador].Size = new Size(260, 52);
+                    Objeto[contador].Size = new Size(260, 42);
                     Objeto[contador].Location = new Point(3, y);
                     Objeto[contador].FlatStyle = FlatStyle.Flat;
-                    Objeto[contador].BackColor = Color.SlateGray;
+                    Objeto[contador].BackColor = Color.Transparent;
+                    Objeto[contador].FlatAppearance.MouseDownBackColor = Color.Transparent;
+                    Objeto[contador].FlatAppearance.MouseOverBackColor = Color.Transparent;
+                    Objeto[contador].FlatAppearance.BorderSize = 0;
                     Objeto[contador].ForeColor = Color.White;
+                    Objeto[contador].TextAlign = ContentAlignment.MiddleLeft;
+                    Objeto[contador].Cursor = Cursors.Cross;
+                    Objeto[contador].Font = new Font("Microsoft Sans Serif", 12);
                     panel1.Controls.Add(Objeto[contador]);
                     Objeto[contador].Click += new EventHandler(ClickAlimento);
                     Comando = "SELECT idalimento FROM alimento WHERE idalimento = " + (contador + 1) + ";";
@@ -57,7 +63,7 @@ namespace Windows_Phone
                     MySqlCommand BusquedaNombre = new MySqlCommand(Comando, CantidadAlimentos.getConexion());
                     Resultado = (BusquedaNombre.ExecuteScalar()).ToString();
                     Objeto[contador].Text = Resultado;
-                    y += 60;
+                    y += 50;
                 }
             }
             CantidadAlimentos.cerrarConexion();
@@ -89,13 +95,6 @@ namespace Windows_Phone
 
 
         private void button4_Click(object sender, EventArgs e)
-        {
-            Menú crear = new Menú();
-            this.Hide();
-            crear.ShowDialog();
-        }
-
-        private void button2_Click(object sender, EventArgs e)
         {
             Menú crear = new Menú();
             this.Hide();

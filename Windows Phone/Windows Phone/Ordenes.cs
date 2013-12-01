@@ -43,13 +43,20 @@ namespace Windows_Phone
                     if (Estatus == "ABIERTA")
                     {
                         Objeto[contador] = new Button();
-                        Objeto[contador].Size = new Size(260, 52);
+                        Objeto[contador].Size = new Size(260, 62);
                         Objeto[contador].Location = new Point(3, y);
                         Objeto[contador].FlatStyle = FlatStyle.Flat;
-                        Objeto[contador].BackColor = Color.SlateGray;
+                        Objeto[contador].BackColor = Color.Transparent;
+                        Objeto[contador].FlatAppearance.MouseDownBackColor = Color.Transparent;
+                        Objeto[contador].FlatAppearance.MouseOverBackColor = Color.Transparent;
+                        Objeto[contador].FlatAppearance.BorderSize = 0;
                         Objeto[contador].ForeColor = Color.White;
+                        Objeto[contador].TextAlign = ContentAlignment.MiddleLeft;
+                        Objeto[contador].Cursor = Cursors.Cross;
+                        Objeto[contador].Font = new Font("Microsoft Sans Serif", 10);
                         panel1.Controls.Add(Objeto[contador]);
                         Objeto[contador].Click += new EventHandler(ClickOrden);
+                        Objeto[contador].LostFocus += new EventHandler(CambiarColor);
                         Comando = "SELECT idorden FROM orden WHERE idorden = " + (contador + 23) + ";"; // Suma 23 porque el id de orden comienza en 23, requiere reseteo.
                         MySqlCommand BusquedaIdOrden = new MySqlCommand(Comando, CantidadOrdenes.getConexion());
                         Resultado = (BusquedaIdOrden.ExecuteScalar()).ToString();
@@ -58,7 +65,7 @@ namespace Windows_Phone
                         Comando = "SELECT idmesa FROM orden WHERE idorden = " + (contador + 23) + ";"; // Suma 23 porque el id de orden comienza en 23, requiere reseteo.
                         MySqlCommand BusquedaMesa = new MySqlCommand(Comando, CantidadOrdenes.getConexion());
                         Resultado = (BusquedaMesa.ExecuteScalar()).ToString();
-                        Objeto[contador].Text += " - MESA " + Resultado;
+                        Objeto[contador].Text += "\nMESA " + Resultado;
                         Comando = "SELECT estatus FROM orden WHERE idorden = " + (contador + 23) + ";"; // Suma 23 porque el id de orden comienza en 23, requiere reseteo.
                         MySqlCommand BusquedaEstatus = new MySqlCommand(Comando, CantidadOrdenes.getConexion());
                         Resultado = (BusquedaEstatus.ExecuteScalar()).ToString();
@@ -89,6 +96,13 @@ namespace Windows_Phone
             crear.ShowDialog();
         }
 
+        public void CambiarColor(object sender, EventArgs e)
+        {
+            Button boton = sender as Button;
+            boton.ForeColor = Color.White;
+
+        }
+
         private void button2_Click(object sender, EventArgs e)
         {
             panel2.Visible = true;
@@ -106,7 +120,7 @@ namespace Windows_Phone
                 MySqlCommand Busqueda = new MySqlCommand(Comando, Mesas.getConexion());
                 string Resultado = (Busqueda.ExecuteScalar()).ToString();
                 Mesas.cerrarConexion();
-                if (Resultado == "Disponible")
+                if (Resultado == "Ocupada")
                 {
                     //CREA LA NUEVA ORDEN
                     Conexion Crear_Orden = new Conexion();
@@ -121,11 +135,11 @@ namespace Windows_Phone
                     panel2.Visible = false;
                 }
                 else
-                    textBox1.Text = "Sin clientes en la mesa " + textBox1.Text + ".";
+                    textBox1.Text = "MESA " + textBox1.Text + "DISPONIBLE.";
             }
             catch (Exception)
             {
-                textBox1.Text = "No existe la mesa " + textBox1.Text + ".";
+                textBox1.Text = "NO EXISTE LA MESA. " + textBox1.Text + ".";
             }
         }
 

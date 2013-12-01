@@ -113,7 +113,8 @@ namespace Windows_Phone
                 Objeto.Size = new Size(306, 28);
                 Objeto.Location = new Point(1, 1);
                 Objeto.FlatStyle = FlatStyle.Flat;
-                Objeto.BackColor = Color.SlateGray;
+                Objeto.BackColor = Color.Transparent;
+                Objeto.FlatAppearance.BorderSize = 0;
                 Objeto.ForeColor = Color.White;
                 panel1.Controls.Add(Objeto);
                 Objeto.Click += new EventHandler(ClickPedido);

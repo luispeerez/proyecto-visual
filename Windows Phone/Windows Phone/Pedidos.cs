@@ -34,7 +34,7 @@ namespace Windows_Phone
                 int Resultado = Convert.ToInt32(ObtenerCantidad.ExecuteScalar());
                 CantidadPedidos.cerrarConexion();
                 Button[] Objeto = new Button[Convert.ToInt32(Resultado)];
-                int y = 29;
+                int y = 1;
                 for (int contador = 0; contador < Objeto.Length; contador++)
                 {
                     Conexion Busqueda = new Conexion();
@@ -45,13 +45,20 @@ namespace Windows_Phone
                     if (IdOrden == variables.numeroorden)
                     {
                         Objeto[contador] = new Button();
-                        Objeto[contador].Size = new Size(260, 52);
+                        Objeto[contador].Size = new Size(260, 62);
                         Objeto[contador].Location = new Point(3, y);
                         Objeto[contador].FlatStyle = FlatStyle.Flat;
-                        Objeto[contador].BackColor = Color.SlateGray;
+                        Objeto[contador].BackColor = Color.Transparent;
+                        Objeto[contador].FlatAppearance.MouseDownBackColor = Color.Transparent;
+                        Objeto[contador].FlatAppearance.MouseOverBackColor = Color.Transparent;
+                        Objeto[contador].FlatAppearance.BorderSize = 0;
                         Objeto[contador].ForeColor = Color.White;
+                        Objeto[contador].TextAlign = ContentAlignment.MiddleLeft;
+                        Objeto[contador].Cursor = Cursors.Cross;
+                        Objeto[contador].Font = new Font("Microsoft Sans Serif", 10);
                         panel1.Controls.Add(Objeto[contador]);
                         Objeto[contador].Click += new EventHandler(ClickPedido);
+                        Objeto[contador].LostFocus += new EventHandler(CambiarColor);
                         Objeto[contador].Name = (contador + 1).ToString();
                         Objeto[contador].Text = "ORDEN " + variables.numeroorden;
 
@@ -63,13 +70,13 @@ namespace Windows_Phone
                         MySqlCommand BusquedaNombre = new MySqlCommand(Comando, Busqueda.getConexion());
                         string Nombre = (BusquedaNombre.ExecuteScalar()).ToString();
 
-                        Objeto[contador].Text += " - PEDIDO " + Nombre;
+                        Objeto[contador].Text += "\nPEDIDO " + Nombre;
 
                         Comando = "SELECT estatus FROM pedido WHERE idpedido = " + (contador + 1) + ";";
                         MySqlCommand BusquedaEstatus = new MySqlCommand(Comando, Busqueda.getConexion());
                         string Estatus = (BusquedaEstatus.ExecuteScalar()).ToString();
                         Objeto[contador].Text += " - ESTADO " + Estatus;
-                        y += 60;
+                        y += 70;
                     }
                     Busqueda.cerrarConexion();
                 }
@@ -85,7 +92,15 @@ namespace Windows_Phone
             Button boton = sender as Button;
             if (boton != null)
                 IdObjeto = boton.Name;
+            boton.ForeColor = Color.Gold;
             panel2.Visible = true;
+
+        }
+
+        public void CambiarColor(object sender, EventArgs e)
+        {
+            Button boton = sender as Button;
+            boton.ForeColor = Color.White;
 
         }
 
@@ -103,14 +118,6 @@ namespace Windows_Phone
             this.Hide();
             crear.ShowDialog();
         }
-
-        private void button2_Click(object sender, EventArgs e)
-        {
-            Menú crear = new Menú();
-            this.Hide();
-            crear.ShowDialog();
-        }
-
         private void button5_Click(object sender, EventArgs e)
         {
             Conexion Modificar = new Conexion();

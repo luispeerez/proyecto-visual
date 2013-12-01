@@ -228,6 +228,30 @@
   <ItemGroup>
     <None Include="Resources\Bebidas.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\lumia background.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\NEXTV3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Mensaje.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\BackV2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\add.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\addmini.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\close.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\lumia back1.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
