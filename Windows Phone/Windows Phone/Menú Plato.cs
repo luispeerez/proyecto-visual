@@ -60,38 +60,26 @@ namespace Windows_Phone
                     y += 60;
                 }
             }
+            CantidadAlimentos.cerrarConexion();
             panel1.Focus();
         }
 
         public void ClickAlimento(object sender, EventArgs e)
         {
             string IdObjeto = "";
-            string[] Valores = new string[5];
             Button boton = sender as Button;
             if (boton != null)
                 IdObjeto = boton.Name;
-            //Conexion Datos = new Conexion();
-            //Datos.crearConexion();
-            //string Comando = "SELECT *FROM alimento WHERE idalimento = " + IdObjeto + ";";
-            //MySqlCommand Busqueda = new MySqlCommand(Comando, Datos.getConexion());
-            //MySqlDataAdapter Vuelta = new MySqlDataAdapter(Busqueda);
-            //DataSet Resultado = new DataSet();
-            //Busqueda.Connection = Datos.getConexion();
-            //Vuelta.Fill(Resultado, "Alimento");
-            //Valores[0] = Resultado.Tables["Alimento"].Rows[0][0].ToString(); //idalimento
-            //Valores[1] = Resultado.Tables["Alimento"].Rows[0][1].ToString(); //nombre
-            //Valores[2] = Resultado.Tables["Alimento"].Rows[0][2].ToString(); //tipoalimento
-            //Valores[3] = Resultado.Tables["Alimento"].Rows[0][3].ToString(); //descripcion
-            //Valores[4] = Resultado.Tables["Alimento"].Rows[0][4].ToString(); //precio
 
             if (variables.numeroorden != " - ")
             {
                 Conexion Crear_Pedido = new Conexion();
                 Crear_Pedido.crearConexion();
-                string Comando = "INSERT INTO pedido (idorden, idalimento, estatus) values (" + variables.numeroorden + "," + IdObjeto + ", 'Pendiente')";
+                string Comando = "INSERT INTO pedido (idorden, idalimento, estatus, actualizado) values (" + variables.numeroorden + "," + IdObjeto + ", 'Pendiente', 1)";
                 MySqlCommand Insercion = new MySqlCommand(Comando);
                 Insercion.Connection = Crear_Pedido.getConexion();
                 Insercion.ExecuteNonQuery();
+                Crear_Pedido.cerrarConexion();
                 Menú crear = new Menú();
                 this.Hide();
                 crear.ShowDialog();

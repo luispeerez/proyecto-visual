@@ -1,0 +1,11 @@
+c:\users\zero vivanco\documents\visual studio 2012\Projects\Cocina - Proyecto\Cocina - Proyecto\bin\Debug\Cocina - Proyecto.exe.config
+c:\users\zero vivanco\documents\visual studio 2012\Projects\Cocina - Proyecto\Cocina - Proyecto\bin\Debug\Cocina - Proyecto.exe
+c:\users\zero vivanco\documents\visual studio 2012\Projects\Cocina - Proyecto\Cocina - Proyecto\bin\Debug\Cocina - Proyecto.pdb
+c:\users\zero vivanco\documents\visual studio 2012\Projects\Cocina - Proyecto\Cocina - Proyecto\bin\Debug\MySql.Data.dll
+c:\users\zero vivanco\documents\visual studio 2012\Projects\Cocina - Proyecto\Cocina - Proyecto\bin\Debug\MySql.Data.Entity.dll
+c:\users\zero vivanco\documents\visual studio 2012\Projects\Cocina - Proyecto\Cocina - Proyecto\obj\Debug\Cocina - Proyecto.csprojResolveAssemblyReference.cache
+c:\users\zero vivanco\documents\visual studio 2012\Projects\Cocina - Proyecto\Cocina - Proyecto\obj\Debug\Cocina___Proyecto.Properties.Resources.resources
+c:\users\zero vivanco\documents\visual studio 2012\Projects\Cocina - Proyecto\Cocina - Proyecto\obj\Debug\Cocina - Proyecto.csproj.GenerateResource.Cache
+c:\users\zero vivanco\documents\visual studio 2012\Projects\Cocina - Proyecto\Cocina - Proyecto\obj\Debug\Cocina - Proyecto.exe
+c:\users\zero vivanco\documents\visual studio 2012\Projects\Cocina - Proyecto\Cocina - Proyecto\obj\Debug\Cocina - Proyecto.pdb
+c:\users\zero vivanco\documents\visual studio 2012\Projects\Cocina - Proyecto\Cocina - Proyecto\obj\Debug\Cocina___Proyecto.ListaPedidos.resources

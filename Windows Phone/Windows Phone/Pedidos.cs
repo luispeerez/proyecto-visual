@@ -32,6 +32,7 @@ namespace Windows_Phone
                 string Comando = "SELECT idpedido FROM pedido ORDER BY idpedido DESC LIMIT 1;";
                 MySqlCommand ObtenerCantidad = new MySqlCommand(Comando, CantidadPedidos.getConexion());
                 int Resultado = Convert.ToInt32(ObtenerCantidad.ExecuteScalar());
+                CantidadPedidos.cerrarConexion();
                 Button[] Objeto = new Button[Convert.ToInt32(Resultado)];
                 int y = 29;
                 for (int contador = 0; contador < Objeto.Length; contador++)
@@ -70,6 +71,7 @@ namespace Windows_Phone
                         Objeto[contador].Text += " - ESTADO " + Estatus;
                         y += 60;
                     }
+                    Busqueda.cerrarConexion();
                 }
             }
             catch (Exception)
@@ -80,23 +82,9 @@ namespace Windows_Phone
 
         public void ClickPedido(object sender, EventArgs e)
         {
-            //string[] Valores = new string[5];
             Button boton = sender as Button;
             if (boton != null)
                 IdObjeto = boton.Name;
-            //Conexion Datos = new Conexion();
-            //Datos.crearConexion();
-            //string Comando = "SELECT *FROM alimento WHERE idalimento = " + IdObjeto + ";";
-            //MySqlCommand Busqueda = new MySqlCommand(Comando, Datos.getConexion());
-            //MySqlDataAdapter Vuelta = new MySqlDataAdapter(Busqueda);
-            //DataSet Resultado = new DataSet();
-            //Busqueda.Connection = Datos.getConexion();
-            //Vuelta.Fill(Resultado, "Alimento");
-            //Valores[0] = Resultado.Tables["Alimento"].Rows[0][0].ToString(); //idalimento
-            //Valores[1] = Resultado.Tables["Alimento"].Rows[0][1].ToString(); //nombre
-            //Valores[2] = Resultado.Tables["Alimento"].Rows[0][2].ToString(); //tipoalimento
-            //Valores[3] = Resultado.Tables["Alimento"].Rows[0][3].ToString(); //descripcion
-            //Valores[4] = Resultado.Tables["Alimento"].Rows[0][4].ToString(); //precio
             panel2.Visible = true;
 
         }
@@ -127,10 +115,11 @@ namespace Windows_Phone
         {
             Conexion Modificar = new Conexion();
             Modificar.crearConexion();
-            string Comando = "UPDATE pedido SET estatus='Entregado' WHERE idpedido = " + IdObjeto + ";";
+            string Comando = "UPDATE pedido SET estatus='Entregado', actualizado = 1 WHERE idpedido = " + IdObjeto + ";";
             MySqlCommand Editar = new MySqlCommand(Comando);
             Editar.Connection = Modificar.getConexion();
             Editar.ExecuteNonQuery();
+            Modificar.cerrarConexion();
             panel1.Focus();
             panel2.Visible = false;
             Pedidos crear = new Pedidos();
@@ -142,10 +131,11 @@ namespace Windows_Phone
         {
             Conexion Modificar = new Conexion();
             Modificar.crearConexion();
-            string Comando = "UPDATE pedido SET estatus='Cancelado' WHERE idpedido = " + IdObjeto + ";";
+            string Comando = "UPDATE pedido SET estatus='Cancelado', actualizado = 1 WHERE idpedido = " + IdObjeto + ";";
             MySqlCommand Editar = new MySqlCommand(Comando);
             Editar.Connection = Modificar.getConexion();
             Editar.ExecuteNonQuery();
+            Modificar.cerrarConexion();
             panel1.Focus();
             panel2.Visible = false;
             Pedidos crear = new Pedidos();

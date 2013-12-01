@@ -37,6 +37,7 @@ namespace Windows_Phone
                 MySqlDataAdapter Vuelta = new MySqlDataAdapter(Busqueda);
                 DataSet Resultado = new DataSet();
                 Busqueda.Connection = Datos.getConexion();
+                Datos.cerrarConexion();
                 Vuelta.Fill(Resultado, "Usuario");
                 Valores[0] = Resultado.Tables["Usuario"].Rows[0][0].ToString(); //idusuario
                 Valores[1] = Resultado.Tables["Usuario"].Rows[0][1].ToString(); //nombre
@@ -65,6 +66,7 @@ namespace Windows_Phone
                 string Comando = "SELECT idmesero FROM mesero WHERE (nombre = '" + nombre + "') AND (apellidos = '" + apellidos + "');";
                 MySqlCommand Busqueda = new MySqlCommand(Comando, idMesero.getConexion());
                 string Resultado = (Busqueda.ExecuteScalar()).ToString();
+                idMesero.cerrarConexion();
                 variables.nombre = nombre;
                 variables.idmesero = Convert.ToInt32(Resultado);
                 Menú crear = new Menú();
@@ -72,7 +74,17 @@ namespace Windows_Phone
                 crear.ShowDialog();
             }
             else
-                MessageBox.Show("Usuario o contraseña incorrecta");
+                pictureBox1.Visible = true;
+        }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+            pictureBox1.Visible = false;
+        }
+
+        private void textBox2_TextChanged(object sender, EventArgs e)
+        {
+            pictureBox1.Visible = false;
         }
     }
 }
