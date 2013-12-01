@@ -17,6 +17,22 @@ namespace adminrestaurant
         //Asignando el numero maximo de mesas que pueden estar disponibles
         int numeroMaxmesas = 4;
 
+
+        //Funcion para obtener el ultimo ID insertado en una tabla
+        public int obtenerUltimoID(string tabla)
+        {
+            int resultadoQuery;
+            conexion search = new conexion();
+            search.crearConexion();
+            string search3 = "SELECT MAX(idusuario) FROM " + tabla;
+            MySqlCommand buscarproductos = new MySqlCommand(search3, search.getConexion());
+            resultadoQuery = Convert.ToInt32(buscarproductos.ExecuteScalar());
+
+            search.cerrarConexion();
+
+            return resultadoQuery;
+        }
+
         //Funcion para llenar todos los datagrids (Usuario,Alimento y Mesa)
         private void llenarGrids()
         {
@@ -29,6 +45,7 @@ namespace adminrestaurant
             DataSet tht = new DataSet();
             cmc.Fill(tht, "usuario");
             dataGridView1.DataSource = tht.Tables["usuario"].DefaultView;
+            search.cerrarConexion();
 
             //Agregando toda la tabla de alimentos al datagridview
             conexion search2 = new conexion();
@@ -39,6 +56,7 @@ namespace adminrestaurant
             DataSet tht2 = new DataSet();
             cmc2.Fill(tht2, "alimento");
             dataGridView2.DataSource = tht2.Tables["alimento"].DefaultView;
+            search2.cerrarConexion();
 
             //Agregando toda la tabla de mesas al datagridview
             conexion search6 = new conexion();
@@ -49,6 +67,7 @@ namespace adminrestaurant
             DataSet tht3 = new DataSet();
             cmc3.Fill(tht3, "mesa");
             dataGridView3.DataSource = tht3.Tables["mesa"].DefaultView;
+            search6.cerrarConexion();
         }
 
         public void llenarInformacionUsuario(string idAbuscar)
@@ -88,6 +107,9 @@ namespace adminrestaurant
                 comboBox10.SelectedIndex = 1;
             else
                 comboBox10.SelectedIndex = 0;
+
+
+            search.cerrarConexion();
         }
 
         public void llenarInformacionAlimento(string idAbuscar)
@@ -123,6 +145,8 @@ namespace adminrestaurant
             else
                 comboBox11.SelectedIndex = 0;
 
+            search.cerrarConexion();
+
         }
 
 
@@ -145,6 +169,8 @@ namespace adminrestaurant
             else
                 comboBox8.SelectedIndex = 0;
 
+            search.cerrarConexion();
+
         }
 
         private void registrarUsuario()
@@ -155,7 +181,25 @@ namespace adminrestaurant
             MySqlCommand pro = new MySqlCommand(inserta);
             pro.Connection = ins_pro.getConexion();
             pro.ExecuteNonQuery();
+            ins_pro.cerrarConexion();
+
+
+
+            //Agregando por default un registro en la tabla mesero si el usuario registrado esta en esa area
+            if (comboBox1.SelectedItem.ToString() == "Meseros")
+            {
+                int ultimoID = obtenerUltimoID("usuario");
+                conexion ingresarMesero = new conexion();
+                ingresarMesero.crearConexion();
+                inserta = "INSERT INTO mesero (nombre, apellidos,estatus,idusuario) Values ('" + textBox1.Text + "', '" + textBox2.Text + "' , '" + comboBox12.SelectedItem + "'," + ultimoID + ")";
+                MySqlCommand pro2 = new MySqlCommand(inserta);
+                pro2.Connection = ingresarMesero.getConexion();
+                pro2.ExecuteNonQuery();
+                ingresarMesero.cerrarConexion();
+            }
             MessageBox.Show("Se ha ingresado satisfactoriamente", "Insercion exitosa", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+            
         }
 
         public int contarUsuarios(string tabla)
@@ -166,6 +210,8 @@ namespace adminrestaurant
             string search3 = "SELECT COUNT(*) FROM "+tabla;
             MySqlCommand buscarproductos = new MySqlCommand(search3, search.getConexion());
             resultadoQuery = Convert.ToInt32(buscarproductos.ExecuteScalar());
+
+            search.cerrarConexion();
 
             return resultadoQuery;
         }
@@ -179,6 +225,8 @@ namespace adminrestaurant
             MySqlCommand buscarproductos = new MySqlCommand(search3, search.getConexion());
             resultadoQuery = Convert.ToInt32(buscarproductos.ExecuteScalar());
 
+            search.cerrarConexion();
+
             return resultadoQuery;
         }
 
@@ -191,6 +239,8 @@ namespace adminrestaurant
             pro.Connection = ins_pro.getConexion();
             pro.ExecuteNonQuery();
             MessageBox.Show("Se ha ingresado satisfactoriamente", "Insercion exitosa", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+            ins_pro.cerrarConexion();
         }
 
         private void registrarMesa()
@@ -202,6 +252,8 @@ namespace adminrestaurant
             pro.Connection = ins_pro.getConexion();
             pro.ExecuteNonQuery();
             MessageBox.Show("Se ha ingresado satisfactoriamente", "Insercion exitosa", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+            ins_pro.cerrarConexion();
         }
 
         //Llenando los elementos de los combobox que estna en la opcion de modificar con los id de la tabla usuario,alimento y  mesa
@@ -253,6 +305,8 @@ namespace adminrestaurant
                 else if(tabla == "mesa")
                     comboBox7.Items.Add(tht.Tables[tabla].Rows[i][0].ToString());
             }
+
+            search.cerrarConexion();
         }
 
         private void limpiar()
@@ -305,10 +359,26 @@ namespace adminrestaurant
             revisa.Parameters.AddWithValue("@C5", (textBox11.Text));
             revisa.Parameters.AddWithValue("@C6", (comboBox3.SelectedItem.ToString()));
             revisa.Parameters.AddWithValue("@C7", (comboBox10.SelectedItem.ToString()));
-            MessageBox.Show("Registro Modificado ", "Informacion", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
+
             mod.getConexion();
             revisa.ExecuteNonQuery();
             mod.cerrarConexion();
+
+
+            //Agregando por default un registro en la tabla mesero si el usuario registrado esta en esa area
+            if (comboBox3.SelectedItem.ToString() == "Meseros")
+            {
+                conexion ingresarMesero = new conexion();
+                ingresarMesero.crearConexion();
+                actualizar = "UPDATE mesero SET nombre = '" + textBox8.Text + "', apellidos = '" + textBox9.Text + "' , estatus = '" + comboBox10.SelectedItem + "' WHERE idusuario = " + usuarioID;
+                MySqlCommand pro2 = new MySqlCommand(actualizar);
+                pro2.Connection = ingresarMesero.getConexion();
+                pro2.ExecuteNonQuery();
+                ingresarMesero.cerrarConexion();
+            }
+
+
+            MessageBox.Show("Registro Modificado ", "Informacion", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
 
         }
 

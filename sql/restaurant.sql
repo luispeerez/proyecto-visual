@@ -1,54 +1,53 @@
--- MySQL dump 10.13  Distrib 5.6.13, for Win64 (x86_64)
+-- phpMyAdmin SQL Dump
+-- version 3.5.1
+-- http://www.phpmyadmin.net
 --
--- Host: localhost    Database: restaurant
--- ------------------------------------------------------
--- Server version	5.6.13
+-- Servidor: localhost
+-- Tiempo de generación: 01-12-2013 a las 16:53:32
+-- Versión del servidor: 5.5.24-log
+-- Versión de PHP: 5.3.13
+
+SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";
+SET time_zone = "+00:00";
+
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
 /*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
 /*!40101 SET NAMES utf8 */;
-/*!40103 SET @OLD_TIME_ZONE=@@TIME_ZONE */;
-/*!40103 SET TIME_ZONE='+00:00' */;
-/*!40014 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0 */;
-/*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
-/*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
-/*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
--- Table structure for table `actualizacion`
+-- Base de datos: `restaurant`
 --
 
-DROP TABLE IF EXISTS `actualizacion`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `actualizacion` (
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `actualizacion`
+--
+
+CREATE TABLE IF NOT EXISTS `actualizacion` (
   `Nombre` varchar(6) DEFAULT NULL,
   `Orden` tinyint(4) DEFAULT NULL,
   `Pedido` tinyint(4) DEFAULT NULL,
   `NumCamOrden` int(11) DEFAULT NULL,
   `NumCamPedido` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-/*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `actualizacion`
+-- Volcado de datos para la tabla `actualizacion`
 --
 
-LOCK TABLES `actualizacion` WRITE;
-/*!40000 ALTER TABLE `actualizacion` DISABLE KEYS */;
-INSERT INTO `actualizacion` VALUES ('Cambio',0,0,0,0);
-/*!40000 ALTER TABLE `actualizacion` ENABLE KEYS */;
-UNLOCK TABLES;
+INSERT INTO `actualizacion` (`Nombre`, `Orden`, `Pedido`, `NumCamOrden`, `NumCamPedido`) VALUES
+('Cambio', 0, 0, 0, 0);
+
+-- --------------------------------------------------------
 
 --
--- Table structure for table `alimento`
+-- Estructura de tabla para la tabla `alimento`
 --
 
-DROP TABLE IF EXISTS `alimento`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `alimento` (
+CREATE TABLE IF NOT EXISTS `alimento` (
   `idalimento` int(11) NOT NULL AUTO_INCREMENT,
   `nombre` varchar(30) NOT NULL,
   `tipoalimento` varchar(45) DEFAULT NULL,
@@ -56,104 +55,93 @@ CREATE TABLE `alimento` (
   `precio` decimal(4,2) DEFAULT NULL,
   `estatus` varchar(15) NOT NULL,
   PRIMARY KEY (`idalimento`)
-) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=latin1;
-/*!40101 SET character_set_client = @saved_cs_client */;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=10 ;
 
 --
--- Dumping data for table `alimento`
+-- Volcado de datos para la tabla `alimento`
 --
 
-LOCK TABLES `alimento` WRITE;
-/*!40000 ALTER TABLE `alimento` DISABLE KEYS */;
-INSERT INTO `alimento` VALUES (1,'Cereal','Entrada','tutache',10.00,'Disponible'),(2,'cuchara','Postre','jomi',1.00,'Disponible'),(3,'Galletas','Postre','asasa',12.00,'Disponible'),(4,'Gelatina','Postre','aasasa',13.00,'Disponible'),(5,'Carne','Plato fuerte','sasaasa',30.00,'Disponible'),(6,'Ensalada','Entrada','asassasas',10.00,'Disponible'),(7,'Camarones','Plato fuerte','bajo del mar',10.00,'Disponible'),(8,'Atun','Entrada','efefefefe',15.00,'Disponible'),(9,'sopanissin','Entrada','yumi',5.00,'Disponible');
-/*!40000 ALTER TABLE `alimento` ENABLE KEYS */;
-UNLOCK TABLES;
+INSERT INTO `alimento` (`idalimento`, `nombre`, `tipoalimento`, `descripcion`, `precio`, `estatus`) VALUES
+(1, 'Cereal', 'Entrada', 'tutache', '10.00', 'Disponible'),
+(2, 'cuchara', 'Postre', 'jomi', '1.00', 'Disponible'),
+(3, 'Galletas', 'Postre', 'asasa', '12.00', 'Disponible'),
+(4, 'Gelatina', 'Postre', 'aasasa', '13.00', 'Disponible'),
+(5, 'Carne', 'Plato fuerte', 'sasaasa', '30.00', 'Disponible'),
+(6, 'Ensalada', 'Entrada', 'asassasas', '10.00', 'Disponible'),
+(7, 'Camarones', 'Plato fuerte', 'bajo del mar', '10.00', 'Disponible'),
+(8, 'Atun', 'Entrada', 'efefefefe', '15.00', 'Disponible'),
+(9, 'sopanissin', 'Entrada', 'yumi', '5.00', 'Disponible');
+
+-- --------------------------------------------------------
 
 --
--- Table structure for table `cliente`
+-- Estructura de tabla para la tabla `cliente`
 --
 
-DROP TABLE IF EXISTS `cliente`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `cliente` (
+CREATE TABLE IF NOT EXISTS `cliente` (
   `idcliente` int(11) NOT NULL AUTO_INCREMENT,
   `nombre` varchar(30) DEFAULT NULL,
   `apellidos` varchar(50) DEFAULT NULL,
   PRIMARY KEY (`idcliente`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-/*!40101 SET character_set_client = @saved_cs_client */;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+
+-- --------------------------------------------------------
 
 --
--- Dumping data for table `cliente`
+-- Estructura de tabla para la tabla `mesa`
 --
 
-LOCK TABLES `cliente` WRITE;
-/*!40000 ALTER TABLE `cliente` DISABLE KEYS */;
-/*!40000 ALTER TABLE `cliente` ENABLE KEYS */;
-UNLOCK TABLES;
-
---
--- Table structure for table `mesa`
---
-
-DROP TABLE IF EXISTS `mesa`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `mesa` (
+CREATE TABLE IF NOT EXISTS `mesa` (
   `idmesa` int(11) NOT NULL AUTO_INCREMENT,
   `numpersonas` int(11) DEFAULT NULL,
   `estatus` varchar(30) DEFAULT NULL,
   `idcliente` int(11) DEFAULT NULL,
   PRIMARY KEY (`idmesa`),
-  KEY `idcliente` (`idcliente`),
-  CONSTRAINT `mesa_ibfk_1` FOREIGN KEY (`idcliente`) REFERENCES `cliente` (`idcliente`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
-/*!40101 SET character_set_client = @saved_cs_client */;
+  KEY `idcliente` (`idcliente`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=4 ;
 
 --
--- Dumping data for table `mesa`
+-- Volcado de datos para la tabla `mesa`
 --
 
-LOCK TABLES `mesa` WRITE;
-/*!40000 ALTER TABLE `mesa` DISABLE KEYS */;
-INSERT INTO `mesa` VALUES (1,6,'Disponible',NULL),(2,4,'Reservada',NULL),(3,4,'Disponible',NULL);
-/*!40000 ALTER TABLE `mesa` ENABLE KEYS */;
-UNLOCK TABLES;
+INSERT INTO `mesa` (`idmesa`, `numpersonas`, `estatus`, `idcliente`) VALUES
+(1, 6, 'Disponible', NULL),
+(2, 4, 'Reservada', NULL),
+(3, 4, 'Disponible', NULL);
+
+-- --------------------------------------------------------
 
 --
--- Table structure for table `mesero`
+-- Estructura de tabla para la tabla `mesero`
 --
 
-DROP TABLE IF EXISTS `mesero`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `mesero` (
-  `idmesero` int(11) NOT NULL DEFAULT '0',
+CREATE TABLE IF NOT EXISTS `mesero` (
+  `idmesero` int(11) NOT NULL AUTO_INCREMENT,
   `nombre` varchar(30) DEFAULT NULL,
   `apellidos` varchar(50) DEFAULT NULL,
+  `estatus` varchar(15) NOT NULL,
+  `idusuario` int(11) NOT NULL,
   PRIMARY KEY (`idmesero`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-/*!40101 SET character_set_client = @saved_cs_client */;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=6 ;
 
 --
--- Dumping data for table `mesero`
+-- Volcado de datos para la tabla `mesero`
 --
 
-LOCK TABLES `mesero` WRITE;
-/*!40000 ALTER TABLE `mesero` DISABLE KEYS */;
-INSERT INTO `mesero` VALUES (0,'Jesus','Serna');
-/*!40000 ALTER TABLE `mesero` ENABLE KEYS */;
-UNLOCK TABLES;
+INSERT INTO `mesero` (`idmesero`, `nombre`, `apellidos`, `estatus`, `idusuario`) VALUES
+(1, 'Jesus', 'Serna', '', 1),
+(2, 'naruto', 'uzumaki', 'Disponible', 0),
+(3, 'sasuke', 'uchiha', 'Disponible', 0),
+(4, 'sakura', 'chan', 'Disponible', 0),
+(5, 'kakashi', 'kun', 'Disponible', 24);
+
+-- --------------------------------------------------------
 
 --
--- Table structure for table `orden`
+-- Estructura de tabla para la tabla `orden`
 --
 
-DROP TABLE IF EXISTS `orden`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `orden` (
+CREATE TABLE IF NOT EXISTS `orden` (
   `idorden` int(11) NOT NULL AUTO_INCREMENT,
   `idmesa` int(11) DEFAULT NULL,
   `idmesero` int(11) DEFAULT NULL,
@@ -163,30 +151,29 @@ CREATE TABLE `orden` (
   `actualizado` tinyint(4) NOT NULL,
   PRIMARY KEY (`idorden`),
   KEY `idmesa` (`idmesa`),
-  KEY `idmesero` (`idmesero`),
-  CONSTRAINT `orden_ibfk_1` FOREIGN KEY (`idmesa`) REFERENCES `mesa` (`idmesa`),
-  CONSTRAINT `orden_ibfk_2` FOREIGN KEY (`idmesero`) REFERENCES `mesero` (`idmesero`)
-) ENGINE=InnoDB AUTO_INCREMENT=30 DEFAULT CHARSET=latin1;
-/*!40101 SET character_set_client = @saved_cs_client */;
+  KEY `idmesero` (`idmesero`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=30 ;
 
 --
--- Dumping data for table `orden`
+-- Volcado de datos para la tabla `orden`
 --
 
-LOCK TABLES `orden` WRITE;
-/*!40000 ALTER TABLE `orden` DISABLE KEYS */;
-INSERT INTO `orden` VALUES (23,1,0,'2013-11-28 17:04:37',0.00,'PAGADA',0),(24,1,0,'2013-11-28 17:33:03',0.00,'PAGADA',0),(25,1,0,'2013-11-29 02:47:53',0.00,'PAGADA',0),(26,1,0,'2013-11-29 10:30:48',0.00,'PAGADA',0),(27,1,0,'2013-11-30 17:45:45',0.00,'ABIERTA',1),(28,3,0,'2013-11-30 17:50:14',0.00,'ABIERTA',1),(29,1,0,'2013-11-30 19:00:05',0.00,'ABIERTA',1);
-/*!40000 ALTER TABLE `orden` ENABLE KEYS */;
-UNLOCK TABLES;
+INSERT INTO `orden` (`idorden`, `idmesa`, `idmesero`, `fecha`, `total`, `estatus`, `actualizado`) VALUES
+(23, 1, 0, '2013-11-28 17:04:37', '0.00', 'PAGADA', 0),
+(24, 1, 0, '2013-11-28 17:33:03', '0.00', 'PAGADA', 0),
+(25, 1, 0, '2013-11-29 02:47:53', '0.00', 'PAGADA', 0),
+(26, 1, 0, '2013-11-29 10:30:48', '0.00', 'PAGADA', 0),
+(27, 1, 0, '2013-11-30 17:45:45', '0.00', 'ABIERTA', 1),
+(28, 3, 0, '2013-11-30 17:50:14', '0.00', 'ABIERTA', 1),
+(29, 1, 0, '2013-11-30 19:00:05', '0.00', 'ABIERTA', 1);
+
+-- --------------------------------------------------------
 
 --
--- Table structure for table `pedido`
+-- Estructura de tabla para la tabla `pedido`
 --
 
-DROP TABLE IF EXISTS `pedido`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `pedido` (
+CREATE TABLE IF NOT EXISTS `pedido` (
   `idpedido` int(11) NOT NULL AUTO_INCREMENT,
   `idorden` int(11) DEFAULT NULL,
   `idalimento` int(11) DEFAULT NULL,
@@ -194,30 +181,73 @@ CREATE TABLE `pedido` (
   `actualizado` tinyint(4) NOT NULL,
   PRIMARY KEY (`idpedido`),
   KEY `idorden` (`idorden`),
-  KEY `idalimento` (`idalimento`),
-  CONSTRAINT `pedido_ibfk_1` FOREIGN KEY (`idorden`) REFERENCES `orden` (`idorden`),
-  CONSTRAINT `pedido_ibfk_2` FOREIGN KEY (`idalimento`) REFERENCES `alimento` (`idalimento`)
-) ENGINE=InnoDB AUTO_INCREMENT=52 DEFAULT CHARSET=latin1;
-/*!40101 SET character_set_client = @saved_cs_client */;
+  KEY `idalimento` (`idalimento`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=52 ;
 
 --
--- Dumping data for table `pedido`
+-- Volcado de datos para la tabla `pedido`
 --
 
-LOCK TABLES `pedido` WRITE;
-/*!40000 ALTER TABLE `pedido` DISABLE KEYS */;
-INSERT INTO `pedido` VALUES (1,24,1,'Listo',0),(2,24,6,'Entregado',0),(3,24,4,'Listo',0),(4,24,3,'Cancelado',0),(5,26,5,'Cancelado',0),(6,25,7,'Listo',0),(7,26,4,'Listo',0),(8,26,5,'Listo',0),(9,26,2,'Listo',0),(10,26,8,'Listo',0),(11,26,9,'Listo',0),(12,28,7,'Listo',0),(13,29,6,'Listo',0),(14,28,7,'Listo',0),(15,28,5,'Listo',0),(16,28,6,'Listo',0),(17,28,7,'Listo',0),(18,28,9,'Listo',0),(19,29,7,'Entregado',0),(20,27,7,'Entregado',0),(21,27,7,'Entregado',0),(22,27,7,'Entregado',0),(23,29,1,'Listo',0),(24,29,6,'Listo',0),(25,29,8,'Listo',0),(26,29,9,'Listo',0),(27,29,1,'Listo',0),(28,29,1,'Listo',0),(29,29,6,'Listo',0),(30,29,8,'Listo',0),(31,29,9,'Listo',0),(32,28,5,'Listo',0),(33,28,7,'Listo',0),(34,28,1,'Listo',0),(35,28,6,'Listo',0),(36,28,8,'Listo',0),(37,29,1,'Listo',0),(38,29,6,'Listo',0),(39,29,8,'Listo',0),(40,29,9,'Listo',0),(41,28,1,'Listo',0),(42,28,6,'Listo',0),(43,28,8,'Listo',0),(44,28,9,'Listo',0),(45,29,5,'Listo',0),(46,29,7,'Listo',0),(47,29,8,'Listo',0),(48,28,1,'Listo',0),(49,28,6,'Listo',0),(50,28,8,'Pendiente',0),(51,28,9,'Pendiente',0);
-/*!40000 ALTER TABLE `pedido` ENABLE KEYS */;
-UNLOCK TABLES;
+INSERT INTO `pedido` (`idpedido`, `idorden`, `idalimento`, `estatus`, `actualizado`) VALUES
+(1, 24, 1, 'Listo', 0),
+(2, 24, 6, 'Entregado', 0),
+(3, 24, 4, 'Listo', 0),
+(4, 24, 3, 'Cancelado', 0),
+(5, 26, 5, 'Cancelado', 0),
+(6, 25, 7, 'Listo', 0),
+(7, 26, 4, 'Listo', 0),
+(8, 26, 5, 'Listo', 0),
+(9, 26, 2, 'Listo', 0),
+(10, 26, 8, 'Listo', 0),
+(11, 26, 9, 'Listo', 0),
+(12, 28, 7, 'Listo', 0),
+(13, 29, 6, 'Listo', 0),
+(14, 28, 7, 'Listo', 0),
+(15, 28, 5, 'Listo', 0),
+(16, 28, 6, 'Listo', 0),
+(17, 28, 7, 'Listo', 0),
+(18, 28, 9, 'Listo', 0),
+(19, 29, 7, 'Entregado', 0),
+(20, 27, 7, 'Entregado', 0),
+(21, 27, 7, 'Entregado', 0),
+(22, 27, 7, 'Entregado', 0),
+(23, 29, 1, 'Listo', 0),
+(24, 29, 6, 'Listo', 0),
+(25, 29, 8, 'Listo', 0),
+(26, 29, 9, 'Listo', 0),
+(27, 29, 1, 'Listo', 0),
+(28, 29, 1, 'Listo', 0),
+(29, 29, 6, 'Listo', 0),
+(30, 29, 8, 'Listo', 0),
+(31, 29, 9, 'Listo', 0),
+(32, 28, 5, 'Listo', 0),
+(33, 28, 7, 'Listo', 0),
+(34, 28, 1, 'Listo', 0),
+(35, 28, 6, 'Listo', 0),
+(36, 28, 8, 'Listo', 0),
+(37, 29, 1, 'Listo', 0),
+(38, 29, 6, 'Listo', 0),
+(39, 29, 8, 'Listo', 0),
+(40, 29, 9, 'Listo', 0),
+(41, 28, 1, 'Listo', 0),
+(42, 28, 6, 'Listo', 0),
+(43, 28, 8, 'Listo', 0),
+(44, 28, 9, 'Listo', 0),
+(45, 29, 5, 'Listo', 0),
+(46, 29, 7, 'Listo', 0),
+(47, 29, 8, 'Listo', 0),
+(48, 28, 1, 'Listo', 0),
+(49, 28, 6, 'Listo', 0),
+(50, 28, 8, 'Pendiente', 0),
+(51, 28, 9, 'Pendiente', 0);
+
+-- --------------------------------------------------------
 
 --
--- Table structure for table `usuario`
+-- Estructura de tabla para la tabla `usuario`
 --
 
-DROP TABLE IF EXISTS `usuario`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `usuario` (
+CREATE TABLE IF NOT EXISTS `usuario` (
   `idusuario` int(11) NOT NULL AUTO_INCREMENT,
   `nombre` varchar(30) COLLATE utf8_unicode_ci NOT NULL,
   `apellidos` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
@@ -226,26 +256,62 @@ CREATE TABLE `usuario` (
   `area` varchar(15) COLLATE utf8_unicode_ci NOT NULL,
   `estatus` varchar(15) COLLATE utf8_unicode_ci NOT NULL,
   PRIMARY KEY (`idusuario`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
-/*!40101 SET character_set_client = @saved_cs_client */;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=25 ;
 
 --
--- Dumping data for table `usuario`
+-- Volcado de datos para la tabla `usuario`
 --
 
-LOCK TABLES `usuario` WRITE;
-/*!40000 ALTER TABLE `usuario` DISABLE KEYS */;
-INSERT INTO `usuario` VALUES (1,'Zero','Vivanco','Zero','1234','Administrador',''),(2,'luis','perez bautista','peerez','123','Recepcion','Disponible'),(3,'Jesus','Serna','Jesus','12345','Mesero','Disponible');
-/*!40000 ALTER TABLE `usuario` ENABLE KEYS */;
-UNLOCK TABLES;
-/*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
+INSERT INTO `usuario` (`idusuario`, `nombre`, `apellidos`, `nickname`, `pass`, `area`, `estatus`) VALUES
+(1, 'Zero', 'Vivanco', 'Zero', '1234', 'Administrador', ''),
+(2, 'luis', 'perez bautista', 'peerez', '123', 'Recepcion', 'Disponible'),
+(3, 'Jesus', 'Serna', 'Jesus', '12345', 'Mesero', 'Disponible'),
+(4, 'juan', 'gorocica', 'goro', '1234', 'Meseros', 'Disponible'),
+(5, 'lolo', 'perez', 'lolo', '1234', 'Meseros', 'Disponible'),
+(6, 'matias', 'martinez', 'mati', '1234', 'Meseros', 'Disponible'),
+(7, 'pepito', 'perez', 'pepito', '1234', 'Meseros', 'Disponible'),
+(8, 'perengano', 'perez', 'pengano', '1234', 'Meseros', 'Disponible'),
+(9, 'generico', 'perez', 'generico', '1234', 'Meseros', 'Disponible'),
+(10, 'lala', 'perez', 'lala', '1234', 'Meseros', 'Disponible'),
+(11, 'pepe', 'perez', 'pepe', '1234', 'Meseros', 'Disponible'),
+(12, 'maria', 'sanchez', 'maria', '1234', 'Meseros', 'Disponible'),
+(13, 'ultimo', 'intento', 'ultimo', '1234', 'Meseros', 'Disponible'),
+(14, 'goku', 'son', 'goku', '1234', 'Meseros', 'Disponible'),
+(15, 'gohan', 'son', 'gohan', '1234', 'Meseros', 'Disponible'),
+(16, 'goten', 'son', 'goten', '1234', 'Meseros', 'Disponible'),
+(17, 'trunks', 'vegita', 'trunks', '1234', 'Meseros', 'Disponible'),
+(18, 'vegeta', 'vegita', 'vegeta', '1234', 'Meseros', 'Disponible'),
+(19, 'jose', 'jose', 'jose', '1234', 'Meseros', 'Disponible'),
+(20, 'bulma', 'vegita', 'bulma', '1234', 'Meseros', 'Disponible'),
+(21, 'naruto', 'uzumaki', 'naruto', '1234', 'Meseros', 'Disponible'),
+(22, 'sasuke', 'uchiha', 'sasuke', '1234', 'Meseros', 'Disponible'),
+(23, 'sakura', 'chan', 'sakura', '1234', 'Meseros', 'Disponible'),
+(24, 'kakashi', 'kun', 'kakashi', '1234', 'Meseros', 'Disponible');
 
-/*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
-/*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
-/*!40014 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS */;
+--
+-- Restricciones para tablas volcadas
+--
+
+--
+-- Filtros para la tabla `mesa`
+--
+ALTER TABLE `mesa`
+  ADD CONSTRAINT `mesa_ibfk_1` FOREIGN KEY (`idcliente`) REFERENCES `cliente` (`idcliente`);
+
+--
+-- Filtros para la tabla `orden`
+--
+ALTER TABLE `orden`
+  ADD CONSTRAINT `orden_ibfk_1` FOREIGN KEY (`idmesa`) REFERENCES `mesa` (`idmesa`),
+  ADD CONSTRAINT `orden_ibfk_2` FOREIGN KEY (`idmesero`) REFERENCES `mesero` (`idmesero`);
+
+--
+-- Filtros para la tabla `pedido`
+--
+ALTER TABLE `pedido`
+  ADD CONSTRAINT `pedido_ibfk_1` FOREIGN KEY (`idorden`) REFERENCES `orden` (`idorden`),
+  ADD CONSTRAINT `pedido_ibfk_2` FOREIGN KEY (`idalimento`) REFERENCES `alimento` (`idalimento`);
+
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
-/*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
-
--- Dump completed on 2013-11-30 22:54:09

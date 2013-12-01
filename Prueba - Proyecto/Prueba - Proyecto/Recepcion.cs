@@ -38,9 +38,11 @@ namespace Prueba___Proyecto
             string search3 = "SELECT COUNT(*) FROM "+tabla;
             MySqlCommand buscarproductos = new MySqlCommand(search3, search.getConexion());
             resultadoQuery = Convert.ToInt32(buscarproductos.ExecuteScalar());
+            search.cerrarConexion();
 
             return resultadoQuery;
         }
+
 
         public void insertarCliente()
         {
@@ -55,11 +57,13 @@ namespace Prueba___Proyecto
                 pro.Connection = ins_pro.getConexion();
                 pro.ExecuteNonQuery();
 
+
                 conexion search = new conexion();
                 search.crearConexion();
                 string search4 = "SELECT idcliente FROM cliente ORDER BY idcliente DESC LIMIT 1;";
                 MySqlCommand buscarproductos = new MySqlCommand(search4, search.getConexion());
                 string resultadoQuery = (buscarproductos.ExecuteScalar()).ToString();
+                search.cerrarConexion();
 
                 inserta = "UPDATE mesa SET idcliente='" + resultadoQuery + "', estatus='Ocupada' WHERE idmesa='" + idmesa + "';";
                 MySqlCommand pra = new MySqlCommand(inserta);
@@ -67,6 +71,10 @@ namespace Prueba___Proyecto
                 pra.ExecuteNonQuery();
                 insertado = "OK";
                 ActualizarMesas();
+
+
+                ins_pro.cerrarConexion();
+                search.cerrarConexion();
             }
             else
                 MessageBox.Show("NO DISPONIBLE.");
@@ -84,6 +92,8 @@ namespace Prueba___Proyecto
             buscarproductos.Connection = search.getConexion();
             cmc.Fill(tht, "mesa");
             resultado = tht.Tables["mesa"].Rows[indice][2].ToString();
+
+            search.cerrarConexion();
             return resultado.ToString();
         }
 
@@ -102,6 +112,8 @@ namespace Prueba___Proyecto
             resultados[1] = tht.Tables["mesa"].Rows[indice][1].ToString();
             resultados[2] = tht.Tables["mesa"].Rows[indice][2].ToString();
             resultados[3] = tht.Tables["mesa"].Rows[indice][3].ToString();
+
+            search.cerrarConexion();
             return resultados;
         }
         public void vaciarTextboxs()
