@@ -32,7 +32,7 @@ namespace Windows_Phone
                 string[] Valores = new string[7];
                 Conexion Datos = new Conexion();
                 Datos.crearConexion();
-                string Comando = "SELECT *FROM usuario WHERE (nickname = '" + nickname + "') AND (pass = '" + pass + "') AND (area = 'Mesero') AND (estatus = 'Disponible');";
+                string Comando = "SELECT *FROM usuario WHERE (nickname = '" + nickname + "') AND (pass = '" + pass + "') AND (area = 'Meseros') AND (estatus = 'Disponible');";
                 MySqlCommand Busqueda = new MySqlCommand(Comando, Datos.getConexion());
                 MySqlDataAdapter Vuelta = new MySqlDataAdapter(Busqueda);
                 DataSet Resultado = new DataSet();

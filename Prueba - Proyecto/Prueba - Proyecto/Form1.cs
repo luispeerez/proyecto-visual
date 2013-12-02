@@ -7,11 +7,26 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using MySql.Data.MySqlClient;
 
 namespace Prueba___Proyecto
 {
     public partial class Form1 : Form
     {
+
+        //Validando que el usuario este registrado
+        public int verificarUsuario()
+        {
+            int resultadoQuery;
+            conexion search = new conexion();
+            search.crearConexion();
+            string search3 = "SELECT COUNT(*) FROM usuario WHERE (nickname = '" + textBox1.Text + "') AND (pass = '" + textBox2.Text + "') ";
+            MySqlCommand buscarproductos = new MySqlCommand(search3, search.getConexion());
+            resultadoQuery = Convert.ToInt32(buscarproductos.ExecuteScalar());
+
+            return resultadoQuery;
+        }
+
         public Form1()
         {
             InitializeComponent();
@@ -110,7 +125,9 @@ namespace Prueba___Proyecto
         //Boton para inicio de sesion en hover(por eso no aparece en el form)
         private void button4_Click(object sender, EventArgs e)
         {
-            if (textBox1.Text != "")
+            //Evaluando que el formulario este completo
+            //Evaluando que el usuario exista en la base de datos
+            if (textBox1.Text != "" && textBox2.Text != "" && verificarUsuario() != 0)
             {
                 this.Close();
                 InicioSesion verifica = new InicioSesion();

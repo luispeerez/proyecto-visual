@@ -19,7 +19,11 @@ namespace Prueba___Proyecto
         //Declarando las frases para los placeholders en los textbox, elementos ordenados segun el textbox(ascendente)
         string[] placeholders = { "       Ingresa el nombre(s) del cliente.", "       Ingresa los apellidos del cliente.", "    Ingresa el número de acompañantes.", "           Ingresa el número de mesa." };
         string idmesa, insertado;
-        
+
+        //Arreglo para guardar los ids de las mesas mostradas en pantalla
+        string[] identificadoresMesas;
+
+
         int numMesas;
         //Variable para identificar el proceso actual
         /*
@@ -28,6 +32,7 @@ namespace Prueba___Proyecto
          * 3.-Cobro
         */
         int accionactual;
+
 
 
         public int contarRegistros(string tabla)
@@ -43,6 +48,44 @@ namespace Prueba___Proyecto
             return resultadoQuery;
         }
 
+
+        public int contarMesas()
+        {
+            int resultadoQuery;
+            conexion search = new conexion();
+            search.crearConexion();
+            //Solo evaluando las mesas que sean diferentes a "No disponibles"
+            string search3 = "SELECT COUNT(*) FROM mesa WHERE NOT estatus='No disponible'";
+            MySqlCommand buscarproductos = new MySqlCommand(search3, search.getConexion());
+            resultadoQuery = Convert.ToInt32(buscarproductos.ExecuteScalar());
+            search.cerrarConexion();
+
+            return resultadoQuery;
+        }
+
+        //Llenando un arreglo de los ids de las mesas que esten accesibles
+        public void llenarIDSMesas()
+        {
+            int num = contarMesas();
+            identificadoresMesas = new string[num];
+
+            //Haciendo consultas para llenar los datos de las mesas accesibles
+            conexion search = new conexion();
+            search.crearConexion();
+            string search3 = "SELECT idmesa FROM mesa  WHERE NOT estatus='No disponible'";
+            MySqlCommand buscarproductos = new MySqlCommand(search3, search.getConexion());
+            MySqlDataAdapter cmc = new MySqlDataAdapter(buscarproductos);
+            DataSet tht = new DataSet();
+            buscarproductos.Connection = search.getConexion();
+            cmc.Fill(tht, "mesa");
+
+            //Llenando los ids
+            for (int i = 0; i < num; i++)
+                identificadoresMesas[i] = tht.Tables["mesa"].Rows[i][0].ToString();
+
+            search.cerrarConexion();
+
+        }
 
         public void insertarCliente()
         {
@@ -135,12 +178,56 @@ namespace Prueba___Proyecto
         public bool verificarCamposLlenos()
         {
             bool llenos;
-            if (textBox1.Text != "" && textBox2.Text != ""/* && textBox3.Text != "" && textBox4.Text != ""*/)
+            if (textBox1.Text != placeholders[0] && textBox2.Text != placeholders[1] && textBox3.Text != placeholders[2] && textBox4.Text != placeholders[3] && textBox1.Text != "" && textBox2.Text != "" && textBox3.Text != "" && textBox4.Text != "")
                 llenos = true;
             else
                 llenos = false;
            return llenos;
         }
+
+
+        //Asigando eventos de click a las mesas
+        public void clickMesa(object sender, EventArgs e)
+        {
+            PictureBox botonMesa = sender as PictureBox;
+
+            //Obteniendo el id de la mesa apartir de su nombre(en el split se separan la palabra :"mesa1" en  "mes |a| 1")
+            string[] palabras = botonMesa.Name.Split('a');
+            string idbotonMesa = palabras[1];
+
+            pictureBox1.Visible = false;
+            groupBox1.Visible = false;
+
+            //Asignando el numero de mesa a la orden
+            idmesa = idbotonMesa;
+            //Label que muestra el numero de mesa
+            textBox4.Text = idmesa;
+
+        }
+
+        public void hoverMesaEntrante(object sender, EventArgs e)
+        {
+            PictureBox botonMesa = sender as PictureBox;
+
+            pictureBox1.Visible = true;
+            groupBox1.Visible = true;
+
+            //Obteniendo el id de la mesa apartir de su nombre(en el split se separan la palabra :"mesa1" en  "mes |a| 1")
+            string[] palabras = botonMesa.Name.Split('a');
+            string idbotonMesa = palabras[1];
+
+            //Restandole 1 al idbotonMesa debido a que la funcion informacionMesa() obtiene los valores apartir del indice 0
+            string[] atributosMesa = informacionMesa(Convert.ToInt32(idbotonMesa) - 1);
+            label3.Text = atributosMesa[1];
+        }
+
+        public void hoverMesaSalida(object sender, EventArgs e)
+        {
+            pictureBox1.Visible = false;
+            groupBox1.Visible = false;
+        }
+
+
         public Recepcion()
         {
             InitializeComponent();
@@ -173,21 +260,15 @@ namespace Prueba___Proyecto
             string absolute;
 
             //Llenando la variable numMesas con la funcion de contarregistros de la tabla
-            numMesas = contarRegistros("mesa");
+            numMesas = contarMesas();
 
             variables.CantidadMesas = numMesas;
 
             //Creando un array para desplegar las mesas en el restaurant
-            PictureBox[] mesas = { pictureBox2, pictureBox3, pictureBox5, pictureBox6, pictureBox7, pictureBox8, pictureBox9, pictureBox10, pictureBox11, pictureBox12, pictureBox13, pictureBox14, pictureBox15, pictureBox16, pictureBox17, pictureBox18, pictureBox19, pictureBox20, pictureBox21, pictureBox22, pictureBox23, pictureBox24, pictureBox24, pictureBox25, pictureBox26, pictureBox27 };
+            PictureBox[] mesas = new PictureBox[numMesas];
 
-            //Ocultando los picturebox de las mesas no inicializadas
-            for (int contador = 0; contador < 25; contador++)
-            {
-                if (contador < numMesas)
-                    mesas[contador].Visible = true;
-                else
-                    mesas[contador].Visible = false;
-            }
+            //Funcion para llenar un arreglo con todos los ids de las mesas
+            llenarIDSMesas();
 
             //Ancho del contenedor de mesas:
             int anchoCont = splitContainer1.Panel1.Width;
@@ -226,10 +307,18 @@ namespace Prueba___Proyecto
                 //Asignando su coordenada en X
                 posX = 32 + (contIndependienteX * 100);
 
-                /*
+                
                 //Creando la mesa
-                mesas[i] = new PictureBox();*/
-                //mesas[i].DoubleClick += new EventHandler(DobleClick);
+                mesas[i] = new PictureBox();
+
+                //Poniendole nombre, algo asi como un bautizo :)
+                mesas[i].Name = "botonmesa" + identificadoresMesas[i];
+
+
+                //Asigandoles eventos de click y hover
+                mesas[i].Click += new EventHandler(clickMesa);
+                mesas[i].MouseHover += new EventHandler(hoverMesaEntrante);
+                mesas[i].MouseLeave += new EventHandler(hoverMesaSalida);
 
 
                 //Añadiendole propiedades a cada mesa
@@ -239,7 +328,7 @@ namespace Prueba___Proyecto
                 mesas[i].SizeMode = PictureBoxSizeMode.StretchImage;
                 mesas[i].Visible = true;
                 mesas[i].Cursor = Cursors.Hand;
-                //splitContainer1.Panel2.Controls.Add(mesas[i]);
+                splitContainer1.Panel2.Controls.Add(mesas[i]);
 
 
                 contIndependienteX++;
@@ -536,152 +625,6 @@ namespace Prueba___Proyecto
         }
 
 
-
-
-        //Asigando eventos de click a las mesas
-        private void pictureBox2_Click(object sender, EventArgs e)
-        {
-            idmesa = "1";
-            textBox4.Text = idmesa;
-
-        }
-
-        private void pictureBox3_Click(object sender, EventArgs e)
-        {
-            idmesa = "2";
-            textBox4.Text = idmesa;
-        }
-
-        private void pictureBox5_Click(object sender, EventArgs e)
-        {
-            pictureBox1.Visible = false;
-            groupBox1.Visible = false;
-            idmesa = "3";
-            textBox4.Text = idmesa;
-        }
-
-        private void pictureBox6_Click(object sender, EventArgs e)
-        {
-            pictureBox1.Visible = false;
-            groupBox1.Visible = false;
-            idmesa = "4";
-            textBox4.Text = idmesa;
-        }
-
-        private void pictureBox7_Click(object sender, EventArgs e)
-        {
-            pictureBox1.Visible = false;
-            groupBox1.Visible = false;
-            idmesa = "4";
-            textBox4.Text = idmesa;
-        }
-
-        private void pictureBox8_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void pictureBox9_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void pictureBox10_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void pictureBox11_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void pictureBox12_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void pictureBox13_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void pictureBox14_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void pictureBox15_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void pictureBox16_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void pictureBox17_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void pictureBox18_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void pictureBox19_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void pictureBox20_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void pictureBox21_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void pictureBox22_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void pictureBox23_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void pictureBox24_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void pictureBox25_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void pictureBox26_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void pictureBox27_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        //Asignando click para cerrar la informacion de la mesa
-        private void Recepcion_MouseClick(object sender, MouseEventArgs e)
-        {
-            groupBox1.Visible = false;
-        }
-
         private void splitContainer1_Panel1_Paint(object sender, PaintEventArgs e)
         {
             groupBox1.Visible = false;
@@ -710,382 +653,6 @@ namespace Prueba___Proyecto
 
         }
 
-        private void pictureBox2_MouseHover(object sender, EventArgs e)
-        {
-            pictureBox1.Visible = true;
-            groupBox1.Visible = true;
-            string[] atributosMesa = informacionMesa(0);
-            label3.Text = atributosMesa[1];
-            label5.Text = atributosMesa[2];
-        }
-
-        private void pictureBox2_MouseLeave(object sender, EventArgs e)
-        {
-            pictureBox1.Visible = false;
-            groupBox1.Visible = false;
-        }
-
-        private void pictureBox3_MouseHover(object sender, EventArgs e)
-        {
-            pictureBox1.Visible = true;
-            groupBox1.Visible = true;
-            string[] atributosMesa = informacionMesa(1);
-            label3.Text = atributosMesa[1];
-            label5.Text = atributosMesa[2];
-        }
-
-        private void pictureBox3_MouseLeave(object sender, EventArgs e)
-        {
-            pictureBox1.Visible = false;
-            groupBox1.Visible = false;
-        }
-
-        private void pictureBox5_MouseHover(object sender, EventArgs e)
-        {
-            pictureBox1.Visible = true;
-            groupBox1.Visible = true;
-            string[] atributosMesa = informacionMesa(2);
-            label3.Text = atributosMesa[1];
-            label5.Text = atributosMesa[2];
-        }
-
-        private void pictureBox5_MouseLeave(object sender, EventArgs e)
-        {
-            pictureBox1.Visible = false;
-            groupBox1.Visible = false;
-        }
-
-        private void pictureBox6_MouseHover(object sender, EventArgs e)
-        {
-            pictureBox1.Visible = true;
-            groupBox1.Visible = true;
-            string[] atributosMesa = informacionMesa(3);
-            label3.Text = atributosMesa[1];
-            label5.Text = atributosMesa[2];
-        }
-
-        private void pictureBox6_MouseLeave(object sender, EventArgs e)
-        {
-            pictureBox1.Visible = false;
-            groupBox1.Visible = false;
-        }
-
-        private void pictureBox7_MouseHover(object sender, EventArgs e)
-        {
-            pictureBox1.Visible = true;
-            groupBox1.Visible = true;
-            string[] atributosMesa = informacionMesa(4);
-            label3.Text = atributosMesa[1];
-            label5.Text = atributosMesa[2];
-        }
-
-        private void pictureBox7_MouseLeave(object sender, EventArgs e)
-        {
-            pictureBox1.Visible = false;
-            groupBox1.Visible = false;
-        }
-
-        private void pictureBox8_MouseHover(object sender, EventArgs e)
-        {
-            pictureBox1.Visible = true;
-            groupBox1.Visible = true;
-            string[] atributosMesa = informacionMesa(5);
-            label3.Text = atributosMesa[1];
-            label5.Text = atributosMesa[2];
-        }
-
-        private void pictureBox8_MouseLeave(object sender, EventArgs e)
-        {
-            pictureBox1.Visible = false;
-            groupBox1.Visible = false;
-        }
-
-        private void pictureBox9_MouseHover(object sender, EventArgs e)
-        {
-            pictureBox1.Visible = true;
-            groupBox1.Visible = true;
-            string[] atributosMesa = informacionMesa(6);
-            label3.Text = atributosMesa[1];
-            label5.Text = atributosMesa[2];
-        }
-
-        private void pictureBox9_MouseLeave(object sender, EventArgs e)
-        {
-            pictureBox1.Visible = false;
-            groupBox1.Visible = false;     
-        }
-
-        private void pictureBox10_MouseHover(object sender, EventArgs e)
-        {
-            pictureBox1.Visible = true;
-            groupBox1.Visible = true;
-            string[] atributosMesa = informacionMesa(7);
-            label3.Text = atributosMesa[1];
-            label5.Text = atributosMesa[2];
-
-        }
-
-        private void pictureBox10_MouseLeave(object sender, EventArgs e)
-        {
-            pictureBox1.Visible = false;
-            groupBox1.Visible = false;   
-        }
-
-        private void pictureBox11_MouseHover(object sender, EventArgs e)
-        {
-            pictureBox1.Visible = true;
-            groupBox1.Visible = true;
-            string[] atributosMesa = informacionMesa(8);
-            label3.Text = atributosMesa[1];
-            label5.Text = atributosMesa[2];
-        }
-
-        private void pictureBox11_MouseLeave(object sender, EventArgs e)
-        {
-            pictureBox1.Visible = false;
-            groupBox1.Visible = false;   
-        }
-
-        private void pictureBox12_MouseHover(object sender, EventArgs e)
-        {
-            pictureBox1.Visible = true;
-            groupBox1.Visible = true;
-            string[] atributosMesa = informacionMesa(9);
-            label3.Text = atributosMesa[1];
-            label5.Text = atributosMesa[2];
-        }
-
-        private void pictureBox12_MouseLeave(object sender, EventArgs e)
-        {
-            pictureBox1.Visible = false;
-            groupBox1.Visible = false;
-        }
-
-        private void pictureBox13_MouseHover(object sender, EventArgs e)
-        {
-            pictureBox1.Visible = true;
-            groupBox1.Visible = true;
-            string[] atributosMesa = informacionMesa(10);
-            label3.Text = atributosMesa[1];
-            label5.Text = atributosMesa[2];
-        }
-
-        private void pictureBox13_MouseLeave(object sender, EventArgs e)
-        {
-            pictureBox1.Visible = false;
-            groupBox1.Visible = false;
-        }
-
-        private void pictureBox14_MouseHover(object sender, EventArgs e)
-        {
-            pictureBox1.Visible = true;
-            groupBox1.Visible = true;
-            string[] atributosMesa = informacionMesa(11);
-            label3.Text = atributosMesa[1];
-            label5.Text = atributosMesa[2];
-        }
-
-        private void pictureBox14_MouseLeave(object sender, EventArgs e)
-        {
-            pictureBox1.Visible = false;
-            groupBox1.Visible = false;
-        }
-
-        private void pictureBox15_MouseHover(object sender, EventArgs e)
-        {
-            pictureBox1.Visible = true;
-            groupBox1.Visible = true;
-            string[] atributosMesa = informacionMesa(12);
-            label3.Text = atributosMesa[1];
-            label5.Text = atributosMesa[2];
-        }
-
-        private void pictureBox15_MouseLeave(object sender, EventArgs e)
-        {
-            pictureBox1.Visible = false;
-            groupBox1.Visible = false;
-        }
-
-        private void pictureBox16_MouseHover(object sender, EventArgs e)
-        {
-            pictureBox1.Visible = true;
-            groupBox1.Visible = true;
-            string[] atributosMesa = informacionMesa(13);
-            label3.Text = atributosMesa[1];
-            label5.Text = atributosMesa[2];
-        }
-
-        private void pictureBox16_MouseLeave(object sender, EventArgs e)
-        {
-            pictureBox1.Visible = false;
-            groupBox1.Visible = false;
-        }
-
-        private void pictureBox17_MouseHover(object sender, EventArgs e)
-        {
-            pictureBox1.Visible = true;
-            groupBox1.Visible = true;
-            string[] atributosMesa = informacionMesa(14);
-            label3.Text = atributosMesa[1];
-            label5.Text = atributosMesa[2];
-        }
-
-        private void pictureBox17_MouseLeave(object sender, EventArgs e)
-        {
-            pictureBox1.Visible = false;
-            groupBox1.Visible = false;
-        }
-
-        private void pictureBox18_MouseHover(object sender, EventArgs e)
-        {
-            pictureBox1.Visible = true;
-            groupBox1.Visible = true;
-            string[] atributosMesa = informacionMesa(15);
-            label3.Text = atributosMesa[1];
-            label5.Text = atributosMesa[2];
-        }
-
-        private void pictureBox18_MouseLeave(object sender, EventArgs e)
-        {
-            pictureBox1.Visible = false;
-            groupBox1.Visible = false;
-        }
-
-        private void pictureBox19_MouseHover(object sender, EventArgs e)
-        {
-            pictureBox1.Visible = true;
-            groupBox1.Visible = true;
-            string[] atributosMesa = informacionMesa(16);
-            label3.Text = atributosMesa[1];
-            label5.Text = atributosMesa[2];
-        }
-
-        private void pictureBox19_MouseLeave(object sender, EventArgs e)
-        {
-            pictureBox1.Visible = false;
-            groupBox1.Visible = false;
-        }
-
-        private void pictureBox20_MouseHover(object sender, EventArgs e)
-        {
-            pictureBox1.Visible = true;
-            groupBox1.Visible = true;
-            string[] atributosMesa = informacionMesa(17);
-            label3.Text = atributosMesa[1];
-            label5.Text = atributosMesa[2];
-        }
-
-        private void pictureBox20_MouseLeave(object sender, EventArgs e)
-        {
-            pictureBox1.Visible = false;
-            groupBox1.Visible = false;
-        }
-
-        private void pictureBox21_MouseHover(object sender, EventArgs e)
-        {
-            pictureBox1.Visible = true;
-            groupBox1.Visible = true;
-            string[] atributosMesa = informacionMesa(18);
-            label3.Text = atributosMesa[1];
-            label5.Text = atributosMesa[2];
-        }
-
-        private void pictureBox21_MouseLeave(object sender, EventArgs e)
-        {
-            pictureBox1.Visible = false;
-            groupBox1.Visible = false;
-        }
-
-        private void pictureBox22_MouseHover(object sender, EventArgs e)
-        {
-            pictureBox1.Visible = true;
-            groupBox1.Visible = true;
-            string[] atributosMesa = informacionMesa(19);
-            label3.Text = atributosMesa[1];
-            label5.Text = atributosMesa[2];
-        }
-
-        private void pictureBox22_MouseLeave(object sender, EventArgs e)
-        {
-            pictureBox1.Visible = false;
-            groupBox1.Visible = false;
-        }
-
-        private void pictureBox23_MouseHover(object sender, EventArgs e)
-        {
-            pictureBox1.Visible = true;
-            groupBox1.Visible = true;
-            string[] atributosMesa = informacionMesa(20);
-            label3.Text = atributosMesa[1];
-            label5.Text = atributosMesa[2];
-        }
-
-        private void pictureBox23_MouseLeave(object sender, EventArgs e)
-        {
-            pictureBox1.Visible = false;
-            groupBox1.Visible = false;
-        }
-
-        private void pictureBox24_MouseHover(object sender, EventArgs e)
-        {
-            pictureBox1.Visible = true;
-            groupBox1.Visible = true;
-            string[] atributosMesa = informacionMesa(21);
-            label3.Text = atributosMesa[1];
-            label5.Text = atributosMesa[2];
-        }
-
-        private void pictureBox24_MouseLeave(object sender, EventArgs e)
-        {
-            pictureBox1.Visible = false;
-            groupBox1.Visible = false;
-        }
-
-        private void pictureBox25_MouseHover(object sender, EventArgs e)
-        {
-            pictureBox1.Visible = true;
-            groupBox1.Visible = true;
-            string[] atributosMesa = informacionMesa(22);
-            label3.Text = atributosMesa[1];
-            label5.Text = atributosMesa[2];
-        }
-
-        private void pictureBox25_MouseLeave(object sender, EventArgs e)
-        {
-            pictureBox1.Visible = false;
-            groupBox1.Visible = false;
-        }
-
-        private void pictureBox26_MouseHover(object sender, EventArgs e)
-        {
-            pictureBox1.Visible = true;
-            groupBox1.Visible = true;
-            string[] atributosMesa = informacionMesa(23);
-            label3.Text = atributosMesa[1];
-            label5.Text = atributosMesa[2];
-        }
-
-        private void pictureBox26_MouseLeave(object sender, EventArgs e)
-        {
-            pictureBox1.Visible = false;
-            groupBox1.Visible = false;
-        }
-
-        private void pictureBox27_MouseHover(object sender, EventArgs e)
-        {
-            pictureBox1.Visible = true;
-            groupBox1.Visible = true;
-            string[] atributosMesa = informacionMesa(24);
-            label3.Text = atributosMesa[1];
-            label5.Text = atributosMesa[2];
-        }
-
-        private void pictureBox27_MouseLeave(object sender, EventArgs e)
-        {
-            pictureBox1.Visible = false;
-            groupBox1.Visible = false;
-        }
-
         private void pictureBox5_Click_1(object sender, EventArgs e)
         {
             pictureBox1.Visible = false;
@@ -1098,6 +665,5 @@ namespace Prueba___Proyecto
         {
             idmesa = textBox4.Text;
         }
-        ///Terminando de asignar eventos de click
     }
 }
