@@ -22,3 +22,16 @@ C:\Users\Zero Vivanco\Desktop\Cocina - Proyecto\Cocina - Proyecto\obj\Debug\Coci
 C:\Users\Zero Vivanco\Desktop\Cocina - Proyecto\Cocina - Proyecto\obj\Debug\Cocina - Proyecto.csproj.GenerateResource.Cache
 C:\Users\Zero Vivanco\Desktop\Cocina - Proyecto\Cocina - Proyecto\obj\Debug\Cocina___Proyecto.Splash.resources
 C:\Users\Zero Vivanco\Desktop\Cocina - Proyecto\Cocina - Proyecto\obj\Debug\Cocina___Proyecto.Oscurece.resources
+C:\Users\Zero Vivanco\Documents\GitHub\proyecto-visual\Cocina - Proyecto\Cocina - Proyecto\bin\Debug\Cocina - Proyecto.exe.config
+C:\Users\Zero Vivanco\Documents\GitHub\proyecto-visual\Cocina - Proyecto\Cocina - Proyecto\obj\Debug\Cocina - Proyecto.exe
+C:\Users\Zero Vivanco\Documents\GitHub\proyecto-visual\Cocina - Proyecto\Cocina - Proyecto\obj\Debug\Cocina - Proyecto.pdb
+C:\Users\Zero Vivanco\Documents\GitHub\proyecto-visual\Cocina - Proyecto\Cocina - Proyecto\bin\Debug\Cocina - Proyecto.exe
+C:\Users\Zero Vivanco\Documents\GitHub\proyecto-visual\Cocina - Proyecto\Cocina - Proyecto\bin\Debug\Cocina - Proyecto.pdb
+C:\Users\Zero Vivanco\Documents\GitHub\proyecto-visual\Cocina - Proyecto\Cocina - Proyecto\bin\Debug\MySql.Data.dll
+C:\Users\Zero Vivanco\Documents\GitHub\proyecto-visual\Cocina - Proyecto\Cocina - Proyecto\bin\Debug\MySql.Data.Entity.dll
+C:\Users\Zero Vivanco\Documents\GitHub\proyecto-visual\Cocina - Proyecto\Cocina - Proyecto\obj\Debug\Cocina - Proyecto.csprojResolveAssemblyReference.cache
+C:\Users\Zero Vivanco\Documents\GitHub\proyecto-visual\Cocina - Proyecto\Cocina - Proyecto\obj\Debug\Cocina___Proyecto.ListaPedidos.resources
+C:\Users\Zero Vivanco\Documents\GitHub\proyecto-visual\Cocina - Proyecto\Cocina - Proyecto\obj\Debug\Cocina___Proyecto.Oscurece.resources
+C:\Users\Zero Vivanco\Documents\GitHub\proyecto-visual\Cocina - Proyecto\Cocina - Proyecto\obj\Debug\Cocina___Proyecto.Properties.Resources.resources
+C:\Users\Zero Vivanco\Documents\GitHub\proyecto-visual\Cocina - Proyecto\Cocina - Proyecto\obj\Debug\Cocina___Proyecto.Splash.resources
+C:\Users\Zero Vivanco\Documents\GitHub\proyecto-visual\Cocina - Proyecto\Cocina - Proyecto\obj\Debug\Cocina - Proyecto.csproj.GenerateResource.Cache

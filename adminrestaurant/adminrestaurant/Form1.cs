@@ -29,6 +29,7 @@ namespace adminrestaurant
             return resultadoQuery;
         }
 
+        int click1 = 0, click2 = 0;
 
         //Verificar que el usuario sea el administrador
         public bool verificarAdmin()
@@ -68,7 +69,6 @@ namespace adminrestaurant
             MySqlCommand pro = new MySqlCommand(inserta);
             pro.Connection = ins_pro.getConexion();
             pro.ExecuteNonQuery();
-            MessageBox.Show("Se ha ingresado satisfactoriamente", "Insercion exitosa", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
         public void limpiar()
@@ -94,14 +94,14 @@ namespace adminrestaurant
             //Verificando que exista un usario administrador en la base de datos
             if (contarUsuarios() == 0)
             {
-                groupBox1.Visible = true;
+                panel1.Visible = true;
                 button1.Visible = false;
                 textBox3.Focus();
             }
             //De lo contrario aparece el formulario para registrar al administrador
             else
             {
-                groupBox1.Visible = false;
+                panel1.Visible = false;
                 button1.Visible = true;
             }
 
@@ -126,22 +126,34 @@ namespace adminrestaurant
                         }
                         else
                         {
-                            MessageBox.Show("El usuario no cuenta con permisos de administrador");
+                            pictureBox1.Visible = true;
+                            pictureBox2.Visible = true;
+                            pictureBox3.Visible = true;
+                            pictureBox4.Visible = true;
                         }
                     }
                     else
                     {
-                        MessageBox.Show("Usuario o contraseña incorrecta");
+                        pictureBox1.Visible = true;
+                        pictureBox2.Visible = true;
+                        pictureBox3.Visible = true;
+                        pictureBox4.Visible = true;
                     }
                 }
                 else
                 {
-                    MessageBox.Show("El formato es invalido o incompleto");
+                    pictureBox1.Visible = true;
+                    pictureBox2.Visible = true;
+                    pictureBox3.Visible = true;
+                    pictureBox4.Visible = true;
                 }
             }
             catch (Exception error)
             {
-                MessageBox.Show("El formato es invalido");
+                pictureBox1.Visible = true;
+                pictureBox2.Visible = true;
+                pictureBox3.Visible = true;
+                pictureBox4.Visible = true;
             }
         }
 
@@ -153,16 +165,22 @@ namespace adminrestaurant
                 {
                     registrarAdmin();
                     button1.Visible = true;
-                    groupBox1.Visible = false;
+                    panel1.Visible = false;
                 }
                 else
                 {
-                    MessageBox.Show("El formato es invalido");
+                    pictureBox5.Visible = true;
+                    pictureBox6.Visible = true;
+                    pictureBox7.Visible = true;
+                    pictureBox8.Visible = true;
                 }
             }
             catch (Exception error)
             {
-                MessageBox.Show("El formato es invalido");
+                pictureBox5.Visible = true;
+                pictureBox6.Visible = true;
+                pictureBox7.Visible = true;
+                pictureBox8.Visible = true;
             }
         }
 
@@ -183,6 +201,108 @@ namespace adminrestaurant
                 button1.PerformClick();
                 return;
             }
+        }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+            if (click1 == 0)
+            {
+                textBox1.Text = "";
+                click1 = 1;
+                textBox1.ForeColor = Color.DimGray;
+            }
+
+            textBox1.ForeColor = Color.DimGray;
+            //Ocultando los mensajes de error
+            pictureBox1.Visible = false;
+            pictureBox2.Visible = false;
+            pictureBox3.Visible = false;
+            pictureBox4.Visible = false;
+        }
+
+        private void textBox2_TextChanged(object sender, EventArgs e)
+        {
+            if (click2 == 0)
+            {
+                //Vaciando el placeholder del textbox y editando el formato de entrada de texto
+                textBox2.Text = "";
+                click2 = 1;
+            }
+            textBox2.ForeColor = Color.DimGray;
+            textBox2.UseSystemPasswordChar = true;
+            //Ocultando los mensajes de error
+            pictureBox1.Visible = false;
+            pictureBox2.Visible = false;
+            pictureBox3.Visible = false;
+            pictureBox4.Visible = false;
+        }
+
+        private void textBox1_MouseClick(object sender, MouseEventArgs e)
+        {
+            if (click1 == 0)
+            {
+                textBox1.Text = "";
+                click1 = 1;
+                textBox1.ForeColor = Color.DimGray;
+            }
+            //Ocultando los mensajes de error
+            pictureBox1.Visible = false;
+            pictureBox2.Visible = false;
+            pictureBox3.Visible = false;
+            pictureBox4.Visible = false;
+        }
+
+        private void textBox2_MouseClick(object sender, MouseEventArgs e)
+        {
+            if (click2 == 0)
+            {
+                //Vaciando el placeholder del textbox y editando el formato de entrada de texto
+                textBox2.Text = "";
+                click2 = 1;
+
+            }
+
+            textBox2.ForeColor = Color.DimGray;
+            textBox2.UseSystemPasswordChar = true;
+            //Ocultando los mensajes de error
+            pictureBox1.Visible = false;
+            pictureBox2.Visible = false;
+            pictureBox3.Visible = false;
+            pictureBox4.Visible = false;
+        }
+
+        private void button6_MouseHover(object sender, EventArgs e)
+        {
+            button6.Visible = false;
+            button8.Visible = true;
+        }
+
+        private void button8_MouseLeave(object sender, EventArgs e)
+        {
+            button6.Visible = true;
+            button8.Visible = false;
+        }
+
+        private void button5_MouseHover(object sender, EventArgs e)
+        {
+            button5.Visible = false;
+            button7.Visible = true;
+        }
+
+        private void button7_MouseLeave(object sender, EventArgs e)
+        {
+            button5.Visible = true;
+            button7.Visible = false;
+        }
+
+        private void button8_Click(object sender, EventArgs e)
+        {
+            WindowState = FormWindowState.Minimized;
+        }
+
+        private void button7_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

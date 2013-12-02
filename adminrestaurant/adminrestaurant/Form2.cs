@@ -477,7 +477,7 @@ namespace adminrestaurant
             try
             {
                 //Verificando si los campos estan llenos
-                if (textBox5.Text != "" && textBox6.Text != "" && textBox7.Text != "" && textBox10.Text != "" && comboBox2.SelectedItem.ToString() != "" && comboBox13.SelectedItem.ToString() != "")
+                if (textBox5.Text != "" && textBox6.Text != "" && textBox7.Text != "" && comboBox2.SelectedItem.ToString() != "" && comboBox13.SelectedItem.ToString() != "")
                 {
                     registrarAlimento();
                     llenarGrids();

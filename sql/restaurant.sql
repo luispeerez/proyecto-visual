@@ -1,317 +1,229 @@
--- phpMyAdmin SQL Dump
--- version 3.5.1
--- http://www.phpmyadmin.net
+-- MySQL dump 10.10
 --
--- Servidor: localhost
--- Tiempo de generación: 01-12-2013 a las 16:53:32
--- Versión del servidor: 5.5.24-log
--- Versión de PHP: 5.3.13
-
-SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";
-SET time_zone = "+00:00";
-
+-- Host: localhost    Database: restaurant
+-- ------------------------------------------------------
+-- Server version	5.0.22-community-nt
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
 /*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
 /*!40101 SET NAMES utf8 */;
+/*!40103 SET @OLD_TIME_ZONE=@@TIME_ZONE */;
+/*!40103 SET TIME_ZONE='+00:00' */;
+/*!40014 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0 */;
+/*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
+/*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
+/*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
--- Base de datos: `restaurant`
+-- Table structure for table `actualizacion`
 --
 
--- --------------------------------------------------------
-
---
--- Estructura de tabla para la tabla `actualizacion`
---
-
-CREATE TABLE IF NOT EXISTS `actualizacion` (
-  `Nombre` varchar(6) DEFAULT NULL,
-  `Orden` tinyint(4) DEFAULT NULL,
-  `Pedido` tinyint(4) DEFAULT NULL,
-  `NumCamOrden` int(11) DEFAULT NULL,
-  `NumCamPedido` int(11) DEFAULT NULL
+DROP TABLE IF EXISTS `actualizacion`;
+CREATE TABLE `actualizacion` (
+  `Nombre` varchar(6) default NULL,
+  `Orden` tinyint(4) default NULL,
+  `Pedido` tinyint(4) default NULL,
+  `NumCamOrden` int(11) default NULL,
+  `NumCamPedido` int(11) default NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Volcado de datos para la tabla `actualizacion`
+-- Dumping data for table `actualizacion`
 --
 
-INSERT INTO `actualizacion` (`Nombre`, `Orden`, `Pedido`, `NumCamOrden`, `NumCamPedido`) VALUES
-('Cambio', 0, 0, 0, 0);
 
--- --------------------------------------------------------
+/*!40000 ALTER TABLE `actualizacion` DISABLE KEYS */;
+LOCK TABLES `actualizacion` WRITE;
+INSERT INTO `actualizacion` VALUES ('Cambio',0,0,0,0);
+UNLOCK TABLES;
+/*!40000 ALTER TABLE `actualizacion` ENABLE KEYS */;
 
 --
--- Estructura de tabla para la tabla `alimento`
+-- Table structure for table `alimento`
 --
 
-CREATE TABLE IF NOT EXISTS `alimento` (
-  `idalimento` int(11) NOT NULL AUTO_INCREMENT,
+DROP TABLE IF EXISTS `alimento`;
+CREATE TABLE `alimento` (
+  `idalimento` int(11) NOT NULL auto_increment,
   `nombre` varchar(30) NOT NULL,
-  `tipoalimento` varchar(45) DEFAULT NULL,
-  `descripcion` varchar(100) DEFAULT NULL,
-  `precio` decimal(4,2) DEFAULT NULL,
+  `tipoalimento` varchar(45) default NULL,
+  `descripcion` varchar(100) default NULL,
+  `precio` decimal(6,2) default NULL,
   `estatus` varchar(15) NOT NULL,
-  PRIMARY KEY (`idalimento`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=10 ;
+  PRIMARY KEY  (`idalimento`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Volcado de datos para la tabla `alimento`
+-- Dumping data for table `alimento`
 --
 
-INSERT INTO `alimento` (`idalimento`, `nombre`, `tipoalimento`, `descripcion`, `precio`, `estatus`) VALUES
-(1, 'Cereal', 'Entrada', 'tutache', '10.00', 'Disponible'),
-(2, 'cuchara', 'Postre', 'jomi', '1.00', 'Disponible'),
-(3, 'Galletas', 'Postre', 'asasa', '12.00', 'Disponible'),
-(4, 'Gelatina', 'Postre', 'aasasa', '13.00', 'Disponible'),
-(5, 'Carne', 'Plato fuerte', 'sasaasa', '30.00', 'Disponible'),
-(6, 'Ensalada', 'Entrada', 'asassasas', '10.00', 'Disponible'),
-(7, 'Camarones', 'Plato fuerte', 'bajo del mar', '10.00', 'Disponible'),
-(8, 'Atun', 'Entrada', 'efefefefe', '15.00', 'Disponible'),
-(9, 'sopanissin', 'Entrada', 'yumi', '5.00', 'Disponible');
 
--- --------------------------------------------------------
+/*!40000 ALTER TABLE `alimento` DISABLE KEYS */;
+LOCK TABLES `alimento` WRITE;
+INSERT INTO `alimento` VALUES (1,'Ensalada de pepino','Entrada','Radajas de pepino marinadas en una mezcla de agua , vinagre, pimienta y sal','100.00','Disponible'),(2,'Ensalada de champiñones','Entrada','Champiñones con camarones y aderezo especial','120.00','Disponible'),(3,'Melones al moscato','Entrada','Melon rebanado por la mitad con jamon, melocotones ','90.00','Disponible'),(4,'Tarta de pollo','Entrada','Contiene pollo y acelga condimentada con sal, y pinienta','85.00','Disponible'),(5,'Pastel de calabacines','Entrada','Pastel rellenado con calabacines e ingredientes varios','95.00','Disponible'),(6,'Tortitas de lenteja','Plato fuerte','Un platillo con proteínas, ideal para cuando no quieras añadir carne a su dieta.','125.00','Disponible'),(7,'Arroz a lo pobre','Plato fuerte','Un arroz muy diferente por sus ingredientes y delicioso para acompañarlo con vino tinto Viña Real','100.00','Disponible'),(8,'Lomo de cerdo relleno de queso','Plato fuerte','Una excelente manera de preparar una cena de navidad sin utilizar horno','120.00','Disponible'),(9,'Nubes de frijoles','Plato fuerte','Un antojito muy sabroso y fácil de preparar para toda la familia','90.00','Disponible'),(10,'Chimicanga de pollo','Plato fuerte','Es uno de los ricos y fáciles platillos mexicanos','70.00','Disponible'),(11,'Arroz con leche','Postre','  ','50.00','Disponible'),(12,'Buñuelos','Postre','  ','55.00','Disponible'),(13,'Pay de limon','Postre','  ','55.00','Disponible'),(14,'Churros','Postre','  ','40.00','Disponible'),(15,'Galletas rellenas de chocolate','Postre','  ','40.00','Disponible'),(16,'Aguas frescas','Bebida','Jamaica - Horchata - Limon  1 Litro','35.00','Disponible'),(17,'Rafescos ','Bebida','Varios sabores','40.00','Disponible'),(18,'Tequila','Bebida','Reposado 50 años ','150.00','Disponible'),(19,'Tequila Blanco','Bebida','Blanco','120.00','Disponible'),(20,'Vino','Bebida','Tinto 150 años','180.00','Disponible');
+UNLOCK TABLES;
+/*!40000 ALTER TABLE `alimento` ENABLE KEYS */;
 
 --
--- Estructura de tabla para la tabla `cliente`
+-- Table structure for table `cliente`
 --
 
-CREATE TABLE IF NOT EXISTS `cliente` (
-  `idcliente` int(11) NOT NULL AUTO_INCREMENT,
-  `nombre` varchar(30) DEFAULT NULL,
-  `apellidos` varchar(50) DEFAULT NULL,
-  PRIMARY KEY (`idcliente`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
-
--- --------------------------------------------------------
-
---
--- Estructura de tabla para la tabla `mesa`
---
-
-CREATE TABLE IF NOT EXISTS `mesa` (
-  `idmesa` int(11) NOT NULL AUTO_INCREMENT,
-  `numpersonas` int(11) DEFAULT NULL,
-  `estatus` varchar(30) DEFAULT NULL,
-  `idcliente` int(11) DEFAULT NULL,
-  PRIMARY KEY (`idmesa`),
-  KEY `idcliente` (`idcliente`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=4 ;
+DROP TABLE IF EXISTS `cliente`;
+CREATE TABLE `cliente` (
+  `idcliente` int(11) NOT NULL auto_increment,
+  `nombre` varchar(30) default NULL,
+  `apellidos` varchar(50) default NULL,
+  PRIMARY KEY  (`idcliente`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Volcado de datos para la tabla `mesa`
+-- Dumping data for table `cliente`
 --
 
-INSERT INTO `mesa` (`idmesa`, `numpersonas`, `estatus`, `idcliente`) VALUES
-(1, 6, 'Disponible', NULL),
-(2, 4, 'Reservada', NULL),
-(3, 4, 'Disponible', NULL);
 
--- --------------------------------------------------------
+/*!40000 ALTER TABLE `cliente` DISABLE KEYS */;
+LOCK TABLES `cliente` WRITE;
+UNLOCK TABLES;
+/*!40000 ALTER TABLE `cliente` ENABLE KEYS */;
 
 --
--- Estructura de tabla para la tabla `mesero`
+-- Table structure for table `mesa`
 --
 
-CREATE TABLE IF NOT EXISTS `mesero` (
-  `idmesero` int(11) NOT NULL AUTO_INCREMENT,
-  `nombre` varchar(30) DEFAULT NULL,
-  `apellidos` varchar(50) DEFAULT NULL,
+DROP TABLE IF EXISTS `mesa`;
+CREATE TABLE `mesa` (
+  `idmesa` int(11) NOT NULL auto_increment,
+  `numpersonas` int(11) default NULL,
+  `estatus` varchar(30) default NULL,
+  `idcliente` int(11) default NULL,
+  PRIMARY KEY  (`idmesa`),
+  KEY `idcliente` (`idcliente`),
+  CONSTRAINT `mesa_ibfk_1` FOREIGN KEY (`idcliente`) REFERENCES `cliente` (`idcliente`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `mesa`
+--
+
+
+/*!40000 ALTER TABLE `mesa` DISABLE KEYS */;
+LOCK TABLES `mesa` WRITE;
+UNLOCK TABLES;
+/*!40000 ALTER TABLE `mesa` ENABLE KEYS */;
+
+--
+-- Table structure for table `mesero`
+--
+
+DROP TABLE IF EXISTS `mesero`;
+CREATE TABLE `mesero` (
+  `idmesero` int(11) NOT NULL auto_increment,
+  `nombre` varchar(30) default NULL,
+  `apellidos` varchar(50) default NULL,
   `estatus` varchar(15) NOT NULL,
   `idusuario` int(11) NOT NULL,
-  PRIMARY KEY (`idmesero`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=6 ;
+  PRIMARY KEY  (`idmesero`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Volcado de datos para la tabla `mesero`
+-- Dumping data for table `mesero`
 --
 
-INSERT INTO `mesero` (`idmesero`, `nombre`, `apellidos`, `estatus`, `idusuario`) VALUES
-(1, 'Jesus', 'Serna', '', 1),
-(2, 'naruto', 'uzumaki', 'Disponible', 0),
-(3, 'sasuke', 'uchiha', 'Disponible', 0),
-(4, 'sakura', 'chan', 'Disponible', 0),
-(5, 'kakashi', 'kun', 'Disponible', 24);
 
--- --------------------------------------------------------
+/*!40000 ALTER TABLE `mesero` DISABLE KEYS */;
+LOCK TABLES `mesero` WRITE;
+INSERT INTO `mesero` VALUES (1,'Luis','Perez','Disponible',2),(2,'Mario','Lopez','Disponible',4),(3,'Maria','Aguilar','Disponible',6);
+UNLOCK TABLES;
+/*!40000 ALTER TABLE `mesero` ENABLE KEYS */;
 
 --
--- Estructura de tabla para la tabla `orden`
+-- Table structure for table `orden`
 --
 
-CREATE TABLE IF NOT EXISTS `orden` (
-  `idorden` int(11) NOT NULL AUTO_INCREMENT,
-  `idmesa` int(11) DEFAULT NULL,
-  `idmesero` int(11) DEFAULT NULL,
-  `fecha` datetime DEFAULT NULL,
-  `total` decimal(4,2) DEFAULT NULL,
-  `estatus` varchar(30) DEFAULT NULL,
+DROP TABLE IF EXISTS `orden`;
+CREATE TABLE `orden` (
+  `idorden` int(11) NOT NULL auto_increment,
+  `idmesa` int(11) default NULL,
+  `idmesero` int(11) default NULL,
+  `fecha` datetime default NULL,
+  `total` decimal(4,2) default NULL,
+  `estatus` varchar(30) default NULL,
   `actualizado` tinyint(4) NOT NULL,
-  PRIMARY KEY (`idorden`),
+  PRIMARY KEY  (`idorden`),
   KEY `idmesa` (`idmesa`),
   KEY `idmesero` (`idmesero`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=30 ;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Volcado de datos para la tabla `orden`
+-- Dumping data for table `orden`
 --
 
-INSERT INTO `orden` (`idorden`, `idmesa`, `idmesero`, `fecha`, `total`, `estatus`, `actualizado`) VALUES
-(23, 1, 0, '2013-11-28 17:04:37', '0.00', 'PAGADA', 0),
-(24, 1, 0, '2013-11-28 17:33:03', '0.00', 'PAGADA', 0),
-(25, 1, 0, '2013-11-29 02:47:53', '0.00', 'PAGADA', 0),
-(26, 1, 0, '2013-11-29 10:30:48', '0.00', 'PAGADA', 0),
-(27, 1, 0, '2013-11-30 17:45:45', '0.00', 'ABIERTA', 1),
-(28, 3, 0, '2013-11-30 17:50:14', '0.00', 'ABIERTA', 1),
-(29, 1, 0, '2013-11-30 19:00:05', '0.00', 'ABIERTA', 1);
 
--- --------------------------------------------------------
+/*!40000 ALTER TABLE `orden` DISABLE KEYS */;
+LOCK TABLES `orden` WRITE;
+UNLOCK TABLES;
+/*!40000 ALTER TABLE `orden` ENABLE KEYS */;
 
 --
--- Estructura de tabla para la tabla `pedido`
+-- Table structure for table `pedido`
 --
 
-CREATE TABLE IF NOT EXISTS `pedido` (
-  `idpedido` int(11) NOT NULL AUTO_INCREMENT,
-  `idorden` int(11) DEFAULT NULL,
-  `idalimento` int(11) DEFAULT NULL,
-  `estatus` varchar(30) DEFAULT NULL,
+DROP TABLE IF EXISTS `pedido`;
+CREATE TABLE `pedido` (
+  `idpedido` int(11) NOT NULL auto_increment,
+  `idorden` int(11) default NULL,
+  `idalimento` int(11) default NULL,
+  `estatus` varchar(30) default NULL,
   `actualizado` tinyint(4) NOT NULL,
-  PRIMARY KEY (`idpedido`),
+  PRIMARY KEY  (`idpedido`),
   KEY `idorden` (`idorden`),
   KEY `idalimento` (`idalimento`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=52 ;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Volcado de datos para la tabla `pedido`
+-- Dumping data for table `pedido`
 --
 
-INSERT INTO `pedido` (`idpedido`, `idorden`, `idalimento`, `estatus`, `actualizado`) VALUES
-(1, 24, 1, 'Listo', 0),
-(2, 24, 6, 'Entregado', 0),
-(3, 24, 4, 'Listo', 0),
-(4, 24, 3, 'Cancelado', 0),
-(5, 26, 5, 'Cancelado', 0),
-(6, 25, 7, 'Listo', 0),
-(7, 26, 4, 'Listo', 0),
-(8, 26, 5, 'Listo', 0),
-(9, 26, 2, 'Listo', 0),
-(10, 26, 8, 'Listo', 0),
-(11, 26, 9, 'Listo', 0),
-(12, 28, 7, 'Listo', 0),
-(13, 29, 6, 'Listo', 0),
-(14, 28, 7, 'Listo', 0),
-(15, 28, 5, 'Listo', 0),
-(16, 28, 6, 'Listo', 0),
-(17, 28, 7, 'Listo', 0),
-(18, 28, 9, 'Listo', 0),
-(19, 29, 7, 'Entregado', 0),
-(20, 27, 7, 'Entregado', 0),
-(21, 27, 7, 'Entregado', 0),
-(22, 27, 7, 'Entregado', 0),
-(23, 29, 1, 'Listo', 0),
-(24, 29, 6, 'Listo', 0),
-(25, 29, 8, 'Listo', 0),
-(26, 29, 9, 'Listo', 0),
-(27, 29, 1, 'Listo', 0),
-(28, 29, 1, 'Listo', 0),
-(29, 29, 6, 'Listo', 0),
-(30, 29, 8, 'Listo', 0),
-(31, 29, 9, 'Listo', 0),
-(32, 28, 5, 'Listo', 0),
-(33, 28, 7, 'Listo', 0),
-(34, 28, 1, 'Listo', 0),
-(35, 28, 6, 'Listo', 0),
-(36, 28, 8, 'Listo', 0),
-(37, 29, 1, 'Listo', 0),
-(38, 29, 6, 'Listo', 0),
-(39, 29, 8, 'Listo', 0),
-(40, 29, 9, 'Listo', 0),
-(41, 28, 1, 'Listo', 0),
-(42, 28, 6, 'Listo', 0),
-(43, 28, 8, 'Listo', 0),
-(44, 28, 9, 'Listo', 0),
-(45, 29, 5, 'Listo', 0),
-(46, 29, 7, 'Listo', 0),
-(47, 29, 8, 'Listo', 0),
-(48, 28, 1, 'Listo', 0),
-(49, 28, 6, 'Listo', 0),
-(50, 28, 8, 'Pendiente', 0),
-(51, 28, 9, 'Pendiente', 0);
 
--- --------------------------------------------------------
+/*!40000 ALTER TABLE `pedido` DISABLE KEYS */;
+LOCK TABLES `pedido` WRITE;
+UNLOCK TABLES;
+/*!40000 ALTER TABLE `pedido` ENABLE KEYS */;
 
 --
--- Estructura de tabla para la tabla `usuario`
+-- Table structure for table `usuario`
 --
 
-CREATE TABLE IF NOT EXISTS `usuario` (
-  `idusuario` int(11) NOT NULL AUTO_INCREMENT,
-  `nombre` varchar(30) COLLATE utf8_unicode_ci NOT NULL,
-  `apellidos` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
-  `nickname` varchar(15) COLLATE utf8_unicode_ci NOT NULL,
-  `pass` varchar(15) COLLATE utf8_unicode_ci NOT NULL,
-  `area` varchar(15) COLLATE utf8_unicode_ci NOT NULL,
-  `estatus` varchar(15) COLLATE utf8_unicode_ci NOT NULL,
-  PRIMARY KEY (`idusuario`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=25 ;
+DROP TABLE IF EXISTS `usuario`;
+CREATE TABLE `usuario` (
+  `idusuario` int(11) NOT NULL auto_increment,
+  `nombre` varchar(30) collate utf8_unicode_ci NOT NULL,
+  `apellidos` varchar(50) collate utf8_unicode_ci NOT NULL,
+  `nickname` varchar(15) collate utf8_unicode_ci NOT NULL,
+  `pass` varchar(15) collate utf8_unicode_ci NOT NULL,
+  `area` varchar(15) collate utf8_unicode_ci NOT NULL,
+  `estatus` varchar(15) collate utf8_unicode_ci NOT NULL,
+  PRIMARY KEY  (`idusuario`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- Volcado de datos para la tabla `usuario`
+-- Dumping data for table `usuario`
 --
 
-INSERT INTO `usuario` (`idusuario`, `nombre`, `apellidos`, `nickname`, `pass`, `area`, `estatus`) VALUES
-(1, 'Zero', 'Vivanco', 'Zero', '1234', 'Administrador', ''),
-(2, 'luis', 'perez bautista', 'peerez', '123', 'Recepcion', 'Disponible'),
-(3, 'Jesus', 'Serna', 'Jesus', '12345', 'Mesero', 'Disponible'),
-(4, 'juan', 'gorocica', 'goro', '1234', 'Meseros', 'Disponible'),
-(5, 'lolo', 'perez', 'lolo', '1234', 'Meseros', 'Disponible'),
-(6, 'matias', 'martinez', 'mati', '1234', 'Meseros', 'Disponible'),
-(7, 'pepito', 'perez', 'pepito', '1234', 'Meseros', 'Disponible'),
-(8, 'perengano', 'perez', 'pengano', '1234', 'Meseros', 'Disponible'),
-(9, 'generico', 'perez', 'generico', '1234', 'Meseros', 'Disponible'),
-(10, 'lala', 'perez', 'lala', '1234', 'Meseros', 'Disponible'),
-(11, 'pepe', 'perez', 'pepe', '1234', 'Meseros', 'Disponible'),
-(12, 'maria', 'sanchez', 'maria', '1234', 'Meseros', 'Disponible'),
-(13, 'ultimo', 'intento', 'ultimo', '1234', 'Meseros', 'Disponible'),
-(14, 'goku', 'son', 'goku', '1234', 'Meseros', 'Disponible'),
-(15, 'gohan', 'son', 'gohan', '1234', 'Meseros', 'Disponible'),
-(16, 'goten', 'son', 'goten', '1234', 'Meseros', 'Disponible'),
-(17, 'trunks', 'vegita', 'trunks', '1234', 'Meseros', 'Disponible'),
-(18, 'vegeta', 'vegita', 'vegeta', '1234', 'Meseros', 'Disponible'),
-(19, 'jose', 'jose', 'jose', '1234', 'Meseros', 'Disponible'),
-(20, 'bulma', 'vegita', 'bulma', '1234', 'Meseros', 'Disponible'),
-(21, 'naruto', 'uzumaki', 'naruto', '1234', 'Meseros', 'Disponible'),
-(22, 'sasuke', 'uchiha', 'sasuke', '1234', 'Meseros', 'Disponible'),
-(23, 'sakura', 'chan', 'sakura', '1234', 'Meseros', 'Disponible'),
-(24, 'kakashi', 'kun', 'kakashi', '1234', 'Meseros', 'Disponible');
 
---
--- Restricciones para tablas volcadas
---
+/*!40000 ALTER TABLE `usuario` DISABLE KEYS */;
+LOCK TABLES `usuario` WRITE;
+INSERT INTO `usuario` VALUES (1,'Jesus','Serna','Jesus','1234','Administrador','Disponible'),(2,'Luis','Perez','luis','1234','Meseros','Disponible'),(3,'Edgar','Vivanco','edgar','1234','Recepcion','Disponible'),(4,'Mario','Lopez','mario','1234','Meseros','Disponible'),(5,'Juan','Perez','home','1234','Recepcion','Disponible'),(6,'Maria','Aguilar','maria','1234','Meseros','Disponible');
+UNLOCK TABLES;
+/*!40000 ALTER TABLE `usuario` ENABLE KEYS */;
+/*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
---
--- Filtros para la tabla `mesa`
---
-ALTER TABLE `mesa`
-  ADD CONSTRAINT `mesa_ibfk_1` FOREIGN KEY (`idcliente`) REFERENCES `cliente` (`idcliente`);
-
---
--- Filtros para la tabla `orden`
---
-ALTER TABLE `orden`
-  ADD CONSTRAINT `orden_ibfk_1` FOREIGN KEY (`idmesa`) REFERENCES `mesa` (`idmesa`),
-  ADD CONSTRAINT `orden_ibfk_2` FOREIGN KEY (`idmesero`) REFERENCES `mesero` (`idmesero`);
-
---
--- Filtros para la tabla `pedido`
---
-ALTER TABLE `pedido`
-  ADD CONSTRAINT `pedido_ibfk_1` FOREIGN KEY (`idorden`) REFERENCES `orden` (`idorden`),
-  ADD CONSTRAINT `pedido_ibfk_2` FOREIGN KEY (`idalimento`) REFERENCES `alimento` (`idalimento`);
-
+/*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
+/*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
+/*!40014 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS */;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+/*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
+

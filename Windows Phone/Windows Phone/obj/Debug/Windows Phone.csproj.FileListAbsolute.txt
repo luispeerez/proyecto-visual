@@ -50,3 +50,18 @@ C:\proyecto-visual\Windows Phone\Windows Phone\obj\Debug\Windows_Phone.Ordenes.r
 C:\proyecto-visual\Windows Phone\Windows Phone\obj\Debug\Windows_Phone.Pedidos.resources
 C:\proyecto-visual\Windows Phone\Windows Phone\obj\Debug\Windows_Phone.Properties.Resources.resources
 C:\proyecto-visual\Windows Phone\Windows Phone\obj\Debug\Windows Phone.csproj.GenerateResource.Cache
+C:\Users\Zero Vivanco\Documents\GitHub\proyecto-visual\Windows Phone\Windows Phone\bin\Debug\Windows Phone.exe
+C:\Users\Zero Vivanco\Documents\GitHub\proyecto-visual\Windows Phone\Windows Phone\bin\Debug\Windows Phone.pdb
+C:\Users\Zero Vivanco\Documents\GitHub\proyecto-visual\Windows Phone\Windows Phone\bin\Debug\MySql.Data.dll
+C:\Users\Zero Vivanco\Documents\GitHub\proyecto-visual\Windows Phone\Windows Phone\bin\Debug\MySql.Data.Entity.dll
+C:\Users\Zero Vivanco\Documents\GitHub\proyecto-visual\Windows Phone\Windows Phone\obj\Debug\Windows Phone.csprojResolveAssemblyReference.cache
+C:\Users\Zero Vivanco\Documents\GitHub\proyecto-visual\Windows Phone\Windows Phone\obj\Debug\Windows_Phone.LogIn.resources
+C:\Users\Zero Vivanco\Documents\GitHub\proyecto-visual\Windows Phone\Windows Phone\obj\Debug\Windows_Phone.Menú_Plato.resources
+C:\Users\Zero Vivanco\Documents\GitHub\proyecto-visual\Windows Phone\Windows Phone\obj\Debug\Windows_Phone.Menú_Alimento.resources
+C:\Users\Zero Vivanco\Documents\GitHub\proyecto-visual\Windows Phone\Windows Phone\obj\Debug\Windows_Phone.Menú.resources
+C:\Users\Zero Vivanco\Documents\GitHub\proyecto-visual\Windows Phone\Windows Phone\obj\Debug\Windows_Phone.Menú_Bebidas.resources
+C:\Users\Zero Vivanco\Documents\GitHub\proyecto-visual\Windows Phone\Windows Phone\obj\Debug\Windows_Phone.Menú_Postre.resources
+C:\Users\Zero Vivanco\Documents\GitHub\proyecto-visual\Windows Phone\Windows Phone\obj\Debug\Windows_Phone.Ordenes.resources
+C:\Users\Zero Vivanco\Documents\GitHub\proyecto-visual\Windows Phone\Windows Phone\obj\Debug\Windows_Phone.Pedidos.resources
+C:\Users\Zero Vivanco\Documents\GitHub\proyecto-visual\Windows Phone\Windows Phone\obj\Debug\Windows_Phone.Properties.Resources.resources
+C:\Users\Zero Vivanco\Documents\GitHub\proyecto-visual\Windows Phone\Windows Phone\obj\Debug\Windows Phone.csproj.GenerateResource.Cache

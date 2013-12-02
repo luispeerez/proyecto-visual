@@ -82,6 +82,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -95,6 +96,36 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Admin Back.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Admin Back2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Error Datos.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Error Usuario.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Error Contraseña.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Admin.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Minimizar.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Salir.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Minimizar-Desplegado.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Salir-Desplegado.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

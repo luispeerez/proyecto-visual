@@ -34,3 +34,6 @@ C:\Users\Zero Vivanco\Documents\GitHub\proyecto-visual\adminrestaurant\adminrest
 C:\Users\Zero Vivanco\Documents\GitHub\proyecto-visual\adminrestaurant\adminrestaurant\obj\Debug\adminrestaurant.Form2.resources
 C:\Users\Zero Vivanco\Documents\GitHub\proyecto-visual\adminrestaurant\adminrestaurant\obj\Debug\adminrestaurant.Properties.Resources.resources
 C:\Users\Zero Vivanco\Documents\GitHub\proyecto-visual\adminrestaurant\adminrestaurant\obj\Debug\adminrestaurant.csproj.GenerateResource.Cache
+C:\Users\Zero Vivanco\Desktop\adminrestaurant\adminrestaurant\bin\Debug\adminrestaurant.exe.config
+C:\Users\Zero Vivanco\Desktop\adminrestaurant\adminrestaurant\obj\Debug\adminrestaurant.exe
+C:\Users\Zero Vivanco\Desktop\adminrestaurant\adminrestaurant\obj\Debug\adminrestaurant.pdb

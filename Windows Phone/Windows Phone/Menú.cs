@@ -119,6 +119,7 @@ namespace Windows_Phone
                 panel1.Controls.Add(Objeto);
                 Objeto.Click += new EventHandler(ClickPedido);
                 Objeto.Text = "*PEDIDOS ACTUALIZADOS";
+                Objeto.Visible = true;
                 CambiosPedido = 0;
             }
         }

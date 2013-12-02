@@ -30,13 +30,13 @@ namespace Windows_Phone
                 string Comando = "SELECT idorden FROM orden ORDER BY idorden DESC LIMIT 1;";
                 MySqlCommand Busqueda = new MySqlCommand(Comando, CantidadOrdenes.getConexion());
                 string Resultado = (Busqueda.ExecuteScalar()).ToString();
-                Button[] Objeto = new Button[Convert.ToInt32(Resultado) - 22]; // Resta 22 porque el id de orden comienza en 23, requiere reseteo.
+                Button[] Objeto = new Button[Convert.ToInt32(Resultado)]; // Resta 22 porque el id de orden comienza en 23, requiere reseteo.
                 int y = 29;
                 for (int contador = 0; contador < Objeto.Length; contador++)
                 {
                     Conexion Busqueda2 = new Conexion();
                     Busqueda2.crearConexion();
-                    Comando = "SELECT estatus FROM orden WHERE idorden = " + (contador + 23) + ";";
+                    Comando = "SELECT estatus FROM orden WHERE idorden = " + (contador + 1) + ";";
                     MySqlCommand BusquedaIdO = new MySqlCommand(Comando, Busqueda2.getConexion());
                     string Estatus = (BusquedaIdO.ExecuteScalar()).ToString();
                     Busqueda2.cerrarConexion();
@@ -57,16 +57,16 @@ namespace Windows_Phone
                         panel1.Controls.Add(Objeto[contador]);
                         Objeto[contador].Click += new EventHandler(ClickOrden);
                         Objeto[contador].LostFocus += new EventHandler(CambiarColor);
-                        Comando = "SELECT idorden FROM orden WHERE idorden = " + (contador + 23) + ";"; // Suma 23 porque el id de orden comienza en 23, requiere reseteo.
+                        Comando = "SELECT idorden FROM orden WHERE idorden = " + (contador + 1) + ";"; // Suma 23 porque el id de orden comienza en 23, requiere reseteo.
                         MySqlCommand BusquedaIdOrden = new MySqlCommand(Comando, CantidadOrdenes.getConexion());
                         Resultado = (BusquedaIdOrden.ExecuteScalar()).ToString();
                         Objeto[contador].Name = Resultado;
                         Objeto[contador].Text = "ORDEN " + Resultado;
-                        Comando = "SELECT idmesa FROM orden WHERE idorden = " + (contador + 23) + ";"; // Suma 23 porque el id de orden comienza en 23, requiere reseteo.
+                        Comando = "SELECT idmesa FROM orden WHERE idorden = " + (contador + 1) + ";"; // Suma 23 porque el id de orden comienza en 23, requiere reseteo.
                         MySqlCommand BusquedaMesa = new MySqlCommand(Comando, CantidadOrdenes.getConexion());
                         Resultado = (BusquedaMesa.ExecuteScalar()).ToString();
                         Objeto[contador].Text += "\nMESA " + Resultado;
-                        Comando = "SELECT estatus FROM orden WHERE idorden = " + (contador + 23) + ";"; // Suma 23 porque el id de orden comienza en 23, requiere reseteo.
+                        Comando = "SELECT estatus FROM orden WHERE idorden = " + (contador + 1) + ";"; // Suma 23 porque el id de orden comienza en 23, requiere reseteo.
                         MySqlCommand BusquedaEstatus = new MySqlCommand(Comando, CantidadOrdenes.getConexion());
                         Resultado = (BusquedaEstatus.ExecuteScalar()).ToString();
                         Objeto[contador].Text += " - ESTATUS " + Resultado;

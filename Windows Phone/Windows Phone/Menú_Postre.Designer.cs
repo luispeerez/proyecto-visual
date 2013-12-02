@@ -130,9 +130,9 @@
             this.button8.ForeColor = System.Drawing.Color.White;
             this.button8.Location = new System.Drawing.Point(46, 118);
             this.button8.Name = "button8";
-            this.button8.Size = new System.Drawing.Size(185, 46);
+            this.button8.Size = new System.Drawing.Size(199, 46);
             this.button8.TabIndex = 27;
-            this.button8.Text = "BEBIDAS";
+            this.button8.Text = "POSTRES";
             this.button8.UseVisualStyleBackColor = false;
             // 
             // Menú_Postre
