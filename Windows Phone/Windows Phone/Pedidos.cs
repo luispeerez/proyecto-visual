@@ -113,10 +113,18 @@ namespace Windows_Phone
 
         private void button3_Click(object sender, EventArgs e)
         {
+            Conexion Modificar = new Conexion();
+            Modificar.crearConexion();
+            string Comando = "UPDATE orden SET estatus='CERRADA', actualizado = 1 WHERE idorden = " + variables.numeroorden + ";";
+            MySqlCommand Editar = new MySqlCommand(Comando);
+            Editar.Connection = Modificar.getConexion();
+            Editar.ExecuteNonQuery();
+            Modificar.cerrarConexion();
             variables.numeroorden = " - ";
             Menú crear = new Menú();
             this.Hide();
             crear.ShowDialog();
+
         }
         private void button5_Click(object sender, EventArgs e)
         {

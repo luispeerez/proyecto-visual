@@ -190,9 +190,9 @@
             this.BackgroundImage = global::Windows_Phone.Properties.Resources.lumia_back1;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.ClientSize = new System.Drawing.Size(404, 709);
+            this.Controls.Add(this.panel2);
             this.Controls.Add(this.button8);
             this.Controls.Add(this.button4);
-            this.Controls.Add(this.panel2);
             this.Controls.Add(this.button3);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.panel1);
