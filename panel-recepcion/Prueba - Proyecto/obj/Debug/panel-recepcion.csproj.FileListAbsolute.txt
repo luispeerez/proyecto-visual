@@ -1,0 +1,16 @@
+C:\Users\city\Desktop\Prueba - Proyecto\Prueba - Proyecto\bin\Debug\Prueba - Proyecto.exe.config
+C:\Users\city\Desktop\Prueba - Proyecto\Prueba - Proyecto\bin\Debug\Prueba - Proyecto.exe
+C:\Users\city\Desktop\Prueba - Proyecto\Prueba - Proyecto\bin\Debug\Prueba - Proyecto.pdb
+C:\Users\city\Desktop\Prueba - Proyecto\Prueba - Proyecto\bin\Debug\MySql.Data.dll
+C:\Users\city\Desktop\Prueba - Proyecto\Prueba - Proyecto\bin\Debug\MySql.Data.Entity.dll
+C:\Users\city\Desktop\Prueba - Proyecto\Prueba - Proyecto\obj\Debug\Prueba___Proyecto.Form1.resources
+C:\Users\city\Desktop\Prueba - Proyecto\Prueba - Proyecto\obj\Debug\Prueba___Proyecto.InicioSesion.resources
+C:\Users\city\Desktop\Prueba - Proyecto\Prueba - Proyecto\obj\Debug\Prueba___Proyecto.Oscurece.resources
+C:\Users\city\Desktop\Prueba - Proyecto\Prueba - Proyecto\obj\Debug\Prueba___Proyecto.Properties.Resources.resources
+C:\Users\city\Desktop\Prueba - Proyecto\Prueba - Proyecto\obj\Debug\Prueba___Proyecto.Recepcion.resources
+C:\Users\city\Desktop\Prueba - Proyecto\Prueba - Proyecto\obj\Debug\panel-recepcion.csproj.GenerateResource.Cache
+C:\Users\city\Desktop\Prueba - Proyecto\Prueba - Proyecto\obj\Debug\Prueba - Proyecto.exe
+C:\Users\city\Desktop\Prueba - Proyecto\Prueba - Proyecto\obj\Debug\Prueba - Proyecto.pdb
+C:\proyecto-visual\panel-recepcion\Prueba - Proyecto\bin\Debug\Prueba - Proyecto.exe.config
+C:\proyecto-visual\panel-recepcion\Prueba - Proyecto\obj\Debug\Prueba - Proyecto.exe
+C:\proyecto-visual\panel-recepcion\Prueba - Proyecto\obj\Debug\Prueba - Proyecto.pdb
