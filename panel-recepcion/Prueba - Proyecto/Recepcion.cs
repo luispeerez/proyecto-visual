@@ -168,7 +168,7 @@ namespace Prueba___Proyecto
 
         //Funcion general para consultar un campo en especifico(en dado caso que existan varios campos con la misma condicion regresara solo el primero
         //el parametro consulta es opcional
-        public string consultaIndividual(string tabla, string columnaConsultada, string columnaCondicion , int idconsulta=0)
+        public string consultaIndividual(string tabla, string columnaConsultada, string columnaCondicion , int idconsulta=0,string columnaCondicion2="",string condicion2="")
         {
             string resultado="";
             string comando;
@@ -180,9 +180,13 @@ namespace Prueba___Proyecto
             //Condicionando que se haya pasado como parametro un id a consultar
             if (idconsulta > 0)
                 comando = "SELECT " + columnaConsultada + " FROM " + tabla + "  WHERE " + columnaCondicion + "=" + idconsulta;
+
+            //Condicionando si se desea hacer una consulta usando WHERE y AND
+            else if(idconsulta > 0 && columnaCondicion2!="" && condicion2!="")
+                comando = "SELECT " + columnaConsultada + " FROM " + tabla + "  WHERE " + columnaCondicion + "=" + idconsulta + "AND "+ columnaCondicion2 +"="+condicion2;
             //De lo contratrario solo se muestra el primer registro encontrado
             else
-                comando = "SELECT " + columnaConsultada + " FROM " + tabla;
+                comando = "SELECT " + columnaConsultada + " FROM " + tabla + "ORDER BY "+ columnaConsultada +"DESC LIMIT 1" ;
 
 
             MySqlCommand buscarproductos = new MySqlCommand(comando, search.getConexion());
@@ -199,6 +203,22 @@ namespace Prueba___Proyecto
             search.cerrarConexion();
 
             return resultado;
+        }
+
+
+        public double calcularTotalOrden(int IDorden)
+        {
+            double totalOrden=0;
+
+            conexion search = new conexion();
+            search.crearConexion();
+            //Solo evaluando las mesas que sean diferentes a "No disponibles"
+            string comando = "SELECT SUM(precio) FROM alimento WHERE idalimento IN( SELECT idalimento FROM pedido WHERE idorden=" + IDorden + " AND estatus='Entregado')";
+            MySqlCommand buscarproductos = new MySqlCommand(comando, search.getConexion());
+            totalOrden = Convert.ToDouble(buscarproductos.ExecuteScalar());
+            search.cerrarConexion();
+
+            return totalOrden;
         }
 
         public void vaciarTextboxs()
@@ -261,6 +281,7 @@ namespace Prueba___Proyecto
             //Restandole 1 al idbotonMesa debido a que la funcion informacionMesa() obtiene los valores apartir del indice 0
             string[] atributosMesa = informacionMesa(Convert.ToInt32(idbotonMesa) - 1);
 
+            int idOrdenMesa;
 
 
 
@@ -279,7 +300,8 @@ namespace Prueba___Proyecto
             else
             {
                 label2.Text = consultaIndividual("orden", "idorden", "idmesa", Convert.ToInt32(idbotonMesa));
-                label4.Text = "$ "+consultaIndividual("orden", "total", "idmesa", Convert.ToInt32(idbotonMesa));
+                idOrdenMesa = Convert.ToInt32(consultaIndividual("orden", "idorden", "idmesa", Convert.ToInt32(idbotonMesa)));
+                label4.Text = "$ " + calcularTotalOrden(idOrdenMesa);
             }
 
 
