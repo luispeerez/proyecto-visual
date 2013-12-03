@@ -67,6 +67,28 @@ namespace adminrestaurant
             cmc3.Fill(tht3, "mesa");
             dataGridView3.DataSource = tht3.Tables["mesa"].DefaultView;
             search6.cerrarConexion();
+
+
+            //Agregando toda la tabla de pedidos dependiendo de pedidos
+            conexion search7 = new conexion();
+            search7.crearConexion();
+
+            string dia = String.Format("{0:00}", Convert.ToInt32(dateTimePicker1.Value.Day));
+            string mes = String.Format("{0:00}", Convert.ToInt32(dateTimePicker1.Value.Month));
+            string anio = String.Format("{0:0000}", Convert.ToInt32(dateTimePicker1.Value.Year));
+
+            //string comando = "SELECT *FROM alimento WHERE idalimento IN(SELECT idorden FROM orden WHERE fecha LIKE '"+anio+"-"+mes+"-"+dia+"%')";
+
+
+            string comando =
+                "SELECT pedido.idorden,tablota.nombre,tablota.precio  FROM pedido  LEFT JOIN( SELECT *FROM alimento AS alimentodia WHERE idalimento IN( SELECT idalimento FROM pedido AS pedidos WHERE idorden IN( SELECT idorden FROM orden AS ordenes WHERE fecha LIKE '"+anio+"-"+mes+"-"+dia+"%'))) AS tablota USING(idalimento)";
+            
+            MySqlCommand buscarpedidos = new MySqlCommand(comando, search7.getConexion());
+            MySqlDataAdapter cmc4 = new MySqlDataAdapter(buscarpedidos);
+            DataSet tht4 = new DataSet();
+            cmc4.Fill(tht4, "orden");
+            dataGridView4.DataSource = tht4.Tables["orden"].DefaultView;
+            search7.cerrarConexion();
         }
 
         public void llenarInformacionUsuario(string idAbuscar)
@@ -422,8 +444,24 @@ namespace adminrestaurant
         public Form2()
         {
             InitializeComponent();
+
+            //Creando un timer para manejar los intervalos de actualizacion
+            var timer = new Timer();
+            timer.Tick += new EventHandler(timer_Tick);
+            timer.Interval = 30000; //30 segundos
+            timer.Start();
         }
 
+
+        //Evento en en el que se actualizan las mesas(definido en el timer)
+        public void timer_Tick(object sender, EventArgs e)
+        {
+            //Actualiza los grids de al admin en caso de que la pestaña seleccionada sea la de venta
+            if (tabControl1.SelectedIndex == 3)
+            {
+                llenarGrids();
+            }
+        }
 
         private void tabPage1_Click(object sender, EventArgs e)
         {
@@ -816,6 +854,16 @@ namespace adminrestaurant
         private void button14_Click(object sender, EventArgs e)
         {
             WindowState = FormWindowState.Minimized;
+        }
+
+        private void button10_Click(object sender, EventArgs e)
+        {
+            tabControl1.SelectedIndex = 3;
+        }
+
+        private void dateTimePicker1_ValueChanged(object sender, EventArgs e)
+        {
+            llenarGrids();
         }
     }
 }
