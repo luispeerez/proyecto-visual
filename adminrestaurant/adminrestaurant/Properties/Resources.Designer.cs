@@ -123,6 +123,26 @@ namespace adminrestaurant.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Fondo_Admin {
+            get {
+                object obj = ResourceManager.GetObject("Fondo Admin", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Fondo_Adminv2 {
+            get {
+                object obj = ResourceManager.GetObject("Fondo Adminv2", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Minimizar {
             get {
                 object obj = ResourceManager.GetObject("Minimizar", resourceCulture);
@@ -156,6 +176,16 @@ namespace adminrestaurant.Properties {
         internal static System.Drawing.Bitmap Salir_Desplegado {
             get {
                 object obj = ResourceManager.GetObject("Salir-Desplegado", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Trampa_XP {
+            get {
+                object obj = ResourceManager.GetObject("Trampa XP", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

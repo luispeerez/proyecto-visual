@@ -118,8 +118,11 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="Minimizar-Desplegado" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Minimizar-Desplegado.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="Salir" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Salir.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Fondo Admin" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Fondo Admin.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Admin Back2" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Admin Back2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -127,25 +130,31 @@
   <data name="Error Usuario" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Error Usuario.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="Error Contraseña" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Error Contraseña.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
   <data name="Minimizar" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Minimizar.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="Admin Back" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Admin Back.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="Salir-Desplegado" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Salir-Desplegado.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Error Contraseña" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Error Contraseña.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Error Datos" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Error Datos.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="Admin Back" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Admin Back.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="Admin" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Admin.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="Salir" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Salir.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="Minimizar-Desplegado" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Minimizar-Desplegado.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="Salir-Desplegado" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Salir-Desplegado.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="Fondo Adminv2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Fondo Adminv2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Trampa XP" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Trampa XP.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

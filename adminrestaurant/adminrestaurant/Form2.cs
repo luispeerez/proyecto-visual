@@ -27,7 +27,6 @@ namespace adminrestaurant
             string search3 = "SELECT MAX(idusuario) FROM " + tabla;
             MySqlCommand buscarproductos = new MySqlCommand(search3, search.getConexion());
             resultadoQuery = Convert.ToInt32(buscarproductos.ExecuteScalar());
-
             search.cerrarConexion();
 
             return resultadoQuery;
@@ -425,6 +424,7 @@ namespace adminrestaurant
             InitializeComponent();
         }
 
+
         private void tabPage1_Click(object sender, EventArgs e)
         {
 
@@ -769,17 +769,53 @@ namespace adminrestaurant
             }
         }
 
+        private void button7_Click(object sender, EventArgs e)
+        {
+            tabControl1.SelectedIndex = 0;
+        }
 
+        private void button8_Click(object sender, EventArgs e)
+        {
+            tabControl1.SelectedIndex = 1;
+        }
 
+        private void button9_Click(object sender, EventArgs e)
+        {
+            tabControl1.SelectedIndex = 2;
+        }
 
+        private void button12_MouseHover(object sender, EventArgs e)
+        {
+            button12.Visible = false;
+            button13.Visible = true;
+        }
 
+        private void button13_MouseLeave(object sender, EventArgs e)
+        {
+            button12.Visible = true;
+            button13.Visible = false;
+        }
 
+        private void button11_MouseHover(object sender, EventArgs e)
+        {
+            button11.Visible = false;
+            button14.Visible = true;
+        }
 
+        private void button14_MouseLeave(object sender, EventArgs e)
+        {
+            button11.Visible = true;
+            button14.Visible = false;
+        }
 
+        private void button13_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
 
-
-
-
-        //
+        private void button14_Click(object sender, EventArgs e)
+        {
+            WindowState = FormWindowState.Minimized;
+        }
     }
 }

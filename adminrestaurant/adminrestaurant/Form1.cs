@@ -41,6 +41,7 @@ namespace adminrestaurant
             string search3 = "SELECT area FROM usuario WHERE (nickname = '" + textBox1.Text + "') AND (pass = '" + textBox2.Text + "') ";
             MySqlCommand buscarproductos = new MySqlCommand(search3, search.getConexion());
             resultadoQuery = (buscarproductos.ExecuteScalar()).ToString();
+            search.cerrarConexion();
             if (resultadoQuery == "Administrador")
                 resultado = true;
             else
@@ -57,7 +58,7 @@ namespace adminrestaurant
             string search3 = "SELECT COUNT(*) FROM usuario";
             MySqlCommand buscarproductos = new MySqlCommand(search3, search.getConexion());
             resultadoQuery = Convert.ToInt32(buscarproductos.ExecuteScalar());
-
+            search.cerrarConexion();
             return resultadoQuery;
         }
 
@@ -69,6 +70,7 @@ namespace adminrestaurant
             MySqlCommand pro = new MySqlCommand(inserta);
             pro.Connection = ins_pro.getConexion();
             pro.ExecuteNonQuery();
+            ins_pro.cerrarConexion();
         }
 
         public void limpiar()
@@ -120,8 +122,8 @@ namespace adminrestaurant
                         if (verificarAdmin() == true)
                         {
                             variables.UsuarioActivo = textBox1.Text;
-                            this.Hide();
                             Form2 panel = new Form2();
+                            this.Hide();
                             panel.ShowDialog();
                         }
                         else
