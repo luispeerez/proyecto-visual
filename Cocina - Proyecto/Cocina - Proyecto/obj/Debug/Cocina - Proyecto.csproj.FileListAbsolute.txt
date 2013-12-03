@@ -35,3 +35,16 @@ C:\Users\Zero Vivanco\Documents\GitHub\proyecto-visual\Cocina - Proyecto\Cocina 
 C:\Users\Zero Vivanco\Documents\GitHub\proyecto-visual\Cocina - Proyecto\Cocina - Proyecto\obj\Debug\Cocina___Proyecto.Properties.Resources.resources
 C:\Users\Zero Vivanco\Documents\GitHub\proyecto-visual\Cocina - Proyecto\Cocina - Proyecto\obj\Debug\Cocina___Proyecto.Splash.resources
 C:\Users\Zero Vivanco\Documents\GitHub\proyecto-visual\Cocina - Proyecto\Cocina - Proyecto\obj\Debug\Cocina - Proyecto.csproj.GenerateResource.Cache
+C:\proyecto-visual\Cocina - Proyecto\Cocina - Proyecto\bin\Debug\Cocina - Proyecto.exe.config
+C:\proyecto-visual\Cocina - Proyecto\Cocina - Proyecto\obj\Debug\Cocina - Proyecto.exe
+C:\proyecto-visual\Cocina - Proyecto\Cocina - Proyecto\obj\Debug\Cocina - Proyecto.pdb
+C:\proyecto-visual\Cocina - Proyecto\Cocina - Proyecto\bin\Debug\Cocina - Proyecto.exe
+C:\proyecto-visual\Cocina - Proyecto\Cocina - Proyecto\bin\Debug\Cocina - Proyecto.pdb
+C:\proyecto-visual\Cocina - Proyecto\Cocina - Proyecto\bin\Debug\MySql.Data.dll
+C:\proyecto-visual\Cocina - Proyecto\Cocina - Proyecto\bin\Debug\MySql.Data.Entity.dll
+C:\proyecto-visual\Cocina - Proyecto\Cocina - Proyecto\obj\Debug\Cocina - Proyecto.csprojResolveAssemblyReference.cache
+C:\proyecto-visual\Cocina - Proyecto\Cocina - Proyecto\obj\Debug\Cocina___Proyecto.ListaPedidos.resources
+C:\proyecto-visual\Cocina - Proyecto\Cocina - Proyecto\obj\Debug\Cocina___Proyecto.Oscurece.resources
+C:\proyecto-visual\Cocina - Proyecto\Cocina - Proyecto\obj\Debug\Cocina___Proyecto.Properties.Resources.resources
+C:\proyecto-visual\Cocina - Proyecto\Cocina - Proyecto\obj\Debug\Cocina___Proyecto.Splash.resources
+C:\proyecto-visual\Cocina - Proyecto\Cocina - Proyecto\obj\Debug\Cocina - Proyecto.csproj.GenerateResource.Cache

@@ -18,6 +18,8 @@ namespace Prueba___Proyecto
         
         //Declarando las frases para los placeholders en los textbox, elementos ordenados segun el textbox(ascendente)
         string[] placeholders = { "       Ingresa el nombre(s) del cliente.", "       Ingresa los apellidos del cliente.", "    Ingresa el número de acompañantes.", "           Ingresa el número de mesa." };
+        
+        //idmesa es la variable global para hacer el registro de la mesa
         string idmesa, insertado;
 
         //Arreglo para guardar los ids de las mesas mostradas en pantalla
@@ -283,8 +285,6 @@ namespace Prueba___Proyecto
 
             int idOrdenMesa;
 
-
-
             //Escribiendo el nombre del cliente que esta en la mesa
             //Comprueba si la mesa esta ocupada por algun cliente
             if (atributosMesa[3] != null && atributosMesa[3] != "")
@@ -303,7 +303,6 @@ namespace Prueba___Proyecto
                 idOrdenMesa = Convert.ToInt32(consultaIndividual("orden", "idorden", "idmesa", Convert.ToInt32(idbotonMesa)));
                 label4.Text = "$ " + calcularTotalOrden(idOrdenMesa);
             }
-
 
             //Escribiendo el numero de personas de la mesa
             label3.Text = atributosMesa[1];
@@ -327,6 +326,45 @@ namespace Prueba___Proyecto
         //Evento en en el que se actualizan las mesas(definido en el timer)
         public void timer_Tick(object sender, EventArgs e)
         {
+            ActualizarMesas();
+        }
+
+
+        //Funcion para verificar si el usuario que se ingresa y habia realizado una reservacion
+        public bool verificarReservacion(int idmesa)
+        {
+            bool previamenteReservado;
+
+            conexion search = new conexion();
+            search.crearConexion();
+            //Obteniendo una consulta del cliente en caso de que la mesa tenga el estatus de Reservada
+            string comando = "SELECT nombre,apellidos FROM cliente WHERE idcliente IN( SELECT idcliente FROM mesa WHERE idmesa=" + idmesa + " AND estatus='Reservada') ORDER BY apellidos DESC LIMIT 1";
+            MySqlCommand buscarproductos = new MySqlCommand(comando, search.getConexion());
+            MySqlDataAdapter cmc = new MySqlDataAdapter(buscarproductos);
+            DataSet tht = new DataSet();
+            buscarproductos.Connection = search.getConexion();
+            cmc.Fill(tht, "cliente");
+
+            //En caso de encontrar coincidencias entre los datos ingresados con la mesa reservada se devuelve true
+            if (textBox1.Text == tht.Tables["cliente"].Rows[0][0].ToString() && textBox2.Text == tht.Tables["cliente"].Rows[0][1].ToString())
+                previamenteReservado = true;
+            else
+                previamenteReservado = false;
+
+            search.cerrarConexion();
+            return previamenteReservado;
+        }
+
+        public void ocuparMesa(int idmesa)
+        {
+            conexion ins_pro = new conexion();
+            ins_pro.crearConexion();
+            string inserta = "UPDATE mesa SET estatus='Ocupada' WHERE idmesa=" + idmesa + "";
+            MySqlCommand pro = new MySqlCommand(inserta);
+            pro.Connection = ins_pro.getConexion();
+            pro.ExecuteNonQuery();
+            ins_pro.cerrarConexion();
+
             ActualizarMesas();
         }
 
@@ -671,11 +709,23 @@ namespace Prueba___Proyecto
             {
                 if (verificarCamposLlenos() == true)
                 {
-                    insertarCliente("Ocupada");
-                    if (insertado == "OK")
+                    //Antes que nada verifica que la mesa no haya sido reservada por el cliente actual
+                    //En su caso cambia el estatus de la mesa a 'Ocupada'
+                    if (verificarReservacion(Convert.ToInt32(idmesa)) == true)
                     {
-                        MessageBox.Show("Insertado!");
-                        insertado = "NO";
+                        ocuparMesa(Convert.ToInt32(idmesa));
+                        MessageBox.Show("Mesa entregada!");
+                    }
+
+                    //De lo contrario realiza todo el proceso de registro
+                    else
+                    {
+                        insertarCliente("Ocupada");
+                        if (insertado == "OK")
+                        {
+                            MessageBox.Show("Insertado!");
+                            insertado = "NO";
+                        }
                     }
                 }
             }
