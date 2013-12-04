@@ -11,7 +11,7 @@ namespace Cocina___Proyecto
         static string servidor = "localhost";
         static string db = "restaurant";
         static string usuario = "root";
-        static string pass = "";
+        static string pass = "ZEROEIVF1992";
 
         public static string Servidor
         {

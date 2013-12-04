@@ -353,10 +353,17 @@ namespace Prueba___Proyecto
             cmc.Fill(tht, "cliente");
 
             //En caso de encontrar coincidencias entre los datos ingresados con la mesa reservada se devuelve true
-            if (textBox1.Text == tht.Tables["cliente"].Rows[0][0].ToString() && textBox2.Text == tht.Tables["cliente"].Rows[0][1].ToString())
-                previamenteReservado = true;
-            else
+            try
+            {
+                if (textBox1.Text == tht.Tables["cliente"].Rows[0][0].ToString() && textBox2.Text == tht.Tables["cliente"].Rows[0][1].ToString())
+                    previamenteReservado = true;
+                else
+                    previamenteReservado = false;
+            }
+            catch (Exception)
+            {
                 previamenteReservado = false;
+            }
 
             search.cerrarConexion();
             return previamenteReservado;

@@ -19,7 +19,10 @@ namespace Windows_Phone
             InitializeComponent();
             label2.Text="ORDEN " + variables.numeroorden + ".";
             if (variables.numeroorden != " - ")
+            {
                 button7.Visible = true;
+                button8.Visible = true;
+            }
             var timer = new Timer();
             timer.Tick += new EventHandler(timer_Tick);
             timer.Interval = 30000; //30 segundos
@@ -128,6 +131,21 @@ namespace Windows_Phone
         {
             panel1.Visible = false;
             Pedidos crear = new Pedidos();
+            this.Hide();
+            crear.ShowDialog();
+        }
+
+        private void button8_Click(object sender, EventArgs e)
+        {
+            Conexion Modificar = new Conexion();
+            Modificar.crearConexion();
+            string Comando = "UPDATE orden SET estatus='CERRADA', actualizado = 1 WHERE idorden = " + variables.numeroorden + ";";
+            MySqlCommand Editar = new MySqlCommand(Comando);
+            Editar.Connection = Modificar.getConexion();
+            Editar.ExecuteNonQuery();
+            Modificar.cerrarConexion();
+            variables.numeroorden = " - ";
+            Menú crear = new Menú();
             this.Hide();
             crear.ShowDialog();
         }
