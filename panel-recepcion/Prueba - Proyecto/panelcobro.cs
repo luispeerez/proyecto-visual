@@ -312,6 +312,12 @@ namespace Prueba___Proyecto
             {
                 llenarGridOrdenes(Convert.ToInt32(comboBox1.SelectedItem));
             }
+            else
+            {
+                textBox1.Text = "";
+                textBox2.Text = "";
+                textBox3.Text = "";
+            }
         }
 
         private void button1_Click(object sender, EventArgs e)

@@ -12,7 +12,7 @@ namespace Prueba___Proyecto
         static string servidor = "localhost";
         static string db = "restaurant";
         static string usuario = "root";
-        static string pass = "ZEROEIVF1992";
+        static string pass = "";
         static double totalOrden = 0;
         static int idordenApagar;
 

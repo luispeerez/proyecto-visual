@@ -207,6 +207,32 @@ namespace Prueba___Proyecto
             return resultado;
         }
 
+        public bool verificaOrdenPagada(int idorden)
+        {
+            bool resultadoQuery;
+            string estado;
+            conexion search = new conexion();
+            search.crearConexion();
+            //Solo evaluando las mesas que sean diferentes a "No disponibles"
+            string search3 = "SELECT estatus FROM orden WHERE idorden="+idorden;
+            MySqlCommand buscarproductos = new MySqlCommand(search3, search.getConexion());
+
+            try
+            {
+                estado = (buscarproductos.ExecuteScalar()).ToString();
+                if(estado == "PAGADA")
+                    resultadoQuery = true;
+                else
+                    resultadoQuery = false;
+            }
+            catch (Exception error)
+            {
+                resultadoQuery = false;
+            }
+            search.cerrarConexion();
+
+            return resultadoQuery;
+        }
 
         public double calcularTotalOrden(int IDorden)
         {
@@ -300,13 +326,23 @@ namespace Prueba___Proyecto
             else
             {
                 try
-                {
-                    label2.Text = consultaIndividual("orden", "idorden", "idmesa", Convert.ToInt32(idbotonMesa));
+                {               
                     idOrdenMesa = Convert.ToInt32(consultaIndividual("orden", "idorden", "idmesa", Convert.ToInt32(idbotonMesa)));
-                    label4.Text = "$ " + calcularTotalOrden(idOrdenMesa);
+                    //Mostrando datos de la mesa solo en caso de que la orden no este pagada
+                    if (verificaOrdenPagada(idOrdenMesa) == false)
+                    {
+                        label2.Text = consultaIndividual("orden", "idorden", "idmesa", Convert.ToInt32(idbotonMesa));
+                        label4.Text = "$ " + calcularTotalOrden(idOrdenMesa);
+                    }
+                    else
+                    {
+                        label2.Text = "";
+                        label4.Text = "";
+                    }
                 }
                 catch (Exception)
                 {
+                    label2.Text = "";
                     label4.Text = "$ 0.00";
                 }
             }
