@@ -30,3 +30,7 @@ C:\Users\Zero Vivanco\Documents\GitHub\proyecto-visual\panel-recepcion\Prueba - 
 C:\Users\Zero Vivanco\Documents\GitHub\proyecto-visual\panel-recepcion\Prueba - Proyecto\obj\Debug\Prueba - Proyecto.pdb
 C:\proyecto-visual\panel-recepcion\Prueba - Proyecto\obj\Debug\Prueba___Proyecto.panelcobro.resources
 C:\proyecto-visual\panel-recepcion\Prueba - Proyecto\obj\Debug\Prueba___Proyecto.pago.resources
+C:\proyecto-visual\panel-recepcion\Prueba - Proyecto\bin\Debug\itextsharp.dll
+C:\proyecto-visual\panel-recepcion\Prueba - Proyecto\bin\Debug\itextsharp.pdfa.dll
+C:\proyecto-visual\panel-recepcion\Prueba - Proyecto\bin\Debug\itextsharp.xtra.dll
+C:\proyecto-visual\panel-recepcion\Prueba - Proyecto\bin\Debug\itextsharp.xml

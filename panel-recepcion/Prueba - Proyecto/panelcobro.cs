@@ -9,6 +9,12 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using MySql.Data.MySqlClient;
 
+using System.IO;
+//Libreria del pdf
+
+using iTextSharp.text;
+using iTextSharp.text.pdf;
+
 namespace Prueba___Proyecto
 {
     public partial class panelcobro : Form
@@ -35,6 +41,19 @@ namespace Prueba___Proyecto
             string search3 = "SELECT COUNT(*) FROM orden WHERE estatus <> 'PAGADA' ";
             MySqlCommand buscarproductos = new MySqlCommand(search3, search.getConexion());
             resultadoQuery = Convert.ToInt32(buscarproductos.ExecuteScalar());
+            search.cerrarConexion();
+
+            return resultadoQuery;
+        }
+
+        public string obtenerNombreMesero(int idorden)
+        {
+            string resultadoQuery;
+            conexion search = new conexion();
+            search.crearConexion();
+            string search3 = "SELECT CONCAT(nombre,' ',apellidos) AS atendio FROM mesero WHERE idmesero IN( SELECT idmesero FROM orden WHERE idorden=" + idorden + ")";
+            MySqlCommand buscarproductos = new MySqlCommand(search3, search.getConexion());
+            resultadoQuery = (buscarproductos.ExecuteScalar()).ToString();
             search.cerrarConexion();
 
             return resultadoQuery;
@@ -135,6 +154,136 @@ namespace Prueba___Proyecto
                 llenarGridOrdenes(Convert.ToInt32(comboBox1.SelectedItem));
         }
 
+        public void generarFactura()
+        {
+            //Creando una fuente customizada
+            iTextSharp.text.Font fontH1 = new iTextSharp.text.Font(iTextSharp.text.Font.NORMAL, 10, iTextSharp.text.Font.NORMAL);
+            iTextSharp.text.Font fontfecha = new iTextSharp.text.Font(iTextSharp.text.Font.NORMAL, 8, iTextSharp.text.Font.NORMAL);
+            iTextSharp.text.Font encabezados = new iTextSharp.text.Font(iTextSharp.text.Font.NORMAL, 8, iTextSharp.text.Font.NORMAL, iTextSharp.text.BaseColor.GRAY);
+
+            Document doc = new Document(iTextSharp.text.PageSize.A6, 1, 1, 42, 35);
+            PdfWriter wri = PdfWriter.GetInstance(doc, new FileStream("Factura.pdf", FileMode.Create));
+
+            doc.Open();//Abre el documento
+            //Escribe contenido en el
+
+            iTextSharp.text.Image imagen = iTextSharp.text.Image.GetInstance("Logo.png");
+            imagen.ScalePercent(20f);
+            imagen.Alignment = iTextSharp.text.Image.ALIGN_CENTER;
+            //imagen.SetAbsolutePosition(doc.PageSize.Width - 36f - 72f, doc.PageSize.Height - 36f - 216.6f);
+            /*imagen.ScaleToFit(50f, 100f);
+            imagen.Border = iTextSharp.text.Rectangle.BOX;
+            imagen.BorderColor = iTextSharp.text.BaseColor.YELLOW;*/
+            doc.Add(imagen);
+
+            Paragraph parrafo = new Paragraph("Restaurant Manager System", fontH1);
+            parrafo.Alignment = Element.ALIGN_CENTER;
+            //parrafo.Add(imagen);
+            doc.Add(parrafo);
+            Paragraph parrafo2 = new Paragraph("Gracias por su visita",fontH1);
+            parrafo2.Alignment = Element.ALIGN_CENTER;
+            doc.Add(parrafo2);
+
+            string nombreMesero = obtenerNombreMesero(Convert.ToInt32(comboBox1.SelectedItem));
+            Paragraph atendio = new Paragraph("Le atendio "+nombreMesero, fontH1);
+            atendio.Alignment = Element.ALIGN_CENTER;
+            doc.Add(atendio);
+            
+            Paragraph parrafo3 = new Paragraph("Cancun, Q.Roo Mexico " + DateTime.Now.ToString() + " \n \n ", fontfecha);
+            parrafo3.Alignment = Element.ALIGN_CENTER;
+            doc.Add(parrafo3);
+
+
+            //PdfPTable tablapedidos = new PdfPTable(dataGridView1.Columns.Count);
+            PdfPTable tablapedidos = new PdfPTable(4);
+            tablapedidos.TotalWidth = 100f;
+            tablapedidos.DefaultCell.BorderColor = iTextSharp.text.BaseColor.WHITE;
+
+            //Añadiendo los encabezados
+            for (int i = 1; i < dataGridView1.Columns.Count; i++)
+            {
+                tablapedidos.AddCell(new Phrase(dataGridView1.Columns[i].HeaderText, encabezados));
+            }
+
+            //Poniendo como encabezado la primera fila
+            tablapedidos.HeaderRows = 1;
+
+
+            //Añadiendo las filas del datagrid
+            for (int j = 0; j < dataGridView1.Rows.Count; j++)
+            {
+                //for (int k = 0; k < dataGridView1.Columns.Count; k++)
+                for (int k = 1; k < dataGridView1.Columns.Count; k++)
+                {
+                    //Verificando que la celda este llena
+                    if (dataGridView1[k, j].Value != null)
+                    {
+                        if(k==3 || k==4)
+                            tablapedidos.AddCell(new Phrase("$"+dataGridView1[k, j].Value.ToString(), fontfecha));
+                        else
+                            tablapedidos.AddCell(new Phrase(dataGridView1[k, j].Value.ToString(), fontfecha));
+                    }
+                }
+            }
+
+            doc.Add(tablapedidos);
+
+                /*RomanList lista2 = new RomanList(true,20);
+                lista2.IndentationLeft = 30f;
+
+                lista2.Add("dos");
+                lista2.Add("tres");
+                //doc.Add(lista2);
+
+                List lista = new List(List.UNORDERED);
+                //lista.SetListSymbol("/u2022");
+                lista.IndentationLeft = 30f;
+                lista.Add(new ListItem("Uno"));
+                lista.Add("dos");
+                lista.Add("tres");
+                lista.Add(lista2);
+                lista.Add(new ListItem("Uno"));
+                doc.Add(lista);
+
+                //indicando el numero de columnas
+                PdfPTable tabla = new PdfPTable(3);
+
+                PdfPCell celda = new PdfPCell(new Phrase("Header spanning 3 columns", new iTextSharp.text.Font(iTextSharp.text.Font.NORMAL, 8f, iTextSharp.text.Font.NORMAL, iTextSharp.text.BaseColor.RED)));
+                //solo se puede dar BG en RGB
+                celda.BackgroundColor = new iTextSharp.text.BaseColor(0, 150, 0);
+                celda.Colspan = 3;
+                celda.HorizontalAlignment = 1;//0=Left , 1=Centre , 2=Right
+                tabla.AddCell(celda);
+
+                tabla.AddCell("Col 1 Row 1");
+                tabla.AddCell("Col 2 Row 1");
+                tabla.AddCell("Col 3 Row 1");
+                tabla.AddCell("Col 1 Row 2");
+                tabla.AddCell("Col 2 Row 2");
+                tabla.AddCell("Col 3 Row 2");
+                doc.Add(tabla);
+                 * 
+                */
+
+                Paragraph datos = new Paragraph("\nSubtotal $"+textBox1.Text+"\nI.V.A %"+textBox2.Text+"\nTotal $"+textBox3.Text, fontfecha);
+                datos.Alignment = Element.ALIGN_RIGHT;
+                datos.IndentationRight = 45f;
+                doc.Add(datos);
+
+                Paragraph parrafo4 = new Paragraph("\n \n \n \nTodos los derechos reservados Restaurant Manager System", fontfecha);
+                parrafo4.Alignment = Element.ALIGN_CENTER;
+                doc.Add(parrafo4);
+
+                iTextSharp.text.Image cc = iTextSharp.text.Image.GetInstance("cc.png");
+                cc.ScalePercent(3f);
+                cc.Alignment = iTextSharp.text.Image.ALIGN_CENTER;
+                doc.Add(cc);
+
+                //Y se cierra la escritura
+                doc.Close();
+
+        }
+
         public panelcobro()
         {
             InitializeComponent();
@@ -187,10 +336,12 @@ namespace Prueba___Proyecto
         {
             if (comboBox1.SelectedItem != null)
             {
+                generarFactura();
                 this.Hide();
                 pago terminarpago = new pago();
                 terminarpago.ShowDialog();
             }
         }
+
     }
 }

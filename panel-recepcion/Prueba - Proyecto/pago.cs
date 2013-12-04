@@ -9,6 +9,12 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using MySql.Data.MySqlClient;
 
+using System.IO;
+//Libreria del pdf
+
+using iTextSharp.text;
+using iTextSharp.text.pdf;
+
 namespace Prueba___Proyecto
 {
     public partial class pago : Form
@@ -26,6 +32,19 @@ namespace Prueba___Proyecto
             pra.ExecuteNonQuery();
         }
 
+        public string obtenerNombreMesero(int idorden)
+        {
+            string resultadoQuery;
+            conexion search = new conexion();
+            search.crearConexion();
+            string search3 = "SELECT CONCAT(nombre,' ',apellidos) AS atendio FROM mesa WHERE idmesero IN( SELECT idmesero FROM orden WHERE idorden=" + idorden + ")";
+            MySqlCommand buscarproductos = new MySqlCommand(search3, search.getConexion());
+            resultadoQuery = (buscarproductos.ExecuteScalar()).ToString();
+            search.cerrarConexion();
+
+            return resultadoQuery;
+        }
+
         public void resetearMesa(int idorden)
         {
             conexion ins_pro = new conexion();
@@ -36,6 +55,9 @@ namespace Prueba___Proyecto
             pra.ExecuteNonQuery();
         }
 
+        public void generarFactura()
+        {
+        }
 
         public pago()
         {
@@ -67,7 +89,10 @@ namespace Prueba___Proyecto
                     textBox3.Text = String.Format("{0:0.00}", cambio);
                     terminarProcesoOrden(variables.IdordenApagar);
                     resetearMesa(variables.IdordenApagar);
-                    MessageBox.Show("Orden pagada!");
+                    //MessageBox.Show("Orden pagada!");
+
+                    //Abriendo el pdf
+                    System.Diagnostics.Process.Start("Factura.pdf");
 
                 }
             }
