@@ -70,25 +70,58 @@ namespace adminrestaurant
 
 
             //Agregando toda la tabla de pedidos dependiendo de pedidos
-            conexion search7 = new conexion();
-            search7.crearConexion();
-
-            string dia = String.Format("{0:00}", Convert.ToInt32(dateTimePicker1.Value.Day));
-            string mes = String.Format("{0:00}", Convert.ToInt32(dateTimePicker1.Value.Month));
-            string anio = String.Format("{0:0000}", Convert.ToInt32(dateTimePicker1.Value.Year));
-
-            //string comando = "SELECT *FROM alimento WHERE idalimento IN(SELECT idorden FROM orden WHERE fecha LIKE '"+anio+"-"+mes+"-"+dia+"%')";
-
-
-            string comando =
-                "SELECT pedido.idorden,tablota.nombre,tablota.precio  FROM pedido  LEFT JOIN( SELECT *FROM alimento AS alimentodia WHERE idalimento IN( SELECT idalimento FROM pedido AS pedidos WHERE idorden IN( SELECT idorden FROM orden AS ordenes WHERE fecha LIKE '"+anio+"-"+mes+"-"+dia+"%'))) AS tablota USING(idalimento)";
-            
-            MySqlCommand buscarpedidos = new MySqlCommand(comando, search7.getConexion());
-            MySqlDataAdapter cmc4 = new MySqlDataAdapter(buscarpedidos);
-            DataSet tht4 = new DataSet();
-            cmc4.Fill(tht4, "orden");
-            dataGridView4.DataSource = tht4.Tables["orden"].DefaultView;
-            search7.cerrarConexion();
+            try
+            {
+                conexion search7 = new conexion();
+                search7.crearConexion();
+                string dia = String.Format("{0:00}", Convert.ToInt32(dateTimePicker1.Value.Day));
+                string mes = String.Format("{0:00}", Convert.ToInt32(dateTimePicker1.Value.Month));
+                string anio = String.Format("{0:0000}", Convert.ToInt32(dateTimePicker1.Value.Year));
+                string comando = "SELECT pedido.idorden, count(*), tablota.nombre, tablota.precio, count(*) * tablota.precio  FROM pedido  LEFT JOIN (SELECT *FROM alimento AS alimentodia WHERE idalimento IN (SELECT idalimento FROM pedido AS pedidos WHERE idorden IN (SELECT idorden FROM orden AS ordenes WHERE fecha LIKE '" + anio + "-" + mes + "-" + dia + "%')))  AS tablota USING(idalimento) GROUP BY nombre;";
+                MySqlCommand buscarpedidos = new MySqlCommand(comando, search7.getConexion());
+                MySqlDataAdapter cmc4 = new MySqlDataAdapter(buscarpedidos);
+                DataSet tht4 = new DataSet();
+                cmc4.Fill(tht4, "orden");
+                int rowCount = dataGridView4.Rows.Count;
+                int n;
+                double Suma = 0;
+                for (n = 0; n < rowCount; n++)
+                {
+                    if (dataGridView4.Rows[0].IsNewRow == false)
+                        dataGridView4.Rows.RemoveAt(0);
+                }
+                if (tht4.Tables["orden"].Rows[1][3].ToString() != "")
+                {
+                    dataGridView4.DataSource = tht4.Tables["orden"].DefaultView;
+                    dataGridView4.Rows.RemoveAt(0);
+                    dataGridView4.Columns[0].HeaderText = "Orden";
+                    dataGridView4.Columns[0].Width = 100;
+                    dataGridView4.Columns[1].HeaderText = "Cantidad";
+                    dataGridView4.Columns[1].Width = 100;
+                    dataGridView4.Columns[2].HeaderText = "Alimento";
+                    dataGridView4.Columns[2].Width = 200;
+                    dataGridView4.Columns[3].HeaderText = "Precio";
+                    dataGridView4.Columns[4].HeaderText = "Importe";
+                }
+                search7.cerrarConexion();
+                rowCount = dataGridView4.Rows.Count;
+                for (n = 0; n < rowCount; n++)
+                {
+                    Suma += Convert.ToDouble(dataGridView4.Rows[n].Cells[4].Value);
+                }
+                textBox15.Enabled = false;
+                textBox15.Text = Suma.ToString();
+            }
+            catch (Exception)
+            {
+                int rowCount = dataGridView4.Rows.Count;
+                for (int n = 0; n < rowCount; n++)
+                {
+                    if (dataGridView4.Rows[0].IsNewRow == false)
+                        dataGridView4.Rows.RemoveAt(0);
+                }
+                textBox15.Text = "0";
+            }
         }
 
         public void llenarInformacionUsuario(string idAbuscar)
@@ -444,7 +477,6 @@ namespace adminrestaurant
         public Form2()
         {
             InitializeComponent();
-
             //Creando un timer para manejar los intervalos de actualizacion
             var timer = new Timer();
             timer.Tick += new EventHandler(timer_Tick);
@@ -859,6 +891,7 @@ namespace adminrestaurant
         private void button10_Click(object sender, EventArgs e)
         {
             tabControl1.SelectedIndex = 3;
+            llenarGrids();
         }
 
         private void dateTimePicker1_ValueChanged(object sender, EventArgs e)

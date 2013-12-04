@@ -299,9 +299,16 @@ namespace Prueba___Proyecto
                 label2.Text = "No se encuentra ninguna orden";
             else
             {
-                label2.Text = consultaIndividual("orden", "idorden", "idmesa", Convert.ToInt32(idbotonMesa));
-                idOrdenMesa = Convert.ToInt32(consultaIndividual("orden", "idorden", "idmesa", Convert.ToInt32(idbotonMesa)));
-                label4.Text = "$ " + calcularTotalOrden(idOrdenMesa);
+                try
+                {
+                    label2.Text = consultaIndividual("orden", "idorden", "idmesa", Convert.ToInt32(idbotonMesa));
+                    idOrdenMesa = Convert.ToInt32(consultaIndividual("orden", "idorden", "idmesa", Convert.ToInt32(idbotonMesa)));
+                    label4.Text = "$ " + calcularTotalOrden(idOrdenMesa);
+                }
+                catch (Exception)
+                {
+                    label4.Text = "$ 0.00";
+                }
             }
 
             //Escribiendo el numero de personas de la mesa
