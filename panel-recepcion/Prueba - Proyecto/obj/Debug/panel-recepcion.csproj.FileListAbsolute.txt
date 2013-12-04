@@ -28,3 +28,5 @@ C:\proyecto-visual\panel-recepcion\Prueba - Proyecto\obj\Debug\panel-recepcion.c
 C:\Users\Zero Vivanco\Documents\GitHub\proyecto-visual\panel-recepcion\Prueba - Proyecto\bin\Debug\Prueba - Proyecto.exe.config
 C:\Users\Zero Vivanco\Documents\GitHub\proyecto-visual\panel-recepcion\Prueba - Proyecto\obj\Debug\Prueba - Proyecto.exe
 C:\Users\Zero Vivanco\Documents\GitHub\proyecto-visual\panel-recepcion\Prueba - Proyecto\obj\Debug\Prueba - Proyecto.pdb
+C:\proyecto-visual\panel-recepcion\Prueba - Proyecto\obj\Debug\Prueba___Proyecto.panelcobro.resources
+C:\proyecto-visual\panel-recepcion\Prueba - Proyecto\obj\Debug\Prueba___Proyecto.pago.resources

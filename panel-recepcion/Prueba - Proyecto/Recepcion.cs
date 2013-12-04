@@ -697,13 +697,18 @@ namespace Prueba___Proyecto
         {
             //Asigando como accion actual 3(cobrar)
             accionactual = 3;
+            /*
             //Vaciando posible informacion ingresada en otros campos 
             vaciarTextboxs();
             LlenarTextboxs();
             textBox1.ForeColor = Color.Silver;
             textBox2.ForeColor = Color.Silver;
             textBox3.ForeColor = Color.Silver;
-            textBox4.ForeColor = Color.Silver;
+            textBox4.ForeColor = Color.Silver;*/
+
+            this.Hide();
+            panelcobro cobro = new panelcobro();
+            cobro.ShowDialog();
 
         }
 

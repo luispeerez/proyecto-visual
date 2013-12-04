@@ -13,6 +13,20 @@ namespace Prueba___Proyecto
         static string db = "restaurant";
         static string usuario = "root";
         static string pass = "";
+        static double totalOrden = 0;
+        static int idordenApagar;
+
+        public static int IdordenApagar
+        {
+            get { return variables.idordenApagar; }
+            set { variables.idordenApagar = value; }
+        }
+
+        public static double TotalOrden
+        {
+            get { return variables.totalOrden; }
+            set { variables.totalOrden = value; }
+        }
 
 
         public static string Servidor
