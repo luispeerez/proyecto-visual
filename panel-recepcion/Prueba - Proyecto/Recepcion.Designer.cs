@@ -148,6 +148,7 @@
             this.button6.Size = new System.Drawing.Size(259, 40);
             this.button6.TabIndex = 6;
             this.button6.UseVisualStyleBackColor = false;
+            this.button6.Click += new System.EventHandler(this.button6_Click);
             this.button6.MouseHover += new System.EventHandler(this.button6_MouseHover);
             // 
             // button7

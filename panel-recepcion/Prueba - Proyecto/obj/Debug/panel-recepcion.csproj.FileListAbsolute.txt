@@ -34,3 +34,20 @@ C:\proyecto-visual\panel-recepcion\Prueba - Proyecto\bin\Debug\itextsharp.dll
 C:\proyecto-visual\panel-recepcion\Prueba - Proyecto\bin\Debug\itextsharp.pdfa.dll
 C:\proyecto-visual\panel-recepcion\Prueba - Proyecto\bin\Debug\itextsharp.xtra.dll
 C:\proyecto-visual\panel-recepcion\Prueba - Proyecto\bin\Debug\itextsharp.xml
+C:\Users\Zero Vivanco\Documents\GitHub\proyecto-visual\panel-recepcion\Prueba - Proyecto\bin\Debug\Prueba - Proyecto.exe
+C:\Users\Zero Vivanco\Documents\GitHub\proyecto-visual\panel-recepcion\Prueba - Proyecto\bin\Debug\Prueba - Proyecto.pdb
+C:\Users\Zero Vivanco\Documents\GitHub\proyecto-visual\panel-recepcion\Prueba - Proyecto\bin\Debug\itextsharp.dll
+C:\Users\Zero Vivanco\Documents\GitHub\proyecto-visual\panel-recepcion\Prueba - Proyecto\bin\Debug\itextsharp.pdfa.dll
+C:\Users\Zero Vivanco\Documents\GitHub\proyecto-visual\panel-recepcion\Prueba - Proyecto\bin\Debug\itextsharp.xtra.dll
+C:\Users\Zero Vivanco\Documents\GitHub\proyecto-visual\panel-recepcion\Prueba - Proyecto\bin\Debug\MySql.Data.dll
+C:\Users\Zero Vivanco\Documents\GitHub\proyecto-visual\panel-recepcion\Prueba - Proyecto\bin\Debug\MySql.Data.Entity.dll
+C:\Users\Zero Vivanco\Documents\GitHub\proyecto-visual\panel-recepcion\Prueba - Proyecto\bin\Debug\itextsharp.xml
+C:\Users\Zero Vivanco\Documents\GitHub\proyecto-visual\panel-recepcion\Prueba - Proyecto\obj\Debug\panel-recepcion.csprojResolveAssemblyReference.cache
+C:\Users\Zero Vivanco\Documents\GitHub\proyecto-visual\panel-recepcion\Prueba - Proyecto\obj\Debug\Prueba___Proyecto.Form1.resources
+C:\Users\Zero Vivanco\Documents\GitHub\proyecto-visual\panel-recepcion\Prueba - Proyecto\obj\Debug\Prueba___Proyecto.InicioSesion.resources
+C:\Users\Zero Vivanco\Documents\GitHub\proyecto-visual\panel-recepcion\Prueba - Proyecto\obj\Debug\Prueba___Proyecto.Oscurece.resources
+C:\Users\Zero Vivanco\Documents\GitHub\proyecto-visual\panel-recepcion\Prueba - Proyecto\obj\Debug\Prueba___Proyecto.pago.resources
+C:\Users\Zero Vivanco\Documents\GitHub\proyecto-visual\panel-recepcion\Prueba - Proyecto\obj\Debug\Prueba___Proyecto.panelcobro.resources
+C:\Users\Zero Vivanco\Documents\GitHub\proyecto-visual\panel-recepcion\Prueba - Proyecto\obj\Debug\Prueba___Proyecto.Properties.Resources.resources
+C:\Users\Zero Vivanco\Documents\GitHub\proyecto-visual\panel-recepcion\Prueba - Proyecto\obj\Debug\Prueba___Proyecto.Recepcion.resources
+C:\Users\Zero Vivanco\Documents\GitHub\proyecto-visual\panel-recepcion\Prueba - Proyecto\obj\Debug\panel-recepcion.csproj.GenerateResource.Cache

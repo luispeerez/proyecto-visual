@@ -318,8 +318,6 @@ namespace Prueba___Proyecto
         {
             timer1.Stop();
             this.Hide();
-            Recepcion panelrecepcion = new Recepcion();
-            panelrecepcion.ShowDialog();
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -337,10 +335,21 @@ namespace Prueba___Proyecto
             if (comboBox1.SelectedItem != null)
             {
                 generarFactura();
-                this.Hide();
                 pago terminarpago = new pago();
                 terminarpago.ShowDialog();
             }
+        }
+
+        private void button9_MouseHover(object sender, EventArgs e)
+        {
+            button1.Visible = true;
+            button9.Visible = false;
+        }
+
+        private void button1_MouseLeave(object sender, EventArgs e)
+        {
+            button1.Visible = false;
+            button9.Visible = true;
         }
 
     }

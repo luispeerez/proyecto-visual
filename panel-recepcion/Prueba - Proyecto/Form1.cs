@@ -34,30 +34,6 @@ namespace Prueba___Proyecto
 
         int click1 = 0, click2 = 0;
 
-        private void button1_MouseHover(object sender, EventArgs e)
-        {
-            button1.Visible = false;
-            button3.Visible = true;
-        }
-
-        private void button2_MouseHover(object sender, EventArgs e)
-        {
-            button2.Visible = false;
-            button4.Visible = true;
-        }
-
-        private void button3_MouseLeave(object sender, EventArgs e)
-        {
-            button1.Visible = true;
-            button3.Visible = false;
-        }
-
-        private void button4_MouseLeave(object sender, EventArgs e)
-        {
-            button2.Visible = true;
-            button4.Visible = false;
-        }
-
         private void button5_MouseHover(object sender, EventArgs e)
         {
             button5.Visible = false;

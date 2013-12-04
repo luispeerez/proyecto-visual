@@ -101,15 +101,6 @@ namespace Prueba___Proyecto
         private void button2_Click(object sender, EventArgs e)
         {
             this.Hide();
-            panelcobro menucobro = new panelcobro();
-            menucobro.ShowDialog();
-        }
-
-        private void button3_Click(object sender, EventArgs e)
-        {
-            this.Hide();
-            Recepcion panelrecepcion = new Recepcion();
-            panelrecepcion.ShowDialog();
         }
     }
 }

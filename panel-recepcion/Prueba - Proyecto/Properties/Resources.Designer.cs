@@ -93,6 +93,16 @@ namespace Prueba___Proyecto.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Cobro {
+            get {
+                object obj = ResourceManager.GetObject("Cobro", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Datos_Cliente {
             get {
                 object obj = ResourceManager.GetObject("Datos Cliente", resourceCulture);
@@ -486,6 +496,16 @@ namespace Prueba___Proyecto.Properties {
         internal static System.Drawing.Bitmap Salir_Desplegado {
             get {
                 object obj = ResourceManager.GetObject("Salir-Desplegado", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Ventanita_Cobro {
+            get {
+                object obj = ResourceManager.GetObject("Ventanita Cobro", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

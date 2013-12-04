@@ -706,7 +706,6 @@ namespace Prueba___Proyecto
             textBox3.ForeColor = Color.Silver;
             textBox4.ForeColor = Color.Silver;*/
 
-            this.Hide();
             panelcobro cobro = new panelcobro();
             cobro.ShowDialog();
 
@@ -795,6 +794,11 @@ namespace Prueba___Proyecto
         private void textBox4_Leave(object sender, EventArgs e)
         {
             idmesa = textBox4.Text;
+        }
+
+        private void button6_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
